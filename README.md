@@ -12,4 +12,4 @@ A open source project about personal light controller for Yeelight devices
 - Springboot
 - Swagger
 - React
-- Ant Design
+- Material Kit React
