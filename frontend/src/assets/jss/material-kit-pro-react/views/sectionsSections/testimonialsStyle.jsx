@@ -6,7 +6,10 @@ import {
   mrAuto,
   title,
   description,
-  cardTitle
+  cardTitle,
+  blackColor,
+  whiteColor,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const testimonialsSection = {
@@ -19,10 +22,10 @@ const testimonialsSection = {
   sectionDark: {
     ...sectionDark,
     "& $cardDescription": {
-      color: "rgba(255, 255, 255, 0.76)"
+      color: "rgba(" + hexToRgb(whiteColor) + ", 0.76)"
     },
     "& $cardTitle": {
-      color: "#FFFFFF"
+      color: whiteColor
     },
     backgroundSize: "550% 450%"
   },
@@ -49,13 +52,13 @@ const testimonialsSection = {
       left: "0",
       top: "0",
       content: "''",
-      backgroundColor: "rgba(0, 0, 0, 0.7)"
+      backgroundColor: "rgba(" + hexToRgb(blackColor) + ", 0.7)"
     },
     "& $title": {
-      color: "#FFFFFF"
+      color: whiteColor
     },
     "& $description": {
-      color: "rgba(255, 255, 255, 0.76)"
+      color: "rgba(" + hexToRgb(whiteColor) + ", 0.76)"
     }
   },
   testimonials: {

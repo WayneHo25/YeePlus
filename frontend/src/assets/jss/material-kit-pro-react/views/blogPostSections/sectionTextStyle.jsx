@@ -1,4 +1,8 @@
-import { container, title } from "assets/jss/material-kit-pro-react.jsx";
+import {
+  grayColor,
+  container,
+  title
+} from "assets/jss/material-kit-pro-react.jsx";
 
 import imagesStyles from "assets/jss/material-kit-pro-react/imagesStyles.jsx";
 
@@ -13,7 +17,7 @@ const sectionTextStyle = {
     "& p": {
       fontSize: "1.188rem",
       lineHeight: "1.5em",
-      color: "#555",
+      color: grayColor[15],
       marginBottom: "30px"
     }
   },

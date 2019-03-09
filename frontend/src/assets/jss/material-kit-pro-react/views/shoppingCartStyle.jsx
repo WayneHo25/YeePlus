@@ -5,6 +5,8 @@ import {
   main,
   mainRaised,
   mrAuto,
+  whiteColor,
+  grayColor,
   mlAuto
 } from "assets/jss/material-kit-pro-react.jsx";
 
@@ -26,7 +28,7 @@ const styles = {
   title: {
     ...title,
     "&, & + h4": {
-      color: "#fff"
+      color: whiteColor
     }
   },
   block: {
@@ -83,10 +85,10 @@ const styles = {
     fontSize: "1.5em"
   },
   tdNameAnchor: {
-    color: "#3C4858"
+    color: grayColor[1]
   },
   tdNameSmall: {
-    color: "#999999",
+    color: grayColor[0],
     fontSize: "0.75em",
     fontWeight: "300"
   },

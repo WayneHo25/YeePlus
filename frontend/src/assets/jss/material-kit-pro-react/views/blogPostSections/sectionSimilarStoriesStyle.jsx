@@ -2,6 +2,7 @@ import {
   container,
   title,
   cardTitle,
+  grayColor,
   coloredShadow
 } from "assets/jss/material-kit-pro-react.jsx";
 
@@ -19,7 +20,7 @@ const sectionSimilarStoriesStyle = {
     padding: "70px 0"
   },
   description: {
-    color: "#999"
+    color: grayColor[0]
   }
 };
 

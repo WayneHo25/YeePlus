@@ -2,6 +2,7 @@ import {
   container,
   title,
   main,
+  whiteColor,
   mainRaised
 } from "assets/jss/material-kit-pro-react.jsx";
 
@@ -15,10 +16,10 @@ const blogPostPageStyle = {
   },
   title: {
     ...title,
-    color: "#FFFFFF"
+    color: whiteColor
   },
   subtitle: {
-    color: "#FFFFFF"
+    color: whiteColor
   },
   main: {
     ...main,

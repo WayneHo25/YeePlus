@@ -3,7 +3,11 @@ import {
   title,
   mlAuto,
   mrAuto,
-  description
+  description,
+  blackColor,
+  whiteColor,
+  grayColor,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const styles = {
@@ -27,7 +31,7 @@ const styles = {
   socialLine: {
     padding: ".9375rem 0px",
     "& $border": {
-      borderRight: "1px solid rgba(0,0,0,0.12)"
+      borderRight: "1px solid rgba(" + hexToRgb(blackColor) + ",0.12)"
     },
     "& $border:last-child": {
       border: 0
@@ -37,13 +41,18 @@ const styles = {
     textAlign: "center !important"
   },
   white: {
-    backgroundColor: "#fff"
+    backgroundColor: whiteColor
   },
   dark: {
-    background: "radial-gradient(ellipse at center,#585858 0,#232323 100%)",
+    background:
+      "radial-gradient(ellipse at center," +
+      grayColor[4] +
+      " 0," +
+      grayColor[5] +
+      " 100%)",
     backgroundSize: "550% 450%",
     "& $border": {
-      borderColor: "rgba(255,255,255,0.1)"
+      borderColor: "rgba(" + hexToRgb(whiteColor) + ",0.1)"
     }
   },
   bigIcons: {
@@ -74,12 +83,12 @@ const styles = {
       left: 0,
       top: 0,
       content: "''",
-      backgroundColor: "rgba(0,0,0,0.66)"
+      backgroundColor: "rgba(" + hexToRgb(blackColor) + ",0.66)"
     }
   },
   formFix: {},
   subscribeLineWhite: {
-    backgroundColor: "#fff",
+    backgroundColor: whiteColor,
     "& $subscribeButton": {
       top: "-6px"
     }
@@ -93,10 +102,10 @@ const styles = {
       position: "relative"
     },
     "& $title": {
-      color: "#fff"
+      color: whiteColor
     },
     "& $description": {
-      color: "#999"
+      color: grayColor[0]
     }
   },
   subscribeButton: {},

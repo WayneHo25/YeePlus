@@ -1,11 +1,9 @@
-// ##############################
-// // // CustomInput styles
-// #############################
-
 import {
   primaryColor,
   dangerColor,
   successColor,
+  whiteColor,
+  grayColor,
   defaultFont
 } from "assets/jss/material-kit-pro-react.jsx";
 
@@ -17,26 +15,26 @@ const customInputStyle = {
   },
   underline: {
     "&:hover:not($disabled):before,&:before": {
-      borderBottomColor: "#D2D2D2 !important",
+      borderBottomColor: grayColor[11] + " !important",
       borderBottomWidth: "1px !important"
     },
     "&:after": {
-      borderBottomColor: primaryColor
+      borderBottomColor: primaryColor[0]
     }
   },
   underlineError: {
     "&:after": {
-      borderBottomColor: dangerColor
+      borderBottomColor: dangerColor[0]
     }
   },
   underlineSuccess: {
     "&:after": {
-      borderBottomColor: successColor
+      borderBottomColor: successColor[0]
     }
   },
   labelRoot: {
     ...defaultFont,
-    color: "#AAAAAA !important",
+    color: grayColor[12] + " !important",
     fontWeight: "400",
     fontSize: "14px",
     lineHeight: "1.42857",
@@ -46,10 +44,10 @@ const customInputStyle = {
     }
   },
   labelRootError: {
-    color: dangerColor + " !important"
+    color: dangerColor[0] + " !important"
   },
   labelRootSuccess: {
-    color: successColor + " !important"
+    color: successColor[0] + " !important"
   },
   feedback: {
     position: "absolute",
@@ -67,19 +65,19 @@ const customInputStyle = {
     paddingTop: "27px",
     position: "relative",
     "& svg,& .fab,& .far,& .fal,& .fas,& .material-icons": {
-      color: "#495057"
+      color: grayColor[13]
     }
   },
   whiteUnderline: {
     "&:hover:not($disabled):before,&:before": {
-      borderBottomColor: "#FFFFFF"
+      borderBottomColor: whiteColor
     },
     "&:after": {
-      borderBottomColor: "#FFFFFF"
+      borderBottomColor: whiteColor
     }
   },
   input: {
-    color: "#495057",
+    color: grayColor[13],
     "&,&::placeholder": {
       fontSize: "14px",
       fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
@@ -88,12 +86,12 @@ const customInputStyle = {
       opacity: "1"
     },
     "&::placeholder": {
-      color: "#AAAAAA"
+      color: grayColor[12]
     }
   },
   whiteInput: {
     "&,&::placeholder": {
-      color: "#FFFFFF",
+      color: whiteColor,
       opacity: "1"
     }
   }

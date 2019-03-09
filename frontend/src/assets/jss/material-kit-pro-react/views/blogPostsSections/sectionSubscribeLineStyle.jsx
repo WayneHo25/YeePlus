@@ -1,7 +1,8 @@
 import {
   container,
   title,
-  description
+  description,
+  grayColor
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const sectionSubscribeLineStyle = {
@@ -15,7 +16,7 @@ const sectionSubscribeLineStyle = {
     marginTop: "30px"
   },
   icon: {
-    color: "#495057"
+    color: grayColor[13]
   },
   formControl: {
     paddingTop: "0px !important",

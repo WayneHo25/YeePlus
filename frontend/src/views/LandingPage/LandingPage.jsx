@@ -20,8 +20,8 @@ import landingPageStyle from "assets/jss/material-kit-pro-react/views/landingPag
 
 // Sections for this page
 import SectionProduct from "./Sections/SectionProduct.jsx";
-
-const dashboardRoutes = [];
+import SectionTeam from "./Sections/SectionTeam.jsx";
+import SectionWork from "./Sections/SectionWork.jsx";
 
 class LandingPage extends React.Component {
   componentDidMount() {
@@ -34,7 +34,6 @@ class LandingPage extends React.Component {
       <div>
         <Header
           color="transparent"
-          routes={dashboardRoutes}
           brand="Material Kit PRO React"
           links={<HeaderLinks dropdownHoverColor="info" />}
           fixed
@@ -63,7 +62,8 @@ class LandingPage extends React.Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i className="fas fa-play" />Watch video
+                  <i className="fas fa-play" />
+                  Watch video
                 </Button>
               </GridItem>
             </GridContainer>
@@ -72,6 +72,8 @@ class LandingPage extends React.Component {
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
             <SectionProduct />
+            <SectionTeam />
+            <SectionWork />
           </div>
         </div>
         <Footer

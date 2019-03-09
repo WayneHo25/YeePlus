@@ -1,12 +1,13 @@
 import {
   container,
   title,
+  whiteColor,
   section
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const notificationsStyles = {
   section: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: whiteColor,
     display: "block",
     width: "100%",
     position: "relative",

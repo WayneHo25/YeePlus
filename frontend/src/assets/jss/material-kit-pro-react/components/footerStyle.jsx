@@ -1,11 +1,13 @@
-// ##############################
-// // // Footer styles
-// #############################
-
 import {
   container,
   primaryColor,
-  btnLink
+  whiteColor,
+  btnLink,
+  grayColor,
+  twitterColor,
+  dribbbleColor,
+  instagramColor,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const footerStyle = {
@@ -54,54 +56,59 @@ const footerStyle = {
       marginBottom: "15px"
     },
     "& p": {
-      color: "#999"
+      color: grayColor[0]
     }
   },
   content: {
     textAlign: "left"
   },
   a: {
-    color: primaryColor,
+    color: primaryColor[0],
     textDecoration: "none",
     backgroundColor: "transparent"
   },
   dark: {
-    background: "radial-gradient(ellipse at center,#585858 0,#232323 100%)",
+    background:
+      "radial-gradient(ellipse at center," +
+      grayColor[4] +
+      " 0," +
+      grayColor[5] +
+      " 100%)",
     backgroundSize: "550% 450%",
-    color: "#fff",
+    color: whiteColor,
     "& p": {
-      color: "#999"
+      color: grayColor[0]
     },
     "& i": {
-      color: "#fff"
+      color: whiteColor
     },
     "& a": {
-      color: "#fff",
+      color: whiteColor,
       opacity: ".86",
       "&:visited": {
-        color: "#fff"
+        color: whiteColor
       },
       "&:focus, &:hover": {
         opacity: 1
       }
     },
     "& hr": {
-      borderColor: "rgba(255,255,255,0.2)"
+      borderColor: "rgba(" + hexToRgb(whiteColor) + ",0.2)"
     },
     "& $btnTwitter, & $btnDribbble, & $btnInstagram": {
-      color: "#fff"
+      color: whiteColor
     }
   },
   white: {
-    backgroundColor: "#fff",
-    color: "#3c4858",
+    backgroundColor: whiteColor,
+    color: grayColor[1],
     textDecoration: "none",
     "& a": {
       "&:visited": {
-        color: "#3c4858"
+        color: grayColor[1]
       },
       "&:hover, &:focus": {
-        color: "#89229b"
+        color: grayColor[20]
       }
     }
   },
@@ -133,15 +140,15 @@ const footerStyle = {
   },
   btnTwitter: {
     ...btnLink,
-    color: "#55acee"
+    color: twitterColor
   },
   btnDribbble: {
     ...btnLink,
-    color: "#ea4c89"
+    color: dribbbleColor
   },
   btnInstagram: {
     ...btnLink,
-    color: "#125688"
+    color: instagramColor
   },
   footerBrand: {
     height: "50px",
@@ -149,7 +156,7 @@ const footerStyle = {
     fontSize: "18px",
     lineHeight: "50px",
     marginLeft: "-15px",
-    color: "#3c4858",
+    color: grayColor[1],
     textDecoration: "none",
     fontWeight: 700,
     fontFamily: "Roboto Slab,Times New Roman,serif"

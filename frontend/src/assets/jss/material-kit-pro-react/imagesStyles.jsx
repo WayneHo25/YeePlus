@@ -1,3 +1,5 @@
+import { blackColor, hexToRgb } from "assets/jss/material-kit-pro-react.jsx";
+
 const imagesStyles = {
   imgFluid: {
     maxWidth: "100%",
@@ -11,7 +13,11 @@ const imagesStyles = {
   },
   imgRaised: {
     boxShadow:
-      "0 5px 15px -8px rgba(0, 0, 0, 0.24), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"
+      "0 5px 15px -8px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.24), 0 8px 10px -5px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.2)"
   },
   imgGallery: {
     width: "100%",

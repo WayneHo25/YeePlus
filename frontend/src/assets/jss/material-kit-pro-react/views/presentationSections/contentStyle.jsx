@@ -3,7 +3,10 @@ import {
   section,
   title,
   sectionDescription,
-  mlAuto
+  mlAuto,
+  blackColor,
+  grayColor,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const contentStyle = theme => ({
@@ -15,7 +18,7 @@ const contentStyle = theme => ({
   sectionDescription,
   title: {
     ...title,
-    color: "#3c4858",
+    color: grayColor[1],
     marginTop: "30px",
     marginBottom: "5px",
     "& + $description": {
@@ -24,7 +27,7 @@ const contentStyle = theme => ({
     }
   },
   description: {
-    color: "#999",
+    color: grayColor[0],
     marginTop: "35px",
     marginBottom: "15px"
   },
@@ -43,7 +46,13 @@ const contentStyle = theme => ({
     top: "10%",
     left: "60%",
     boxShadow:
-      "0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2)",
+      "0 8px 10px 1px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.14), 0 3px 14px 2px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.12), 0 5px 5px -3px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.2)",
     [theme.breakpoints.down("sm")]: {
       maxWidth: "130px",
       maxHeight: "170px"
@@ -55,7 +64,13 @@ const contentStyle = theme => ({
     top: "50%",
     left: "0%",
     boxShadow:
-      "0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2)",
+      "0 8px 10px 1px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.14), 0 3px 14px 2px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.12), 0 5px 5px -3px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.2)",
     [theme.breakpoints.down("sm")]: {
       maxWidth: "170px",
       maxHeight: "120px"

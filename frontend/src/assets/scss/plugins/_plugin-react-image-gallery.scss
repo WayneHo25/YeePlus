@@ -1,6 +1,7 @@
 @import "node_modules/react-image-gallery/styles/scss/image-gallery.scss";
 
-.image-gallery-left-nav, .image-gallery-right-nav{
+.image-gallery-left-nav,
+.image-gallery-right-nav {
   position: absolute;
   cursor: pointer;
   z-index: 100;
@@ -8,12 +9,13 @@
   bottom: -40%;
   top: auto;
   padding: 0 !important;
-  &:before,&:hover:before{
-    color: #3C4858;
+  &:before,
+  &:hover:before {
+    color: #3c4858;
     text-shadow: none;
   }
-  &:before{
-    font-family: 'Material Icons';
+  &:before {
+    font-family: "Material Icons";
     font-weight: normal;
     font-style: normal;
     font-size: 24px;
@@ -24,23 +26,23 @@
     white-space: nowrap;
     word-wrap: normal;
     direction: ltr;
-    -webkit-font-feature-settings: 'liga';
+    -webkit-font-feature-settings: "liga";
     -webkit-font-smoothing: antialiased;
   }
 }
-.image-gallery-left-nav{
+.image-gallery-left-nav {
   left: -20px;
-  &::before{
-    content: "chevron_left"
+  &::before {
+    content: "chevron_left";
   }
 }
-.image-gallery-right-nav{
+.image-gallery-right-nav {
   right: -20px;
-  &::before{
-    content: "chevron_right"
+  &::before {
+    content: "chevron_right";
   }
 }
-.image-gallery-thumbnail{
+.image-gallery-thumbnail {
   margin: 0px;
   padding: 0px;
   cursor: pointer;
@@ -48,10 +50,10 @@
   line-height: 0px;
   width: 125px;
   border: none !important;
-  & + .image-gallery-thumbnail{
-    margin: 0 !important
+  & + .image-gallery-thumbnail {
+    margin: 0 !important;
   }
-  img{
+  img {
     max-width: 100%;
     cursor: pointer;
     position: relative;
@@ -59,15 +61,15 @@
     margin-bottom: 10px;
   }
 }
-.image-gallery-thumbnail-label{
+.image-gallery-thumbnail-label {
   display: none !important;
 }
-.image-gallery-thumbnails{
+.image-gallery-thumbnails {
   padding: 0 !important;
   overflow: hidden;
   width: 100%;
 }
-.image-gallery-thumbnails-container{
+.image-gallery-thumbnails-container {
   position: relative;
   // width: 99999px;
   margin: 0px;

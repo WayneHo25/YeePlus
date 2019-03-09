@@ -1,4 +1,4 @@
-import { title } from "assets/jss/material-kit-pro-react.jsx";
+import { grayColor, title } from "assets/jss/material-kit-pro-react.jsx";
 
 import tooltipsStyle from "assets/jss/material-kit-pro-react/tooltipsStyle.jsx";
 
@@ -30,7 +30,7 @@ const sectionCommentsStyle = {
   },
   color555: {
     "&,& *": {
-      color: "#555 !important"
+      color: grayColor[15] + " !important"
     }
   }
 };

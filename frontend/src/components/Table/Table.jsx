@@ -43,8 +43,7 @@ function CustomTable({ ...props }) {
                   cx({
                     [customHeadCellClasses[
                       customHeadClassesForCells.indexOf(key)
-                    ]]:
-                      customHeadClassesForCells.indexOf(key) !== -1,
+                    ]]: customHeadClassesForCells.indexOf(key) !== -1,
                     [classes.tableShoppingHead]: tableShopping
                   });
                 return (

@@ -1,8 +1,9 @@
-// ##############################
-// // // HeaderLinks styles
-// #############################
-
-import { mlAuto } from "assets/jss/material-kit-pro-react.jsx";
+import {
+  grayColor,
+  whiteColor,
+  mlAuto,
+  hexToRgb
+} from "assets/jss/material-kit-pro-react.jsx";
 
 import tooltip from "assets/jss/material-kit-pro-react/tooltipsStyle.jsx";
 
@@ -48,7 +49,7 @@ const headerLinksStyle = theme => ({
           display: "block",
           height: "1px",
           marginLeft: "15px",
-          backgroundColor: "#e5e5e5"
+          backgroundColor: grayColor[14]
         }
       }
     }
@@ -134,11 +135,9 @@ const headerLinksStyle = theme => ({
     lineHeight: "20px",
     textDecoration: "none",
     margin: "0px",
-    display: "inline-flex",
-    top: "4px"
+    display: "inline-flex"
   },
   registerNavLink: {
-    top: "3px",
     position: "relative",
     fontWeight: "400",
     fontSize: "12px",
@@ -151,7 +150,7 @@ const headerLinksStyle = theme => ({
   navLinkActive: {
     "&, &:hover, &:focus,&:active ": {
       color: "inherit",
-      backgroundColor: "rgba(255, 255, 255, 0.1)"
+      backgroundColor: "rgba(" + hexToRgb(whiteColor) + ", 0.1)"
     }
   },
   icons: {
@@ -174,12 +173,6 @@ const headerLinksStyle = theme => ({
     position: "relative",
     fontSize: "1.25rem",
     maxWidth: "24px"
-  },
-  socialIconsButton: {
-    top: "4px",
-    [theme.breakpoints.down("sm")]: {
-      top: "0"
-    }
   },
   dropdownLink: {
     "&,&:hover,&:focus": {

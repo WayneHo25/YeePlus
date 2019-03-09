@@ -7,7 +7,10 @@ import {
   mrAuto,
   section,
   sectionDark,
-  coloredShadow
+  coloredShadow,
+  blackColor,
+  whiteColor,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const teamsSection = {
@@ -35,10 +38,10 @@ const teamsSection = {
     ...section,
     position: "relative",
     "& $title": {
-      color: "#FFFFFF"
+      color: whiteColor
     },
     "& $descriptionWhite": {
-      color: "rgba(255, 255, 255, 0.76)"
+      color: "rgba(" + hexToRgb(whiteColor) + ", 0.76)"
     },
     "& $container": {
       zIndex: "2",
@@ -53,7 +56,7 @@ const teamsSection = {
       left: "0",
       top: "0",
       content: "''",
-      backgroundColor: "rgba(0, 0, 0, 0.7)"
+      backgroundColor: "rgba(" + hexToRgb(blackColor) + ", 0.7)"
     }
   },
   justifyContent: {
@@ -73,10 +76,10 @@ const teamsSection = {
   card5: {
     textAlign: "left",
     "& $cardTitle": {
-      color: "#FFFFFF"
+      color: whiteColor
     },
     "& $description": {
-      color: "#FFFFFF"
+      color: whiteColor
     }
   }
 };

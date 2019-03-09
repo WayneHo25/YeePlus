@@ -1,7 +1,3 @@
-// ##############################
-// // // Button styles
-// #############################
-
 import {
   grayColor,
   roseColor,
@@ -10,17 +6,37 @@ import {
   infoColor,
   successColor,
   warningColor,
-  dangerColor
+  dangerColor,
+  blackColor,
+  whiteColor,
+  twitterColor,
+  facebookColor,
+  googleColor,
+  linkedinColor,
+  pinterestColor,
+  youtubeColor,
+  tumblrColor,
+  behanceColor,
+  dribbbleColor,
+  redditColor,
+  instagramColor,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const buttonStyle = {
   button: {
     minHeight: "auto",
     minWidth: "auto",
-    backgroundColor: grayColor,
-    color: "#FFFFFF",
+    backgroundColor: grayColor[0],
+    color: whiteColor,
     boxShadow:
-      "0 2px 2px 0 rgba(153, 153, 153, 0.14), 0 3px 1px -2px rgba(153, 153, 153, 0.2), 0 1px 5px 0 rgba(153, 153, 153, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(grayColor[0]) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(grayColor[0]) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(grayColor[0]) +
+      ", 0.12)",
     border: "none",
     borderRadius: "3px",
     position: "relative",
@@ -40,10 +56,16 @@ const buttonStyle = {
     touchAction: "manipulation",
     cursor: "pointer",
     "&:hover,&:focus": {
-      color: "#FFFFFF",
-      backgroundColor: grayColor,
+      color: whiteColor,
+      backgroundColor: grayColor[0],
       boxShadow:
-        "0 14px 26px -12px rgba(153, 153, 153, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(153, 153, 153, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(grayColor[0]) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(grayColor[0]) +
+        ", 0.2)"
     },
     "& .fab,& .fas,& .far,& .fal,& .material-icons": {
       position: "relative",
@@ -83,321 +105,549 @@ const buttonStyle = {
     width: "100%"
   },
   primary: {
-    backgroundColor: primaryColor,
+    backgroundColor: primaryColor[0],
     boxShadow:
-      "0 2px 2px 0 rgba(156, 39, 176, 0.14), 0 3px 1px -2px rgba(156, 39, 176, 0.2), 0 1px 5px 0 rgba(156, 39, 176, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(primaryColor[0]) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(primaryColor[0]) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(primaryColor[0]) +
+      ", 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: primaryColor,
+      backgroundColor: primaryColor[0],
       boxShadow:
-        "0 14px 26px -12px rgba(156, 39, 176, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(156, 39, 176, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(primaryColor[0]) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(primaryColor[0]) +
+        ", 0.2)"
     }
   },
   secondary: {
-    color: "rgba(0,0,0,.87)",
-    backgroundColor: secondaryColor,
+    color: "rgba(" + hexToRgb(blackColor) + ",.87)",
+    backgroundColor: secondaryColor[0],
     boxShadow:
-      "0 2px 2px 0 hsla(0,0%,98%,.14), 0 3px 1px -2px hsla(0,0%,98%,.2), 0 1px 5px 0 hsla(0,0%,98%,.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(secondaryColor[0]) +
+      ",.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(secondaryColor[0]) +
+      ",.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(secondaryColor[0]) +
+      ",.12)",
     "&:hover,&:focus": {
       boxShdow:
-        "0 14px 26px -12px hsla(0,0%,98%,.42), 0 4px 23px 0 rgba(0,0,0,.12), 0 8px 10px -5px hsla(0,0%,98%,.2)",
-      color: "rgba(0,0,0,.87)",
-      backgroundColor: "#f2f2f2"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(secondaryColor[0]) +
+        ",.42), 0 4px 23px 0 rgba(" +
+        hexToRgb(blackColor) +
+        ",.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(secondaryColor[0]) +
+        ",.2)",
+      color: "rgba(" + hexToRgb(blackColor) + ",.87)",
+      backgroundColor: grayColor[19]
     }
   },
   info: {
-    backgroundColor: infoColor,
+    backgroundColor: infoColor[0],
     boxShadow:
-      "0 2px 2px 0 rgba(0, 188, 212, 0.14), 0 3px 1px -2px rgba(0, 188, 212, 0.2), 0 1px 5px 0 rgba(0, 188, 212, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(infoColor[0]) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(infoColor[0]) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(infoColor[0]) +
+      ", 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: infoColor,
+      backgroundColor: infoColor[0],
       boxShadow:
-        "0 14px 26px -12px rgba(0, 188, 212, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 188, 212, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(infoColor[0]) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(infoColor[0]) +
+        ", 0.2)"
     }
   },
   success: {
-    backgroundColor: successColor,
+    backgroundColor: successColor[0],
     boxShadow:
-      "0 2px 2px 0 rgba(76, 175, 80, 0.14), 0 3px 1px -2px rgba(76, 175, 80, 0.2), 0 1px 5px 0 rgba(76, 175, 80, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(successColor[0]) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(successColor[0]) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(successColor[0]) +
+      ", 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: successColor,
+      backgroundColor: successColor[0],
       boxShadow:
-        "0 14px 26px -12px rgba(76, 175, 80, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(76, 175, 80, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(successColor[0]) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(successColor[0]) +
+        ", 0.2)"
     }
   },
   warning: {
-    backgroundColor: warningColor,
+    backgroundColor: warningColor[0],
     boxShadow:
-      "0 2px 2px 0 rgba(255, 152, 0, 0.14), 0 3px 1px -2px rgba(255, 152, 0, 0.2), 0 1px 5px 0 rgba(255, 152, 0, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(warningColor[0]) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(warningColor[0]) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(warningColor[0]) +
+      ", 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: warningColor,
+      backgroundColor: warningColor[0],
       boxShadow:
-        "0 14px 26px -12px rgba(255, 152, 0, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(255, 152, 0, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(warningColor[0]) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(warningColor[0]) +
+        ", 0.2)"
     }
   },
   danger: {
-    backgroundColor: dangerColor,
+    backgroundColor: dangerColor[0],
     boxShadow:
-      "0 2px 2px 0 rgba(244, 67, 54, 0.14), 0 3px 1px -2px rgba(244, 67, 54, 0.2), 0 1px 5px 0 rgba(244, 67, 54, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(dangerColor[0]) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(dangerColor[0]) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(dangerColor[0]) +
+      ", 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: dangerColor,
+      backgroundColor: dangerColor[0],
       boxShadow:
-        "0 14px 26px -12px rgba(244, 67, 54, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(244, 67, 54, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(dangerColor[0]) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(dangerColor[0]) +
+        ", 0.2)"
     }
   },
   rose: {
-    backgroundColor: roseColor,
+    backgroundColor: roseColor[0],
     boxShadow:
-      "0 2px 2px 0 rgba(233, 30, 99, 0.14), 0 3px 1px -2px rgba(233, 30, 99, 0.2), 0 1px 5px 0 rgba(233, 30, 99, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(roseColor[0]) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(roseColor[0]) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(roseColor[0]) +
+      ", 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: roseColor,
+      backgroundColor: roseColor[0],
       boxShadow:
-        "0 14px 26px -12px rgba(233, 30, 99, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(233, 30, 99, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(roseColor[0]) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(roseColor[0]) +
+        ", 0.2)"
     }
   },
   white: {
     "&,&:focus,&:hover": {
-      backgroundColor: "#FFFFFF",
-      color: grayColor
+      backgroundColor: whiteColor,
+      color: grayColor[0]
     }
   },
   twitter: {
-    backgroundColor: "#55acee",
-    color: "#fff",
+    backgroundColor: twitterColor,
+    color: whiteColor,
     boxShadow:
-      "0 2px 2px 0 rgba(85, 172, 238, 0.14), 0 3px 1px -2px rgba(85, 172, 238, 0.2), 0 1px 5px 0 rgba(85, 172, 238, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(twitterColor) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(twitterColor) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(twitterColor) +
+      ", 0.12)",
     "&:hover,&:focus,&:visited": {
-      backgroundColor: "#55acee",
-      color: "#fff",
+      backgroundColor: twitterColor,
+      color: whiteColor,
       boxShadow:
-        "0 14px 26px -12px rgba(85, 172, 238, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(85, 172, 238, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(twitterColor) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(twitterColor) +
+        ", 0.2)"
     }
   },
   facebook: {
-    backgroundColor: "#3b5998",
-    color: "#fff",
+    backgroundColor: facebookColor,
+    color: whiteColor,
     boxShadow:
-      "0 2px 2px 0 rgba(59, 89, 152, 0.14), 0 3px 1px -2px rgba(59, 89, 152, 0.2), 0 1px 5px 0 rgba(59, 89, 152, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(facebookColor) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(facebookColor) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(facebookColor) +
+      ", 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: "#3b5998",
-      color: "#fff",
+      backgroundColor: facebookColor,
+      color: whiteColor,
       boxShadow:
-        "0 14px 26px -12px rgba(59, 89, 152, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(59, 89, 152, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(facebookColor) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(facebookColor) +
+        ", 0.2)"
     }
   },
   google: {
-    backgroundColor: "#dd4b39",
-    color: "#fff",
+    backgroundColor: googleColor,
+    color: whiteColor,
     boxShadow:
-      "0 2px 2px 0 rgba(221, 75, 57, 0.14), 0 3px 1px -2px rgba(221, 75, 57, 0.2), 0 1px 5px 0 rgba(221, 75, 57, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(googleColor) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(googleColor) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(googleColor) +
+      ", 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: "#dd4b39",
-      color: "#fff",
+      backgroundColor: googleColor,
+      color: whiteColor,
       boxShadow:
-        "0 14px 26px -12px rgba(221, 75, 57, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(221, 75, 57, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(googleColor) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(googleColor) +
+        ", 0.2)"
     }
   },
   linkedin: {
-    backgroundColor: "#0976b4",
-    color: "#fff",
+    backgroundColor: linkedinColor,
+    color: whiteColor,
     boxShadow:
-      "0 2px 2px 0 rgba(9, 118, 180, 0.14), 0 3px 1px -2px rgba(9, 118, 180, 0.2), 0 1px 5px 0 rgba(9, 118, 180, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(linkedinColor) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(linkedinColor) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(linkedinColor) +
+      ", 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: "#0976b4",
-      color: "#fff",
+      backgroundColor: linkedinColor,
+      color: whiteColor,
       boxShadow:
-        "0 14px 26px -12px rgba(9, 118, 180, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(9, 118, 180, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(linkedinColor) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(linkedinColor) +
+        ", 0.2)"
     }
   },
   pinterest: {
-    backgroundColor: "#cc2127",
-    color: "#fff",
+    backgroundColor: pinterestColor,
+    color: whiteColor,
     boxShadow:
-      "0 2px 2px 0 rgba(204, 33, 39, 0.14), 0 3px 1px -2px rgba(204, 33, 39, 0.2), 0 1px 5px 0 rgba(204, 33, 39, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(pinterestColor) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(pinterestColor) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(pinterestColor) +
+      ", 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: "#cc2127",
-      color: "#fff",
+      backgroundColor: pinterestColor,
+      color: whiteColor,
       boxShadow:
-        "0 14px 26px -12px rgba(204, 33, 39, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(204, 33, 39, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(pinterestColor) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(pinterestColor) +
+        ", 0.2)"
     }
   },
   youtube: {
-    backgroundColor: "#e52d27",
-    color: "#fff",
+    backgroundColor: youtubeColor,
+    color: whiteColor,
     boxShadow:
-      "0 2px 2px 0 rgba(229, 45, 39, 0.14), 0 3px 1px -2px rgba(229, 45, 39, 0.2), 0 1px 5px 0 rgba(229, 45, 39, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(youtubeColor) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(youtubeColor) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(youtubeColor) +
+      ", 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: "#e52d27",
-      color: "#fff",
+      backgroundColor: youtubeColor,
+      color: whiteColor,
       boxShadow:
-        "0 14px 26px -12px rgba(229, 45, 39, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(229, 45, 39, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(youtubeColor) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(youtubeColor) +
+        ", 0.2)"
     }
   },
   tumblr: {
-    backgroundColor: "#35465c",
-    color: "#fff",
+    backgroundColor: tumblrColor,
+    color: whiteColor,
     boxShadow:
-      "0 2px 2px 0 rgba(53, 70, 92, 0.14), 0 3px 1px -2px rgba(53, 70, 92, 0.2), 0 1px 5px 0 rgba(53, 70, 92, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(tumblrColor) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(tumblrColor) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(tumblrColor) +
+      ", 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: "#35465c",
-      color: "#fff",
+      backgroundColor: tumblrColor,
+      color: whiteColor,
       boxShadow:
-        "0 14px 26px -12px rgba(53, 70, 92, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(53, 70, 92, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(tumblrColor) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(tumblrColor) +
+        ", 0.2)"
     }
   },
   github: {
-    backgroundColor: "#333333",
-    color: "#fff",
+    backgroundColor: grayColor[8],
+    color: whiteColor,
     boxShadow:
-      "0 2px 2px 0 rgba(51, 51, 51, 0.14), 0 3px 1px -2px rgba(51, 51, 51, 0.2), 0 1px 5px 0 rgba(51, 51, 51, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(grayColor[8]) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(grayColor[8]) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(grayColor[8]) +
+      ", 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: "#333333",
-      color: "#fff",
+      backgroundColor: grayColor[8],
+      color: whiteColor,
       boxShadow:
-        "0 14px 26px -12px rgba(51, 51, 51, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(51, 51, 51, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(grayColor[8]) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(grayColor[8]) +
+        ", 0.2)"
     }
   },
   behance: {
-    backgroundColor: "#1769ff",
-    color: "#fff",
+    backgroundColor: behanceColor,
+    color: whiteColor,
     boxShadow:
-      "0 2px 2px 0 rgba(23, 105, 255, 0.14), 0 3px 1px -2px rgba(23, 105, 255, 0.2), 0 1px 5px 0 rgba(23, 105, 255, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(behanceColor) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(behanceColor) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(behanceColor) +
+      ", 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: "#1769ff",
-      color: "#fff",
+      backgroundColor: behanceColor,
+      color: whiteColor,
       boxShadow:
-        "0 14px 26px -12px rgba(23, 105, 255, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(23, 105, 255, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(behanceColor) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(behanceColor) +
+        ", 0.2)"
     }
   },
   dribbble: {
-    backgroundColor: "#ea4c89",
-    color: "#fff",
+    backgroundColor: dribbbleColor,
+    color: whiteColor,
     boxShadow:
-      "0 2px 2px 0 rgba(234, 76, 137, 0.14), 0 3px 1px -2px rgba(234, 76, 137, 0.2), 0 1px 5px 0 rgba(234, 76, 137, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(dribbbleColor) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(dribbbleColor) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(dribbbleColor) +
+      ", 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: "#ea4c89",
-      color: "#fff",
+      backgroundColor: dribbbleColor,
+      color: whiteColor,
       boxShadow:
-        "0 14px 26px -12px rgba(234, 76, 137, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(234, 76, 137, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(dribbbleColor) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(dribbbleColor) +
+        ", 0.2)"
     }
   },
   reddit: {
-    backgroundColor: "#ff4500",
-    color: " #fff",
+    backgroundColor: redditColor,
+    color: whiteColor,
     boxShadow:
-      "0 2px 2px 0 rgba(255, 69, 0, 0.14), 0 3px 1px -2px rgba(255, 69, 0, 0.2), 0 1px 5px 0 rgba(255, 69, 0, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(redditColor) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(redditColor) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(redditColor) +
+      ", 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: "#ff4500",
-      color: " #fff",
+      backgroundColor: redditColor,
+      color: whiteColor,
       boxShadow:
-        "0 14px 26px -12px rgba(255, 69, 0, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(255, 69, 0, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(redditColor) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(redditColor) +
+        ", 0.2)"
     }
   },
   instagram: {
-    backgroundColor: "#125688",
-    color: " #fff",
+    backgroundColor: instagramColor,
+    color: whiteColor,
     boxShadow:
-      "0 2px 2px 0 rgba(18, 86, 136, 0.14), 0 3px 1px -2px rgba(18, 86, 136, 0.2), 0 1px 5px 0 rgba(18, 86, 136, 0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(instagramColor) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(instagramColor) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(instagramColor) +
+      ", 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: "#145f96",
-      color: " #fff",
+      backgroundColor: instagramColor,
+      color: whiteColor,
       boxShadow:
-        "0 14px 26px -12px rgba(18, 86, 136, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(18, 86, 136, 0.2)"
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(instagramColor) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(instagramColor) +
+        ", 0.2)"
     }
   },
   simple: {
     "&,&:focus,&:hover": {
-      color: "#FFFFFF",
+      color: whiteColor,
       background: "transparent",
       boxShadow: "none"
     },
     "&$primary": {
       "&,&:focus,&:hover,&:visited": {
-        color: primaryColor
+        color: primaryColor[0]
       }
     },
     "&$info": {
       "&,&:focus,&:hover,&:visited": {
-        color: infoColor
+        color: infoColor[0]
       }
     },
     "&$success": {
       "&,&:focus,&:hover,&:visited": {
-        color: successColor
+        color: successColor[0]
       }
     },
     "&$warning": {
       "&,&:focus,&:hover,&:visited": {
-        color: warningColor
+        color: warningColor[0]
       }
     },
     "&$rose": {
       "&,&:focus,&:hover,&:visited": {
-        color: roseColor
+        color: roseColor[0]
       }
     },
     "&$danger": {
       "&,&:focus,&:hover,&:visited": {
-        color: dangerColor
+        color: dangerColor[0]
       }
     },
     "&$twitter": {
       "&,&:focus,&:hover,&:visited": {
-        color: "#55acee"
+        color: twitterColor
       }
     },
     "&$facebook": {
       "&,&:focus,&:hover,&:visited": {
-        color: "#3b5998"
+        color: facebookColor
       }
     },
     "&$google": {
       "&,&:focus,&:hover,&:visited": {
-        color: "#dd4b39"
+        color: googleColor
       }
     },
     "&$linkedin": {
       "&,&:focus,&:hover,&:visited": {
-        color: "#0976b4"
+        color: linkedinColor
       }
     },
     "&$pinterest": {
       "&,&:focus,&:hover,&:visited": {
-        color: "#cc2127"
+        color: pinterestColor
       }
     },
     "&$youtube": {
       "&,&:focus,&:hover,&:visited": {
-        color: "#e52d27"
+        color: youtubeColor
       }
     },
     "&$tumblr": {
       "&,&:focus,&:hover,&:visited": {
-        color: "#35465c"
+        color: tumblrColor
       }
     },
     "&$github": {
       "&,&:focus,&:hover,&:visited": {
-        color: "#333333"
+        color: grayColor[8]
       }
     },
     "&$behance": {
       "&,&:focus,&:hover,&:visited": {
-        color: "#1769ff"
+        color: behanceColor
       }
     },
     "&$dribbble": {
       "&,&:focus,&:hover,&:visited": {
-        color: "#ea4c89"
+        color: dribbbleColor
       }
     },
     "&$reddit": {
       "&,&:focus,&:hover,&:visited": {
-        color: "#ff4500"
+        color: redditColor
       }
     },
     "&$instagram": {
       "&,&:focus,&:hover,&:visited": {
-        color: "#125688"
+        color: instagramColor
       }
     }
   },
@@ -413,12 +663,22 @@ const buttonStyle = {
     pointerEvents: "none"
   },
   lg: {
+    "&$justIcon": {
+      "& .fab,& .fas,& .far,& .fal,& svg,& .material-icons": {
+        marginTop: "-4px"
+      }
+    },
     padding: "1.125rem 2.25rem",
     fontSize: "0.875rem",
     lineHeight: "1.333333",
     borderRadius: "0.2rem"
   },
   sm: {
+    "&$justIcon": {
+      "& .fab,& .fas,& .far,& .fal,& svg,& .material-icons": {
+        marginTop: "1px"
+      }
+    },
     padding: "0.40625rem 1.25rem",
     fontSize: "0.6875rem",
     lineHeight: "1.5",
@@ -433,7 +693,7 @@ const buttonStyle = {
   link: {
     "&,&:hover,&:focus": {
       backgroundColor: "transparent",
-      color: "#999999",
+      color: grayColor[0],
       boxShadow: "none"
     }
   },

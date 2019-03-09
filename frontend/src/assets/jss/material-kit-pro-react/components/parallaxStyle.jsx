@@ -1,3 +1,14 @@
+import {
+  blackColor,
+  primaryColor,
+  roseColor,
+  infoColor,
+  successColor,
+  warningColor,
+  dangerColor,
+  hexToRgb
+} from "assets/jss/material-kit-pro-react.jsx";
+
 const parallaxStyle = {
   parallax: {
     height: "100vh",
@@ -15,11 +26,15 @@ const parallaxStyle = {
   filter: {},
   primaryColor: {
     "&:before": {
-      background: "rgba(0, 0, 0, 0.5)"
+      background: "rgba(" + hexToRgb(blackColor) + ", 0.5)"
     },
     "&:after": {
       background:
-        "linear-gradient(60deg,rgba(225,190,231,.56),rgba(186,104,200,.95))"
+        "linear-gradient(60deg,rgba(" +
+        hexToRgb(primaryColor[4]) +
+        ",.56),rgba(" +
+        hexToRgb(primaryColor[5]) +
+        ",.95))"
     },
     "&:after,&:before": {
       position: "absolute",
@@ -34,11 +49,15 @@ const parallaxStyle = {
   },
   roseColor: {
     "&:before": {
-      background: "rgba(0, 0, 0, 0.5)"
+      background: "rgba(" + hexToRgb(blackColor) + ", 0.5)"
     },
     "&:after": {
       background:
-        "linear-gradient(60deg,rgba(248,187,208,.56),rgba(240,98,146,.95))"
+        "linear-gradient(60deg,rgba(" +
+        hexToRgb(roseColor[3]) +
+        ",.56),rgba(" +
+        hexToRgb(roseColor[4]) +
+        ",.95))"
     },
     "&:after,&:before": {
       position: "absolute",
@@ -53,7 +72,7 @@ const parallaxStyle = {
   },
   darkColor: {
     "&:before": {
-      background: "rgba(0, 0, 0, 0.5)"
+      background: "rgba(" + hexToRgb(blackColor) + ", 0.5)"
     },
     "&:after,&:before": {
       position: "absolute",
@@ -68,11 +87,15 @@ const parallaxStyle = {
   },
   infoColor: {
     "&:before": {
-      background: "rgba(0, 0, 0, 0.5)"
+      background: "rgba(" + hexToRgb(blackColor) + ", 0.5)"
     },
     "&:after": {
       background:
-        "linear-gradient(60deg,rgba(178,235,242,.56),rgba(77,208,225,.95))"
+        "linear-gradient(60deg,rgba(" +
+        hexToRgb(infoColor[6]) +
+        ",.56),rgba(" +
+        hexToRgb(infoColor[7]) +
+        ",.95))"
     },
     "&:after,&:before": {
       position: "absolute",
@@ -87,11 +110,15 @@ const parallaxStyle = {
   },
   successColor: {
     "&:before": {
-      background: "rgba(0, 0, 0, 0.5)"
+      background: "rgba(" + hexToRgb(blackColor) + ", 0.5)"
     },
     "&:after": {
       background:
-        "linear-gradient(60deg,rgba(165,214,167,.56),rgba(102,187,106,.95))"
+        "linear-gradient(60deg,rgba(" +
+        hexToRgb(successColor[6]) +
+        ",.56),rgba(" +
+        hexToRgb(successColor[7]) +
+        ",.95))"
     },
     "&:after,&:before": {
       position: "absolute",
@@ -106,11 +133,15 @@ const parallaxStyle = {
   },
   warningColor: {
     "&:before": {
-      background: "rgba(0, 0, 0, 0.5)"
+      background: "rgba(" + hexToRgb(blackColor) + ", 0.5)"
     },
     "&:after": {
       background:
-        "linear-gradient(60deg,rgba(255,224,178,.56),rgba(255,183,77,.95))"
+        "linear-gradient(60deg,rgba(" +
+        hexToRgb(warningColor[6]) +
+        ",.56),rgba(" +
+        hexToRgb(warningColor[7]) +
+        ",.95))"
     },
     "&:after,&:before": {
       position: "absolute",
@@ -125,11 +156,15 @@ const parallaxStyle = {
   },
   dangerColor: {
     "&:before": {
-      background: "rgba(0, 0, 0, 0.5)"
+      background: "rgba(" + hexToRgb(blackColor) + ", 0.5)"
     },
     "&:after": {
       background:
-        "linear-gradient(60deg,hsla(0,73%,77%,.56),rgba(239,83,80,.95))"
+        "linear-gradient(60deg,rgba(" +
+        hexToRgb(dangerColor[6]) +
+        ",.56),rgba(" +
+        hexToRgb(dangerColor[7]) +
+        ",.95))"
     },
     "&:after,&:before": {
       position: "absolute",

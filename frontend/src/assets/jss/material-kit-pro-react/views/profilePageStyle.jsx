@@ -5,7 +5,9 @@ import {
   mlAuto,
   mrAuto,
   main,
-  mainRaised
+  whiteColor,
+  mainRaised,
+  grayColor
 } from "assets/jss/material-kit-pro-react.jsx";
 
 import imagesStyle from "assets/jss/material-kit-pro-react/imagesStyles.jsx";
@@ -18,7 +20,7 @@ const profilePageStyle = {
   ...tooltipsStyle,
   cardTitleWhite: {
     ...cardTitle,
-    color: "#FFFFFF !important"
+    color: whiteColor + "  !important"
   },
   cardTitle,
   profile: {
@@ -33,7 +35,7 @@ const profilePageStyle = {
   description: {
     margin: "1.071rem auto 0",
     maxWidth: "600px",
-    color: "#999"
+    color: grayColor[0]
   },
   textCenter: {
     textAlign: "center !important"

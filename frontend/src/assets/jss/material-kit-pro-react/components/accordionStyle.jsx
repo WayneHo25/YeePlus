@@ -1,7 +1,3 @@
-// ##############################
-// // // Accordion component style
-// #############################
-
 import {
   primaryColor,
   secondaryColor,
@@ -9,7 +5,8 @@ import {
   dangerColor,
   successColor,
   infoColor,
-  roseColor
+  roseColor,
+  grayColor
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const accordionStyle = theme => ({
@@ -29,45 +26,45 @@ const accordionStyle = theme => ({
   expansionPanelSummary: {
     minHeight: "auto !important",
     backgroundColor: "transparent",
-    borderBottom: "1px solid #ddd",
+    borderBottom: "1px solid " + grayColor[6],
     padding: "25px 10px 5px 0px",
     borderTopLeftRadius: "3px",
     borderTopRightRadius: "3px",
-    color: "#3C4858"
+    color: grayColor[1]
   },
   primaryExpansionPanelSummary: {
     "&:hover": {
-      color: primaryColor
+      color: primaryColor[0]
     }
   },
   secondaryExpansionPanelSummary: {
     "&:hover": {
-      color: secondaryColor
+      color: secondaryColor[0]
     }
   },
   warningExpansionPanelSummary: {
     "&:hover": {
-      color: warningColor
+      color: warningColor[0]
     }
   },
   dangerExpansionPanelSummary: {
     "&:hover": {
-      color: dangerColor
+      color: dangerColor[0]
     }
   },
   successExpansionPanelSummary: {
     "&:hover": {
-      color: successColor
+      color: successColor[0]
     }
   },
   infoExpansionPanelSummary: {
     "&:hover": {
-      color: infoColor
+      color: infoColor[0]
     }
   },
   roseExpansionPanelSummary: {
     "&:hover": {
-      color: roseColor
+      color: roseColor[0]
     }
   },
   expansionPanelSummaryExpaned: {
@@ -87,25 +84,25 @@ const accordionStyle = theme => ({
     }
   },
   primaryExpansionPanelSummaryExpaned: {
-    color: primaryColor
+    color: primaryColor[0]
   },
   secondaryExpansionPanelSummaryExpaned: {
-    color: secondaryColor
+    color: secondaryColor[0]
   },
   warningExpansionPanelSummaryExpaned: {
-    color: warningColor
+    color: warningColor[0]
   },
   dangerExpansionPanelSummaryExpaned: {
-    color: dangerColor
+    color: dangerColor[0]
   },
   successExpansionPanelSummaryExpaned: {
-    color: successColor
+    color: successColor[0]
   },
   infoExpansionPanelSummaryExpaned: {
-    color: infoColor
+    color: infoColor[0]
   },
   roseExpansionPanelSummaryExpaned: {
-    color: roseColor
+    color: roseColor[0]
   },
   expansionPanelSummaryContent: {
     margin: "0 !important"

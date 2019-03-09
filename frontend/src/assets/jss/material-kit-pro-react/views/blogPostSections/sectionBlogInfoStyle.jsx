@@ -1,4 +1,4 @@
-import { cardTitle } from "assets/jss/material-kit-pro-react.jsx";
+import { grayColor, cardTitle } from "assets/jss/material-kit-pro-react.jsx";
 const sectionBlogInfoStyle = {
   section: {
     paddingTop: "30px",
@@ -22,7 +22,7 @@ const sectionBlogInfoStyle = {
   cardTitle,
   description: {
     fontSize: "1rem",
-    color: "#999"
+    color: grayColor[0]
   },
   pullRight: {
     marginTop: "25px",

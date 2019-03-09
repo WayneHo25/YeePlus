@@ -2,7 +2,10 @@ import {
   section,
   sectionDark,
   cardTitle,
-  container
+  container,
+  blackColor,
+  whiteColor,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const sectionImageStyle = {
@@ -25,15 +28,15 @@ const sectionImageStyle = {
       left: "0",
       top: "0",
       content: "''",
-      backgroundColor: "rgba(0, 0, 0, 0.7)"
+      backgroundColor: "rgba(" + hexToRgb(blackColor) + ", 0.7)"
     }
   },
   cardTitle: {
     ...cardTitle,
-    color: "#FFFFFF !important"
+    color: whiteColor + "  !important"
   },
   description: {
-    color: "rgba(255, 255, 255, 0.76)"
+    color: "rgba(" + hexToRgb(whiteColor) + ", 0.76)"
   },
   textLeft: {
     textAlign: "left"

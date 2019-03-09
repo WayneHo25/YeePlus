@@ -3,8 +3,13 @@ import {
   title,
   description,
   section,
-  btnLink
+  btnLink,
+  twitterColor,
+  dribbbleColor,
+  instagramColor,
+  grayColor
 } from "assets/jss/material-kit-pro-react.jsx";
+
 import imagesStyles from "assets/jss/material-kit-pro-react/imagesStyles.jsx";
 
 const style = {
@@ -76,7 +81,7 @@ const style = {
     fontSize: "18px",
     lineHeight: "50px",
     marginLeft: "-15px",
-    color: "#3c4858",
+    color: grayColor[1],
     textDecoration: "none",
     fontWeight: 700,
     fontFamily: "Roboto Slab,Times New Roman,serif"
@@ -117,7 +122,7 @@ const style = {
       display: "inline-block"
     },
     "& h4, & h5": {
-      color: "#3c4858",
+      color: grayColor[1],
       textDecoration: "none"
     },
     "& ul:not($socialButtons) li a": {
@@ -133,7 +138,7 @@ const style = {
     },
     "& small": {
       fontSize: "75%",
-      color: "#777"
+      color: grayColor[10]
     },
     "& $pullCenter": {
       display: "inline-block",
@@ -159,15 +164,15 @@ const style = {
   },
   btnTwitter: {
     ...btnLink,
-    color: "#55acee"
+    color: twitterColor
   },
   btnDribbble: {
     ...btnLink,
-    color: "#ea4c89"
+    color: dribbbleColor
   },
   btnInstagram: {
     ...btnLink,
-    color: "#125688"
+    color: instagramColor
   },
   icon: {
     top: "3px",

@@ -36,6 +36,7 @@ import PersonAdd from "@material-ui/icons/PersonAdd";
 import Layers from "@material-ui/icons/Layers";
 import ShoppingBasket from "@material-ui/icons/ShoppingBasket";
 import LineStyle from "@material-ui/icons/LineStyle";
+import Error from "@material-ui/icons/Error";
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
@@ -46,9 +47,9 @@ import headerLinksStyle from "assets/jss/material-kit-pro-react/components/heade
 function HeaderLinks({ ...props }) {
   const easeInOutQuad = (t, b, c, d) => {
     t /= d / 2;
-    if (t < 1) return c / 2 * t * t + b;
+    if (t < 1) return (c / 2) * t * t + b;
     t--;
-    return -c / 2 * (t * (t - 2) - 1) + b;
+    return (-c / 2) * (t * (t - 2) - 1) + b;
   };
 
   const smoothScroll = (e, target) => {
@@ -102,14 +103,16 @@ function HeaderLinks({ ...props }) {
               <LineStyle className={classes.dropdownIcons} /> Presentation Page
             </Link>,
             <Link to="/components" className={classes.dropdownLink}>
-              <Layers className={classes.dropdownIcons} />All components
+              <Layers className={classes.dropdownIcons} />
+              All components
             </Link>,
             <a
               href="https://demos.creative-tim.com/material-kit-pro-react/#/documentation/tutorial"
               target="_blank"
               className={classes.dropdownLink}
             >
-              <Icon className={classes.dropdownIcons}>content_paste</Icon>Documentation
+              <Icon className={classes.dropdownIcons}>content_paste</Icon>
+              Documentation
             </a>
           ]}
         />
@@ -232,6 +235,9 @@ function HeaderLinks({ ...props }) {
             </Link>,
             <Link to="/signup-page" className={classes.dropdownLink}>
               <PersonAdd className={classes.dropdownIcons} /> Signup Page
+            </Link>,
+            <Link to="/error-page" className={classes.dropdownLink}>
+              <Error className={classes.dropdownIcons} /> Error Page
             </Link>
           ]}
         />

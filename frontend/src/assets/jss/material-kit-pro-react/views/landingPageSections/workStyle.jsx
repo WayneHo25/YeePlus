@@ -1,4 +1,9 @@
-import { title, mrAuto, mlAuto } from "assets/jss/material-kit-pro-react.jsx";
+import {
+  title,
+  mrAuto,
+  mlAuto,
+  grayColor
+} from "assets/jss/material-kit-pro-react.jsx";
 
 const workStyle = {
   mrAuto,
@@ -15,7 +20,7 @@ const workStyle = {
     textAlign: "center"
   },
   description: {
-    color: "#999",
+    color: grayColor[0],
     textAlign: "center"
   },
   textCenter: {

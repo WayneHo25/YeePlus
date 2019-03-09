@@ -3,7 +3,10 @@ import {
   mlAuto,
   mrAuto,
   title,
-  description
+  description,
+  blackColor,
+  whiteColor,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const features = {
@@ -45,10 +48,10 @@ const features = {
     "& $title,& $container": {
       position: "relative",
       zIndex: "2",
-      color: "#FFFFFF"
+      color: whiteColor
     },
     "&:after": {
-      background: "rgba(0,0,0,0.55)",
+      background: "rgba(" + hexToRgb(blackColor) + ",0.55)",
       position: "absolute",
       width: "100%",
       height: "100%",
@@ -64,7 +67,7 @@ const features = {
         }
       },
       "& $gridItem": {
-        border: "1px solid rgba(255, 255, 255, 0.35)",
+        border: "1px solid rgba(" + hexToRgb(whiteColor) + ", 0.35)",
         borderTop: "0",
         borderLeft: "0",
         "&:last-child": {
@@ -77,7 +80,7 @@ const features = {
       maxWidth: "310px",
       minHeight: "320px",
       "& h4,& p,& svg,& .fab,& .fas,& .far,& .fal,& .material-icons": {
-        color: "#FFFFFF"
+        color: whiteColor
       }
     }
   },

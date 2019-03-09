@@ -4,6 +4,7 @@ import {
   main,
   mainRaised,
   mrAuto,
+  whiteColor,
   mlAuto
 } from "assets/jss/material-kit-pro-react.jsx";
 
@@ -19,7 +20,7 @@ const aboutUsStyle = {
   title: {
     ...title,
     "&, & + h4": {
-      color: "#fff"
+      color: whiteColor
     }
   },
   textCenter: {

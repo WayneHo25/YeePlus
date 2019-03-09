@@ -13,7 +13,7 @@
   position: relative;
   padding: 3px 8px;
   border-radius: 12px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 500;
   font-size: 0.75em;
   text-transform: uppercase;
@@ -33,17 +33,15 @@
   padding: 0px 2px;
   font-weight: 900;
 }
-.react-tagsinput-tag a{
+.react-tagsinput-tag a {
   cursor: pointer;
   position: absolute;
   top: 3px;
   right: 0px;
   opacity: 0;
   background-color: transparent;
-  color: #FFFFFF;
+  color: #ffffff;
 }
-
-
 
 .react-tagsinput-input {
   background: transparent;
@@ -59,25 +57,24 @@
   width: 80px;
 }
 
-.react-tagsinput{
-  .react-tagsinput-tag{
+.react-tagsinput {
+  .react-tagsinput-tag {
     -webkit-transition: all 300ms ease 0s;
     -moz-transition: all 300ms ease 0s;
     -o-transition: all 300ms ease 0s;
     -ms-transition: all 300ms ease 0s;
     transition: all 300ms ease 0s;
 
-    &:hover{
+    &:hover {
       padding-right: 22px;
 
-      a{
+      a {
         opacity: 1;
         padding-right: 4px;
         background-color: transparent;
-        color: #FFFFFF;
+        color: #ffffff;
       }
     }
-
 
     // @include badges-color($gray-light);
     //
@@ -100,27 +97,27 @@
     //   @include badges-color($brand-rose);
     // }
 
-    &.primary{
-        background-color: $brand-primary;
+    &.primary {
+      background-color: $brand-primary;
     }
     &.info {
-        background-color: $brand-info;
+      background-color: $brand-info;
     }
-    &.success{
-        background-color: $brand-success;
+    &.success {
+      background-color: $brand-success;
     }
-    &.warning{
-        background-color: $brand-warning;
+    &.warning {
+      background-color: $brand-warning;
     }
-    &.danger{
-        background-color: $brand-danger;
+    &.danger {
+      background-color: $brand-danger;
     }
-    &.rose{
+    &.rose {
       background-color: $brand-rose;
     }
-    &.default{
-        background-color: $gray-light;
-    }
+    &.default {
       background-color: $gray-light;
+    }
+    background-color: $gray-light;
   }
 }

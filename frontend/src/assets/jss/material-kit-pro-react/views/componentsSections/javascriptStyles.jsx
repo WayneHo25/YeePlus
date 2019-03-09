@@ -4,7 +4,11 @@ import {
   cardTitle,
   description,
   mlAuto,
-  mrAuto
+  mrAuto,
+  blackColor,
+  whiteColor,
+  grayColor,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 import modalStyle from "assets/jss/material-kit-pro-react/modalStyle.jsx";
@@ -34,10 +38,10 @@ const javascriptStyles = theme => ({
   icon: {
     width: "24px",
     height: "24px",
-    color: "#495057"
+    color: grayColor[13]
   },
   label: {
-    color: "rgba(0, 0, 0, 0.26)",
+    color: "rgba(" + hexToRgb(blackColor) + ", 0.26)",
     cursor: "pointer",
     display: "inline-flex",
     fontSize: "14px",
@@ -51,7 +55,7 @@ const javascriptStyles = theme => ({
   },
   cardTitleWhite: {
     ...cardTitle,
-    color: "#FFFFFF !important"
+    color: whiteColor + "  !important"
   },
   socialLine: {
     marginTop: "1rem",
@@ -59,7 +63,7 @@ const javascriptStyles = theme => ({
     padding: "0"
   },
   socialLineButton: {
-    "&, &:hover": { color: "#fff" },
+    "&, &:hover": { color: whiteColor },
     marginLeft: "5px",
     marginRight: "5px"
   },

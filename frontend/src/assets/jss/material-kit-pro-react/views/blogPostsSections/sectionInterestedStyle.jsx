@@ -1,7 +1,8 @@
 import {
   title,
   cardTitle,
-  coloredShadow
+  coloredShadow,
+  grayColor
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const sectionInterestedStyle = {
@@ -17,7 +18,7 @@ const sectionInterestedStyle = {
     padding: "70px 0"
   },
   description: {
-    color: "#999"
+    color: grayColor[0]
   }
 };
 

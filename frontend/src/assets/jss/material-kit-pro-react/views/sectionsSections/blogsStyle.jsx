@@ -5,7 +5,8 @@ import {
   coloredShadow,
   description,
   mlAuto,
-  mrAuto
+  mrAuto,
+  grayColor
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const blogsSection = {
@@ -34,7 +35,7 @@ const blogsSection = {
   },
   author: {
     "& a": {
-      color: "#3C4858",
+      color: grayColor[1],
       textDecoration: "none"
     }
   },

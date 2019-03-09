@@ -1,3 +1,5 @@
+import { whiteColor, hexToRgb } from "assets/jss/material-kit-pro-react.jsx";
+
 const cardBodyStyle = {
   cardBody: {
     padding: "0.9375rem 1.875rem",
@@ -36,7 +38,7 @@ const cardBodyStyle = {
     "&": {
       "h1, h2, h3": {
         "& small": {
-          color: "rgba(255, 255, 255, 0.8)"
+          color: "rgba(" + hexToRgb(whiteColor) + ", 0.8)"
         }
       }
     }

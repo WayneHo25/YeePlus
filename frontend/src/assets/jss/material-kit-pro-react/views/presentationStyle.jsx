@@ -2,7 +2,10 @@ import {
   container,
   title,
   main,
-  mainRaised
+  whiteColor,
+  grayColor,
+  mainRaised,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 import footerStyle from "assets/jss/material-kit-pro-react/views/componentsSections/footerStyle.jsx";
 
@@ -23,10 +26,10 @@ const presentationStyle = {
   },
   title: {
     ...title,
-    color: "#FFF"
+    color: whiteColor
   },
   brand: {
-    color: "#fff",
+    color: whiteColor,
     textAlign: "center",
     "& h1": {
       fontSize: "4.2rem",
@@ -43,11 +46,11 @@ const presentationStyle = {
     right: "-10px",
     padding: "10px 18px",
     top: "-30px",
-    background: "#fff",
+    background: whiteColor,
     borderRadius: "3px",
-    color: "#444",
+    color: grayColor[18],
     lineHeight: "22px",
-    boxShadow: "0 5px 5px -2px rgba(31,31,31,.4)"
+    boxShadow: "0 5px 5px -2px rgba(" + hexToRgb(grayColor[25]) + ",.4)"
   }
 };
 

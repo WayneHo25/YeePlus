@@ -3,7 +3,10 @@ import {
   main,
   mainRaised,
   title,
-  section
+  whiteColor,
+  grayColor,
+  section,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const componentsStyle = {
@@ -19,7 +22,7 @@ const componentsStyle = {
     position: "relative"
   },
   brand: {
-    color: "#FFFFFF",
+    color: whiteColor,
     textAlign: "center",
     "& h1": {
       fontSize: "4.2rem",
@@ -35,7 +38,7 @@ const componentsStyle = {
   },
   title: {
     ...title,
-    color: "#FFFFFF !important"
+    color: whiteColor + "  !important"
   },
   link: {
     textDecoration: "none"
@@ -51,18 +54,18 @@ const componentsStyle = {
     right: "-90px",
     top: "-3px",
     padding: "10px 18px",
-    backgroundColor: "#fff",
+    backgroundColor: whiteColor,
     borderRadius: "3px",
-    color: "#444",
+    color: grayColor[18],
     lineHeight: "22px",
-    boxShadow: "0px 5px 5px -2px rgba(31,31,31,0.4)"
+    boxShadow: "0px 5px 5px -2px rgba(" + hexToRgb(grayColor[25]) + ",0.4)"
   },
   section: {
     ...section,
     padding: "70px 0px"
   },
   sectionGray: {
-    background: "#e5e5e5"
+    background: grayColor[14]
   },
   block: {
     color: "inherit",

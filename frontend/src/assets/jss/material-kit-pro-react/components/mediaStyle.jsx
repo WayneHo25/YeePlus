@@ -1,4 +1,9 @@
-import { title } from "assets/jss/material-kit-pro-react.jsx";
+import {
+  title,
+  blackColor,
+  grayColor,
+  hexToRgb
+} from "assets/jss/material-kit-pro-react.jsx";
 
 const mediaStyle = {
   media: {
@@ -6,7 +11,7 @@ const mediaStyle = {
     WebkitBoxAlign: "start",
     alignItems: "flex-start",
     "& p": {
-      color: "#999999",
+      color: grayColor[0],
       fontSize: "1rem",
       lineHeight: "1.6em"
     },
@@ -26,7 +31,13 @@ const mediaStyle = {
     borderRadius: "50%",
     marginRight: "15px",
     boxShadow:
-      "0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2)",
+      "0 6px 10px 0 rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.14), 0 1px 18px 0 rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.12), 0 3px 5px -1px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.2)",
     "& img": {
       width: "100%"
     }

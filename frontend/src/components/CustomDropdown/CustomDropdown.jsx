@@ -22,19 +22,28 @@ class CustomDropdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false,
-      clicks: 0
+      open: false
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.handleCloseMenu = this.handleCloseMenu.bind(this);
   }
 
-  handleClick() {
-    var x = (this.state.clicks + 1) % 2;
-    this.setState({ open: true, clicks: x });
-  }
-  handleClose() {
-    this.setState({ open: false, clicks: 0 });
+  handleClick = () => {
+    this.setState(state => ({ open: !state.open }));
+  };
+  handleClose = event => {
+    if (this.anchorEl.contains(event.target)) {
+      return;
+    }
+
+    this.setState({ open: false });
+  };
+  handleCloseMenu(param) {
+    this.setState({ open: false });
+    if (this.props && this.props.onClick) {
+      this.props.onClick(param);
+    }
   }
   render() {
     const { open } = this.state;
@@ -70,7 +79,7 @@ class CustomDropdown extends React.Component {
       <MenuList role="menu" className={classes.menuList}>
         {dropdownHeader !== undefined ? (
           <MenuItem
-            onClick={this.handleClose}
+            onClick={() => this.handleCloseMenu(dropdownHeader)}
             className={classes.dropdownHeader}
           >
             {dropdownHeader}
@@ -81,7 +90,7 @@ class CustomDropdown extends React.Component {
             return (
               <Divider
                 key={key}
-                onClick={this.handleClose}
+                onClick={() => this.handleCloseMenu("divider")}
                 className={classes.dropdownDividerItem}
               />
             );
@@ -99,7 +108,7 @@ class CustomDropdown extends React.Component {
           return (
             <MenuItem
               key={key}
-              onClick={this.handleClose}
+              onClick={() => this.handleCloseMenu(prop)}
               className={dropdownItem}
             >
               {prop}
@@ -119,7 +128,7 @@ class CustomDropdown extends React.Component {
               this.anchorEl = node;
             }}
             {...buttonProps}
-            onClick={open ? this.handleClose : this.handleClick}
+            onClick={this.handleClick}
           >
             {buttonIcon !== undefined ? (
               <this.props.buttonIcon className={classes.buttonIcon} />
@@ -208,7 +217,9 @@ CustomDropdown.propTypes = {
   ]),
   noLiPadding: PropTypes.bool,
   innerDropDown: PropTypes.bool,
-  navDropdown: PropTypes.bool
+  navDropdown: PropTypes.bool,
+  // This is a function that returns the clicked menu item
+  onClick: PropTypes.func
 };
 
 export default withStyles(customDropdownStyle)(CustomDropdown);

@@ -1,4 +1,8 @@
-import { cardTitle } from "assets/jss/material-kit-pro-react.jsx";
+import {
+  whiteColor,
+  hexToRgb,
+  cardTitle
+} from "assets/jss/material-kit-pro-react.jsx";
 
 import tooltipsStyle from "assets/jss/material-kit-pro-react/tooltipsStyle.jsx";
 
@@ -13,12 +17,12 @@ const sectionPillsStyle = {
     textAlign: "center"
   },
   category: {
-    color: "rgba(255, 255, 255, 0.7) !important",
+    color: "rgba(" + hexToRgb(whiteColor) + ", 0.7) !important",
     marginTop: "10px"
   },
   cardTitle: {
     ...cardTitle,
-    color: "#FFFFFF !important"
+    color: whiteColor + "  !important"
   },
   icons: {
     width: "1.1rem",

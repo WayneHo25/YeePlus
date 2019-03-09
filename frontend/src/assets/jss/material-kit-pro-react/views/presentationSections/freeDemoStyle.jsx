@@ -8,7 +8,10 @@ import {
   cardTitle,
   card,
   dangerColor,
-  successColor
+  successColor,
+  blackColor,
+  grayColor,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const freeDemoStyle = {
@@ -28,7 +31,7 @@ const freeDemoStyle = {
   },
   iconGithub: {
     fontSize: "82px",
-    color: "#777"
+    color: grayColor[10]
   },
   iframeGithub: {
     top: "11px",
@@ -42,7 +45,7 @@ const freeDemoStyle = {
     marginBottom: "30px",
     marginTop: "30px",
     borderRadius: "6px",
-    color: "rgba(0,0,0,0.87)",
+    color: "rgba(" + hexToRgb(blackColor) + ",0.87)",
     width: "100%",
     "& ul": {
       listStyle: "none",
@@ -51,16 +54,16 @@ const freeDemoStyle = {
       margin: "10px auto"
     },
     "& ul li": {
-      color: "#999",
+      color: grayColor[0],
       padding: "12px 0px",
-      borderBottom: "1px solid rgba(153,153,153,0.3)",
+      borderBottom: "1px solid rgba(" + hexToRgb(grayColor[0]) + ",0.3)",
       textAlign: "left"
     },
     "& ul li b": {
       minWidth: "24px",
       display: "inline-block",
       textAlign: "center",
-      color: "#3c4858"
+      color: grayColor[1]
     }
   },
   cardPricing: {
@@ -71,10 +74,10 @@ const freeDemoStyle = {
     position: "relative"
   },
   dangerColor: {
-    color: dangerColor
+    color: dangerColor[0]
   },
   successColor: {
-    color: successColor
+    color: successColor[0]
   }
 };
 

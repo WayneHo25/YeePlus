@@ -1,3 +1,15 @@
+import {
+  whiteColor,
+  blackColor,
+  primaryColor,
+  roseColor,
+  infoColor,
+  warningColor,
+  dangerColor,
+  successColor,
+  hexToRgb
+} from "assets/jss/material-kit-pro-react.jsx";
+
 const style = {
   rotatingCardContainer: {
     perspective: "800px",
@@ -21,9 +33,15 @@ const style = {
     "& $cardRotate $front, & $cardRotate $back": {
       backfaceVisibility: "hidden",
       boxShadow:
-        "0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2)",
+        "0 2px 2px 0 rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.14), 0 3px 1px -2px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 1px 5px 0 rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.2)",
       position: "absolute",
-      backgroundColor: "#fff",
+      backgroundColor: whiteColor,
       borderRadius: "6px",
       top: "0",
       left: "0",
@@ -61,7 +79,7 @@ const style = {
       left: "0",
       top: "0",
       content: "''",
-      backgroundColor: "rgba(0, 0, 0, 0.56)",
+      backgroundColor: "rgba(" + hexToRgb(blackColor) + ", 0.56)",
       borderRadius: "6px"
     }
   },
@@ -77,31 +95,37 @@ const style = {
     flexDirection: "column"
   },
   wrapperPrimary: {
-    background: "linear-gradient(60deg,#ab47bc,#7b1fa2)",
+    background:
+      "linear-gradient(60deg," + primaryColor[1] + "," + primaryColor[2] + ")",
     "& h1 small": {
-      color: "rgba(255, 255, 255, 0.8)"
+      color: "rgba(" + hexToRgb(whiteColor) + ", 0.8)"
     },
-    color: "#FFFFFF"
+    color: whiteColor
   },
   wrapperInfo: {
-    background: "linear-gradient(60deg,#26c6da,#0097a7)",
-    color: "#FFFFFF"
+    background:
+      "linear-gradient(60deg," + infoColor[1] + "," + infoColor[2] + ")",
+    color: whiteColor
   },
   wrapperSuccess: {
-    background: "linear-gradient(60deg,#66bb6a,#388e3c)",
-    color: "#FFFFFF"
+    background:
+      "linear-gradient(60deg," + successColor[1] + "," + successColor[2] + ")",
+    color: whiteColor
   },
   wrapperWarning: {
-    background: "linear-gradient(60deg,#ffa726,#f57c00)",
-    color: "#FFFFFF"
+    background:
+      "linear-gradient(60deg," + warningColor[1] + "," + warningColor[2] + ")",
+    color: whiteColor
   },
   wrapperDanger: {
-    background: "linear-gradient(60deg,#ef5350,#d32f2f)",
-    color: "#FFFFFF"
+    background:
+      "linear-gradient(60deg," + dangerColor[1] + "," + dangerColor[2] + ")",
+    color: whiteColor
   },
   wrapperRose: {
-    background: "linear-gradient(60deg,#ec407a,#c2185b)",
-    color: "#FFFFFF"
+    background:
+      "linear-gradient(60deg," + roseColor[1] + "," + roseColor[2] + ")",
+    color: whiteColor
   }
 };
 

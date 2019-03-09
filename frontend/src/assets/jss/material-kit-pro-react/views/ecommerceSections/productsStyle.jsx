@@ -4,7 +4,8 @@ import {
   cardTitle,
   coloredShadow,
   mlAuto,
-  mrAuto
+  mrAuto,
+  grayColor
 } from "assets/jss/material-kit-pro-react.jsx";
 
 import customCheckboxRadioSwitch from "assets/jss/material-kit-pro-react/customCheckboxRadioSwitchStyle.jsx";
@@ -23,14 +24,14 @@ const styles = {
     marginBottom: "0px !important"
   },
   cardDescription: {
-    color: "#999",
+    color: grayColor[0],
     textAlign: "center"
   },
   container: {
     ...container
   },
   description: {
-    color: "#999"
+    color: grayColor[0]
   },
   section: {
     ...section,
@@ -41,7 +42,7 @@ const styles = {
   },
   price: {
     fontSize: "18px",
-    color: "#9a9a9a"
+    color: grayColor[22]
   },
   pullRight: {
     float: "right"

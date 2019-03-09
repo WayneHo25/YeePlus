@@ -7,7 +7,11 @@ import {
   title,
   description,
   cardTitle,
-  roseColor
+  roseColor,
+  blackColor,
+  whiteColor,
+  grayColor,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const pricingSection = {
@@ -19,10 +23,10 @@ const pricingSection = {
   description,
   cardTitleWhite: {
     ...cardTitle,
-    color: "#FFFFFF !important"
+    color: whiteColor + "  !important"
   },
   sectionGray: {
-    background: "#E5E5E5"
+    background: grayColor[14]
   },
   section: {
     ...section,
@@ -33,13 +37,13 @@ const pricingSection = {
       zIndex: "2"
     },
     "& $description": {
-      color: "rgba(255, 255, 255, 0.5)"
+      color: "rgba(" + hexToRgb(whiteColor) + ", 0.5)"
     },
     "& $cardCategory": {
-      color: "rgba(255, 255, 255, 0.76)"
+      color: "rgba(" + hexToRgb(whiteColor) + ", 0.76)"
     },
     "& $title": {
-      color: "#FFFFFF",
+      color: whiteColor,
       marginBottom: "10px"
     },
     "&:after": {
@@ -51,12 +55,12 @@ const pricingSection = {
       left: "0",
       top: "0",
       content: "''",
-      backgroundColor: "rgba(0, 0, 0, 0.7)"
+      backgroundColor: "rgba(" + hexToRgb(blackColor) + ", 0.7)"
     }
   },
   pricing1: {
     "&$section:after": {
-      backgroundColor: "rgba(0, 0, 0, 0.8)"
+      backgroundColor: "rgba(" + hexToRgb(blackColor) + ", 0.8)"
     }
   },
   pricing: {
@@ -73,7 +77,7 @@ const pricingSection = {
     ...description
   },
   cardCategoryWhite: {
-    color: "#FFFFFF"
+    color: whiteColor
   },
   cardDescription: {
     ...description
@@ -84,11 +88,11 @@ const pricingSection = {
     justifyContent: "center !important"
   },
   icon: {
-    color: "rgba(255, 255, 255, 0.76)",
+    color: "rgba(" + hexToRgb(whiteColor) + ", 0.76)",
     margin: "10px auto 0",
     width: "130px",
     height: "130px",
-    border: "1px solid #E5E5E5",
+    border: "1px solid " + grayColor[14],
     borderRadius: "50%",
     lineHeight: "174px",
     "& .fab,& .fas,& .far,& .fal,& .material-icons": {
@@ -101,10 +105,10 @@ const pricingSection = {
     }
   },
   iconWhite: {
-    color: "#FFFFFF"
+    color: whiteColor
   },
   iconRose: {
-    color: roseColor
+    color: roseColor[0]
   },
   marginTop30: {
     marginTop: "30px"

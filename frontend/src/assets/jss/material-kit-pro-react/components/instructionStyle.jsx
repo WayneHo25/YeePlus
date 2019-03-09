@@ -1,7 +1,3 @@
-// ##############################
-// // // Instruction component styles
-// #############################
-
 const instructionStyle = {
   instruction: {},
   picture: {},

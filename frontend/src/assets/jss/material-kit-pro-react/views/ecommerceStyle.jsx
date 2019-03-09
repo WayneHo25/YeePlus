@@ -5,7 +5,11 @@ import {
   mrAuto,
   mlAuto,
   container,
-  description
+  description,
+  blackColor,
+  whiteColor,
+  grayColor,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 import imagesStyles from "assets/jss/material-kit-pro-react/imagesStyles.jsx";
 
@@ -26,7 +30,7 @@ const styles = {
   },
   brand: {
     "& h1, & h4": {
-      color: "#fff"
+      color: whiteColor
     }
   },
   card: {},
@@ -57,7 +61,7 @@ const styles = {
       left: 0,
       top: 0,
       content: "''",
-      backgroundColor: "rgba(0,0,0,0.66)"
+      backgroundColor: "rgba(" + hexToRgb(blackColor) + ",0.66)"
     }
   },
   subscribeLineImage: {
@@ -69,10 +73,10 @@ const styles = {
       position: "relative"
     },
     "& $title": {
-      color: "#fff"
+      color: whiteColor
     },
     "& $description": {
-      color: "#999"
+      color: grayColor[0]
     }
   },
   socialFeed: {

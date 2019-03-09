@@ -3,6 +3,8 @@ import {
   container,
   cardTitle,
   coloredShadow,
+  grayColor,
+  dangerColor,
   mlAuto
 } from "assets/jss/material-kit-pro-react.jsx";
 
@@ -18,7 +20,7 @@ const styles = {
   },
   coloredShadow,
   cardDescription: {
-    color: "#999",
+    color: grayColor[0],
     textAlign: "center"
   },
   mlAuto,
@@ -27,17 +29,17 @@ const styles = {
   },
   price: {
     fontSize: "18px",
-    color: "#9a9a9a"
+    color: grayColor[22]
   },
   priceOld: {
     fontSize: "16px",
     textDecoration: "line-through"
   },
   priceNew: {
-    color: "#f44336"
+    color: dangerColor[0]
   },
   stats: {
-    color: "#999"
+    color: grayColor[0]
   },
   textCenter: {
     textAlign: "center"

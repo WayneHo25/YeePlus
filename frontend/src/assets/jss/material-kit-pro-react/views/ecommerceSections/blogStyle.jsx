@@ -2,6 +2,8 @@ import {
   section,
   container,
   cardTitle,
+  grayColor,
+  roseColor,
   coloredShadow
 } from "assets/jss/material-kit-pro-react.jsx";
 
@@ -14,13 +16,13 @@ const styles = {
   },
   coloredShadow,
   cardDescription: {
-    color: "#999"
+    color: grayColor[0]
   },
   cardCategory: {
     marginTop: "10px"
   },
   textRose: {
-    color: "#e91e63!important"
+    color: roseColor[0] + " !important"
   }
 };
 

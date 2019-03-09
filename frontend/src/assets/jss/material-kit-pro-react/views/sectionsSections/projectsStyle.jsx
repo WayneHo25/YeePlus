@@ -6,7 +6,9 @@ import {
   cardTitle,
   description,
   coloredShadow,
-  sectionDark
+  whiteColor,
+  sectionDark,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const projectsSection = {
@@ -27,16 +29,16 @@ const projectsSection = {
     padding: "20px 0 50px 0px"
   },
   cardCategory: {
-    color: "rgba(255, 255, 255, 0.7) !important",
+    color: "rgba(" + hexToRgb(whiteColor) + ", 0.7) !important",
     marginTop: "10px"
   },
   cardTitleWhite: {
     ...cardTitle,
-    color: "#FFFFFF !important",
+    color: whiteColor + "  !important",
     marginTop: "10px !important"
   },
   cardDescription: {
-    color: "rgba(255, 255, 255, 0.7) !important"
+    color: "rgba(" + hexToRgb(whiteColor) + ", 0.7) !important"
   },
   sectionSpace: {
     height: "70px",
@@ -52,13 +54,13 @@ const projectsSection = {
     ...sectionDark,
     backgroundSize: "550% 450%",
     "& $title, & $cardTitle": {
-      color: "#FFFFFF"
+      color: whiteColor
     },
     "& $cardCategory": {
-      color: "rgba(255, 255, 255, 0.5) !important"
+      color: "rgba(" + hexToRgb(whiteColor) + ", 0.5) !important"
     },
     "& $cardDescription": {
-      color: "rgba(255, 255, 255, 0.76) !important"
+      color: "rgba(" + hexToRgb(whiteColor) + ", 0.76) !important"
     }
   },
   projects3: {
@@ -74,7 +76,7 @@ const projectsSection = {
     marginTop: "0",
     marginBottom: "0",
     "& $cardTitle": {
-      color: "#FFFFFF"
+      color: whiteColor
     }
   },
   cardBody4: {

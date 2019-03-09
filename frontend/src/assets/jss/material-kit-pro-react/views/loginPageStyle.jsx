@@ -1,34 +1,38 @@
 import {
   container,
   description,
-  cardTitle
+  cardTitle,
+  blackColor,
+  whiteColor,
+  grayColor,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
-const signupPageStyle = {
+const signupPageStyle = theme => ({
   description,
   cardTitle: {
     ...cardTitle,
-    color: "#FFFFFF !important"
+    color: whiteColor + "  !important"
   },
   container: {
     ...container,
-    zIndex: "2",
-    position: "relative",
-    paddingTop: "20vh",
-    color: "#FFFFFF"
+    zIndex: "4",
+    [theme.breakpoints.down("sm")]: {
+      paddingBottom: "100px"
+    }
   },
   pageHeader: {
-    minHeight: "100vh",
-    maxHeight: "1000px",
-    height: "auto",
-    display: "inherit",
-    position: "relative",
-    margin: "0",
-    padding: "0",
+    color: whiteColor,
     border: "0",
+    height: "100%",
+    margin: "0",
+    display: "flex!important",
+    padding: "120px 0",
+    position: "relative",
+    minHeight: "100vh",
     alignItems: "center",
     "&:before": {
-      background: "rgba(0, 0, 0, 0.5)"
+      background: "rgba(" + hexToRgb(blackColor) + ", 0.5)"
     },
     "&:before,&:after": {
       position: "absolute",
@@ -54,7 +58,7 @@ const signupPageStyle = {
     padding: "0"
   },
   inputIconsColor: {
-    color: "#495057"
+    color: grayColor[13]
   },
   textCenter: {
     textAlign: "center"
@@ -88,7 +92,7 @@ const signupPageStyle = {
     float: "left!important",
     display: "block",
     "&,& *,& *:hover,& *:focus": {
-      color: "#FFFFFF !important"
+      color: whiteColor + "  !important"
     }
   },
   right: {
@@ -96,7 +100,7 @@ const signupPageStyle = {
     margin: "0",
     float: "right",
     "&,& *,& *:hover,& *:focus": {
-      color: "#FFFFFF !important"
+      color: whiteColor + "  !important"
     }
   },
   icon: {
@@ -110,9 +114,9 @@ const signupPageStyle = {
     width: "100%",
     background: "transparent",
     bottom: "0",
-    color: "#fff",
+    color: whiteColor,
     zIndex: "2"
   }
-};
+});
 
 export default signupPageStyle;

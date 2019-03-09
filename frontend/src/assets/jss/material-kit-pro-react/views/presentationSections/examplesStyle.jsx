@@ -5,7 +5,9 @@ import {
   mlAuto,
   mrAuto,
   title,
-  description
+  whiteColor,
+  description,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const examplesStyle = {
@@ -16,10 +18,10 @@ const examplesStyle = {
   sectionDark: {
     ...sectionDark,
     "& $title": {
-      color: "#fff"
+      color: whiteColor
     },
     "& $description": {
-      color: "rgba(255,255,255,0.76)"
+      color: "rgba(" + hexToRgb(whiteColor) + ",0.76)"
     }
   },
   container,

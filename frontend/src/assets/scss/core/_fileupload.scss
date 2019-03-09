@@ -22,7 +22,7 @@
   display: inline-block;
   margin-bottom: 9px;
 
-  input[type="file"]{
+  input[type="file"] {
     display: none;
   }
 }
@@ -41,11 +41,12 @@
   text-align: center;
   vertical-align: middle;
   max-width: 360px;
-  box-shadow: 0 5px 15px -8px rgba(0, 0, 0, 0.24), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px -8px rgba(0, 0, 0, 0.24),
+    0 8px 10px -5px rgba(0, 0, 0, 0.2);
 
-  &.img-circle{
-      border-radius: 50%;
-      max-width: 100px;
+  &.img-circle {
+    border-radius: 50%;
+    max-width: 100px;
   }
 }
 .fileinput .thumbnail > img {
@@ -115,8 +116,8 @@
 .input-group-addon:not(:first-child) {
   border-left: 0;
 }
-.thumbnail{
-    border: 0 none;
-    border-radius: 0;
-    padding: 0;
+.thumbnail {
+  border: 0 none;
+  border-radius: 0;
+  padding: 0;
 }

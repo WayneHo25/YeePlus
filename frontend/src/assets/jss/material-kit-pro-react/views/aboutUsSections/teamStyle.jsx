@@ -3,7 +3,8 @@ import {
   mlAuto,
   title,
   description,
-  cardTitle
+  cardTitle,
+  grayColor
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const teamStyle = {
@@ -16,7 +17,7 @@ const teamStyle = {
   },
   cardTitle,
   cardDescription: {
-    color: "#999"
+    color: grayColor[0]
   },
   team: {
     padding: "80px 0px"
@@ -29,7 +30,7 @@ const teamStyle = {
     height: "auto"
   },
   textMuted: {
-    color: "#6c757d!important"
+    color: grayColor[7] + " !important"
   },
   justifyContent: {
     justifyContent: "center!important"

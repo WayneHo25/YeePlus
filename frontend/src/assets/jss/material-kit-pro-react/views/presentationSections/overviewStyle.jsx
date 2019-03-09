@@ -6,7 +6,11 @@ import {
   container,
   description,
   cardTitle,
-  coloredShadow
+  coloredShadow,
+  blackColor,
+  whiteColor,
+  grayColor,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const overviewStyle = {
@@ -40,13 +44,13 @@ const overviewStyle = {
       zIndex: "2",
       position: "relative",
       marginBottom: "30px",
-      color: "#fff"
+      color: whiteColor
     },
     "& p": {
-      color: "#fff"
+      color: whiteColor
     },
     "&:after": {
-      background: "rgba(0,0,0,0.65)",
+      background: "rgba(" + hexToRgb(blackColor) + ",0.65)",
       position: "absolute",
       width: "100%",
       height: "100%",
@@ -63,7 +67,7 @@ const overviewStyle = {
   },
   featuresShow: {
     zIndex: 3,
-    border: "1px solid rgba(255,255,255,0.35)",
+    border: "1px solid rgba(" + hexToRgb(whiteColor) + ",0.35)",
     borderTop: 0,
     borderBottom: 0,
     "&:last-of-type": {
@@ -73,7 +77,7 @@ const overviewStyle = {
       borderLeft: 0
     },
     "& h4,& p,& svg,& .fab,& .fas,& .far,& .fal,& .material-icons": {
-      color: "#fff"
+      color: whiteColor
     },
     "& p": {
       lineHeight: "24px",
@@ -96,7 +100,7 @@ const overviewStyle = {
   cardDescription: {
     fontSize: "16px",
     lineHeight: "1.6em",
-    color: "#999"
+    color: grayColor[0]
   },
   coloredShadow,
   alignLeft: {

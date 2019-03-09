@@ -1,7 +1,3 @@
-// ##############################
-// // // Header styles
-// #############################
-
 import {
   container,
   defaultFont,
@@ -13,7 +9,11 @@ import {
   roseColor,
   transition,
   boxShadow,
-  drawerWidth
+  drawerWidth,
+  blackColor,
+  whiteColor,
+  grayColor,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const headerStyle = theme => ({
@@ -23,11 +23,15 @@ const headerStyle = theme => ({
     borderRadius: "3px",
     padding: "0.625rem 0",
     marginBottom: "20px",
-    color: "#555",
+    color: grayColor[15],
     width: "100%",
-    backgroundColor: "#fff",
+    backgroundColor: whiteColor,
     boxShadow:
-      "0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)",
+      "0 4px 18px 0px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.12), 0 7px 10px -5px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.15)",
     transition: "all 150ms ease 0s",
     alignItems: "center",
     flexFlow: "row nowrap",
@@ -52,6 +56,7 @@ const headerStyle = theme => ({
   title: {
     "&,& a": {
       ...defaultFont,
+      minWidth: "unset",
       lineHeight: "30px",
       fontSize: "18px",
       borderRadius: "3px",
@@ -69,61 +74,93 @@ const headerStyle = theme => ({
     marginTop: "0px"
   },
   primary: {
-    backgroundColor: primaryColor,
-    color: "#FFFFFF",
+    backgroundColor: primaryColor[0],
+    color: whiteColor,
     boxShadow:
-      "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(156, 39, 176, 0.46)"
+      "0 4px 20px 0px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.14), 0 7px 12px -5px rgba(" +
+      hexToRgb(primaryColor[0]) +
+      ", 0.46)"
   },
   info: {
-    backgroundColor: infoColor,
-    color: "#FFFFFF",
+    backgroundColor: infoColor[0],
+    color: whiteColor,
     boxShadow:
-      "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(0, 188, 212, 0.46)"
+      "0 4px 20px 0px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.14), 0 7px 12px -5px rgba(" +
+      hexToRgb(infoColor[0]) +
+      ", 0.46)"
   },
   success: {
-    backgroundColor: successColor,
-    color: "#FFFFFF",
+    backgroundColor: successColor[0],
+    color: whiteColor,
     boxShadow:
-      "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(76, 175, 80, 0.46)"
+      "0 4px 20px 0px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.14), 0 7px 12px -5px rgba(" +
+      hexToRgb(successColor[0]) +
+      ", 0.46)"
   },
   warning: {
-    backgroundColor: warningColor,
-    color: "#FFFFFF",
+    backgroundColor: warningColor[0],
+    color: whiteColor,
     boxShadow:
-      "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(255, 152, 0, 0.46)"
+      "0 4px 20px 0px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.14), 0 7px 12px -5px rgba(" +
+      hexToRgb(warningColor[0]) +
+      ", 0.46)"
   },
   danger: {
-    backgroundColor: dangerColor,
-    color: "#FFFFFF",
+    backgroundColor: dangerColor[0],
+    color: whiteColor,
     boxShadow:
-      "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(244, 67, 54, 0.46)"
+      "0 4px 20px 0px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.14), 0 7px 12px -5px rgba(" +
+      hexToRgb(dangerColor[0]) +
+      ", 0.46)"
   },
   rose: {
-    backgroundColor: roseColor,
-    color: "#FFFFFF",
+    backgroundColor: roseColor[0],
+    color: whiteColor,
     boxShadow:
-      "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(233, 30, 99, 0.46)"
+      "0 4px 20px 0px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.14), 0 7px 12px -5px rgba(" +
+      hexToRgb(roseColor[0]) +
+      ", 0.46)"
   },
   transparent: {
     backgroundColor: "transparent !important",
     boxShadow: "none",
     paddingTop: "25px",
-    color: "#FFFFFF"
+    color: whiteColor
   },
   dark: {
-    color: "#FFFFFF",
-    backgroundColor: "#212121 !important",
+    color: whiteColor,
+    backgroundColor: grayColor[9] + " !important",
     boxShadow:
-      "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(33, 33, 33, 0.46)"
+      "0 4px 20px 0px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.14), 0 7px 12px -5px rgba(" +
+      hexToRgb(grayColor[9]) +
+      ", 0.46)"
   },
   white: {
     border: "0",
     padding: "0.625rem 0",
     marginBottom: "20px",
-    color: "#555",
-    backgroundColor: "#fff !important",
+    color: grayColor[15],
+    backgroundColor: whiteColor + " !important",
     boxShadow:
-      "0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)"
+      "0 4px 18px 0px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.12), 0 7px 10px -5px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.15)"
   },
   drawerPaper: {
     border: "none",
@@ -137,7 +174,6 @@ const headerStyle = theme => ({
     display: "block",
     top: "0",
     height: "100vh",
-    maxHeight: "1100px",
     right: "0",
     left: "auto",
     visibility: "visible",

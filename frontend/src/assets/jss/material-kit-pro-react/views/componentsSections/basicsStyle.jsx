@@ -1,5 +1,6 @@
 import {
   container,
+  whiteColor,
   title,
   mlAuto,
   mrAuto
@@ -33,7 +34,7 @@ const basicsStyle = {
   icons: {
     width: "17px",
     height: "17px",
-    color: "#FFFFFF"
+    color: whiteColor
   }
 };
 

@@ -2,12 +2,13 @@ import {
   container,
   title,
   main,
+  whiteColor,
   mainRaised
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const landingPageStyle = {
   container: {
-    color: "#FFFFFF",
+    color: whiteColor,
     ...container,
     zIndex: "2"
   },
@@ -17,7 +18,7 @@ const landingPageStyle = {
     position: "relative",
     marginTop: "30px",
     minHeight: "32px",
-    color: "#FFFFFF",
+    color: whiteColor,
     textDecoration: "none"
   },
   subtitle: {

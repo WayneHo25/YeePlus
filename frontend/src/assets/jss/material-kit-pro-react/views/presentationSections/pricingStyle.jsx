@@ -5,7 +5,10 @@ import {
   mrAuto,
   title,
   description,
-  card
+  card,
+  blackColor,
+  grayColor,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const pricingStyle = {
@@ -30,13 +33,19 @@ const pricingStyle = {
   },
   description: {
     ...description,
-    color: "#999"
+    color: grayColor[0]
   },
   card: {
     ...card,
     marginBottom: "30px",
     boxShadow:
-      "0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12)",
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(blackColor) +
+      ",0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(blackColor) +
+      ",0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(blackColor) +
+      ",0.12)",
     "& ul": {
       listStyle: "none",
       padding: 0,
@@ -44,13 +53,13 @@ const pricingStyle = {
       margin: "10px auto"
     },
     "& ul li": {
-      color: "#999",
+      color: grayColor[0],
       textAlign: "center",
       padding: "12px 0px",
-      borderBottom: "1px solid rgba(153,153,153,0.3)"
+      borderBottom: "1px solid rgba(" + hexToRgb(grayColor[0]) + ",0.3)"
     },
     "& ul li b": {
-      color: "#3c4858"
+      color: grayColor[1]
     },
     "& ul li:last-child": {
       border: 0
@@ -60,12 +69,12 @@ const pricingStyle = {
     marginTop: "80px"
   },
   cardCategory: {
-    color: "#999",
+    color: grayColor[0],
     marginTop: "10px"
   },
   cardTitle: {
     marginTop: "30px",
-    color: "#3c4858",
+    color: grayColor[1],
     textDecoration: "none",
     fontWeight: "700",
     fontFamily: "Roboto Slab,Times New Roman,serif",

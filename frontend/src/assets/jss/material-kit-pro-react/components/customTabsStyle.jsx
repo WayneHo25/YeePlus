@@ -1,4 +1,8 @@
-import { defaultFont } from "assets/jss/material-kit-pro-react.jsx";
+import {
+  whiteColor,
+  defaultFont,
+  hexToRgb
+} from "assets/jss/material-kit-pro-react.jsx";
 
 const customTabsStyle = theme => ({
   cardTitle: {
@@ -7,7 +11,7 @@ const customTabsStyle = theme => ({
     padding: "10px 10px 10px 0",
     lineHeight: "24px",
     fontSize: "14px",
-    color: "#FFFFFF"
+    color: whiteColor
   },
   cardTitleRTL: {
     float: "right",
@@ -17,7 +21,7 @@ const customTabsStyle = theme => ({
     display: "none"
   },
   tabsContainer: {
-    color: "#FFFFFF",
+    color: whiteColor,
     display: "flex",
     flexWrap: "wrap"
   },
@@ -34,7 +38,7 @@ const customTabsStyle = theme => ({
     minHeight: "unset"
   },
   customTabSelected: {
-    backgroundColor: "rgba(255, 255, 255, 0.2)",
+    backgroundColor: "rgba(" + hexToRgb(whiteColor) + ", 0.2)",
     transition: "background-color .4s"
   },
   customTabRoot: {

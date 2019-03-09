@@ -1,7 +1,3 @@
-// ##############################
-// // // Table styles
-// #############################
-
 import {
   warningColor,
   primaryColor,
@@ -13,27 +9,27 @@ import {
   defaultFont
 } from "assets/jss/material-kit-pro-react.jsx";
 
-const tableStyle = theme => ({
+const tableStyle = {
   warning: {
-    color: warningColor
+    color: warningColor[0]
   },
   primary: {
-    color: primaryColor
+    color: primaryColor[0]
   },
   danger: {
-    color: dangerColor
+    color: dangerColor[0]
   },
   success: {
-    color: successColor
+    color: successColor[0]
   },
   info: {
-    color: infoColor
+    color: infoColor[0]
   },
   rose: {
-    color: roseColor
+    color: roseColor[0]
   },
   gray: {
-    color: grayColor
+    color: grayColor[0]
   },
   right: {
     textAlign: "right"
@@ -61,15 +57,15 @@ const tableStyle = theme => ({
     verticalAlign: "middle",
     fontSize: "0.875rem",
     borderBottom: "none",
-    borderTop: "1px solid #ddd",
+    borderTop: "1px solid " + grayColor[6],
     position: "relative",
-    color: "#3C4858"
+    color: grayColor[1]
   },
   tableHeadCell: {
     fontSize: "1.063rem",
     borderBottomWidth: "1px",
     fontWeight: "300",
-    color: "#555",
+    color: grayColor[15],
     borderTopWidth: "0 !important"
   },
   tableCellTotal: {
@@ -89,37 +85,37 @@ const tableStyle = theme => ({
     overflowX: "auto"
   },
   tableStripedRow: {
-    backgroundColor: "#f9f9f9"
+    backgroundColor: grayColor[16]
   },
   tableRowHover: {
     "&:hover": {
-      backgroundColor: "#f5f5f5"
+      backgroundColor: grayColor[23]
     }
   },
   warningRow: {
-    backgroundColor: "#fcf8e3",
+    backgroundColor: warningColor[4],
     "&:hover": {
-      backgroundColor: "#faf2cc"
+      backgroundColor: warningColor[5]
     }
   },
   dangerRow: {
-    backgroundColor: "#f2dede",
+    backgroundColor: dangerColor[4],
     "&:hover": {
-      backgroundColor: "#ebcccc"
+      backgroundColor: dangerColor[5]
     }
   },
   successRow: {
-    backgroundColor: "#dff0d8",
+    backgroundColor: successColor[4],
     "&:hover": {
-      backgroundColor: "#d0e9c6"
+      backgroundColor: successColor[5]
     }
   },
   infoRow: {
-    backgroundColor: "#d9edf7",
+    backgroundColor: infoColor[4],
     "&:hover": {
-      backgroundColor: "#c4e3f3"
+      backgroundColor: infoColor[5]
     }
   }
-});
+};
 
 export default tableStyle;

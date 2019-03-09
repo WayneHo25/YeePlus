@@ -1,7 +1,3 @@
-// ##############################
-// // // SnackbarContent styles
-// #############################
-
 import {
   defaultFont,
   primaryBoxShadow,
@@ -9,7 +5,16 @@ import {
   successBoxShadow,
   warningBoxShadow,
   dangerBoxShadow,
-  container
+  container,
+  blackColor,
+  whiteColor,
+  grayColor,
+  primaryColor,
+  warningColor,
+  dangerColor,
+  successColor,
+  infoColor,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const snackbarContentStyle = {
@@ -21,36 +26,42 @@ const snackbarContentStyle = {
     marginBottom: "20px",
     fontSize: "14px",
     backgroundColor: "white",
-    color: "#555555",
+    color: grayColor[15],
     borderRadius: "0px",
     maxWidth: "100%",
     minWidth: "auto",
     boxShadow:
-      "0 12px 20px -10px rgba(255, 255, 255, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(255, 255, 255, 0.2)"
+      "0 12px 20px -10px rgba(" +
+      hexToRgb(whiteColor) +
+      ", 0.28), 0 4px 20px 0px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.12), 0 7px 8px -5px rgba(" +
+      hexToRgb(whiteColor) +
+      ", 0.2)"
   },
   info: {
-    backgroundColor: "#00d3ee",
-    color: "#ffffff",
+    backgroundColor: infoColor[3],
+    color: whiteColor,
     ...infoBoxShadow
   },
   success: {
-    backgroundColor: "#5cb860",
-    color: "#ffffff",
+    backgroundColor: successColor[3],
+    color: whiteColor,
     ...successBoxShadow
   },
   warning: {
-    backgroundColor: "#ffa21a",
-    color: "#ffffff",
+    backgroundColor: warningColor[3],
+    color: whiteColor,
     ...warningBoxShadow
   },
   danger: {
-    backgroundColor: "#f55a4e",
-    color: "#ffffff",
+    backgroundColor: dangerColor[3],
+    color: whiteColor,
     ...dangerBoxShadow
   },
   primary: {
-    backgroundColor: "#af2cc5",
-    color: "#ffffff",
+    backgroundColor: primaryColor[3],
+    color: whiteColor,
     ...primaryBoxShadow
   },
   message: {
@@ -71,7 +82,8 @@ const snackbarContentStyle = {
     lineHeight: "1",
     position: "absolute",
     right: "-4px",
-    top: "0"
+    top: "0",
+    padding: "0"
   },
   icon: {
     display: "block",

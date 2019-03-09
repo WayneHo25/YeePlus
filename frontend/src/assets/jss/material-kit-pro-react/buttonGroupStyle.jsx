@@ -1,7 +1,3 @@
-// ##############################
-// // // Button Group styles
-// #############################
-
 const buttonGroupStyle = {
   buttonGroup: {
     position: "relative",

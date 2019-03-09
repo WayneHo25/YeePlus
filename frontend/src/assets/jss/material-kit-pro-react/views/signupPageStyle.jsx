@@ -1,4 +1,12 @@
-import { container, cardTitle } from "assets/jss/material-kit-pro-react.jsx";
+import {
+  primaryColor,
+  grayColor,
+  container,
+  cardTitle,
+  whiteColor,
+  blackColor,
+  hexToRgb
+} from "assets/jss/material-kit-pro-react.jsx";
 
 import customCheckboxRadioSwitchStyle from "assets/jss/material-kit-pro-react/customCheckboxRadioSwitchStyle.jsx";
 
@@ -8,11 +16,10 @@ const signupPageStyle = {
     zIndex: "2",
     position: "relative",
     paddingTop: "20vh",
-    color: "#FFFFFF"
+    color: whiteColor
   },
   pageHeader: {
     minHeight: "100vh",
-    maxHeight: "1600px",
     height: "auto",
     display: "inherit",
     position: "relative",
@@ -21,11 +28,15 @@ const signupPageStyle = {
     border: "0",
     alignItems: "center",
     "&:before": {
-      background: "rgba(0, 0, 0, 0.5)"
+      background: "rgba(" + hexToRgb(blackColor) + ", 0.5)"
     },
     "&:after": {
       background:
-        "linear-gradient(60deg,rgba(225,190,231,.56),rgba(186,104,200,.95))"
+        "linear-gradient(60deg,rgba(" +
+        hexToRgb(primaryColor[4]) +
+        ",.56),rgba(" +
+        hexToRgb(primaryColor[5]) +
+        ",.95))"
     },
     "&:before,&:after": {
       position: "absolute",
@@ -41,7 +52,13 @@ const signupPageStyle = {
   cardSignup: {
     borderRadius: "6px",
     boxShadow:
-      "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);",
+      "0 16px 24px 2px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.14), 0 6px 30px 5px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.12), 0 8px 10px -5px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.2);",
     marginBottom: "100px",
     padding: "40px 0px"
   },
@@ -71,7 +88,7 @@ const signupPageStyle = {
     position: "relative"
   },
   inputAdornmentIcon: {
-    color: "#495057"
+    color: grayColor[13]
   },
   form: {
     margin: "0"
@@ -104,7 +121,7 @@ const signupPageStyle = {
     float: "left!important",
     display: "block",
     "&,& *,& *:hover,& *:focus": {
-      color: "#FFFFFF !important"
+      color: whiteColor + "  !important"
     }
   },
   right: {
@@ -112,7 +129,7 @@ const signupPageStyle = {
     margin: "0",
     float: "right",
     "&,& *,& *:hover,& *:focus": {
-      color: "#FFFFFF !important"
+      color: whiteColor + "  !important"
     }
   },
   icon: {

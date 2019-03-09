@@ -4,7 +4,9 @@ import {
   sectionDark,
   sectionDescription,
   title,
-  mlAuto
+  whiteColor,
+  mlAuto,
+  hexToRgb
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const cardsStyle = {
@@ -17,13 +19,13 @@ const cardsStyle = {
   sectionDescription,
   title: {
     ...title,
-    color: "#fff",
+    color: whiteColor,
     marginTop: "30px",
     marginBottom: "25px",
     minHeight: "32px"
   },
   description: {
-    color: "rgba(255,255,255,0.76)"
+    color: "rgba(" + hexToRgb(whiteColor) + ",0.76)"
   },
   imageContainer: {
     maxWidth: "1040px",

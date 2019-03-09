@@ -32,7 +32,8 @@ const navbarsStyle = theme => ({
   },
   formControl: {
     margin: "0 !important",
-    paddingTop: "0"
+    paddingTop: "7px",
+    paddingBottom: "7px"
   },
   inputRootCustomClasses: {
     margin: "0!important"
@@ -49,7 +50,6 @@ const navbarsStyle = theme => ({
   },
   imageDropdownButton: {
     padding: "0px",
-    top: "4px",
     borderRadius: "50%",
     marginLeft: "5px"
   }

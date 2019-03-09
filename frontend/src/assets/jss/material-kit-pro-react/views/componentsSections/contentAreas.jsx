@@ -1,7 +1,14 @@
-import { title, mrAuto, mlAuto } from "assets/jss/material-kit-pro-react.jsx";
+import {
+  title,
+  mrAuto,
+  mlAuto,
+  grayColor
+} from "assets/jss/material-kit-pro-react.jsx";
+
 import checkboxes from "assets/jss/material-kit-pro-react/customCheckboxRadioSwitchStyle.jsx";
 import buttonGroup from "assets/jss/material-kit-pro-react/buttonGroupStyle.jsx";
 import tooltips from "assets/jss/material-kit-pro-react/tooltipsStyle.jsx";
+
 const contentAreas = {
   title,
   mrAuto,
@@ -34,10 +41,10 @@ const contentAreas = {
     fontSize: "1.5em"
   },
   tdNameAnchor: {
-    color: "#3C4858"
+    color: grayColor[1]
   },
   tdNameSmall: {
-    color: "#999999",
+    color: grayColor[0],
     fontSize: "0.75em",
     fontWeight: "300"
   },
