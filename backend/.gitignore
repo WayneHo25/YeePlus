@@ -22,9 +22,5 @@
 /nbbuild/
 /dist/
 /nbdist/
-<<<<<<< HEAD
 /.nb-gradle/
 /.metadata/
-=======
-/.nb-gradle/
->>>>>>> 584ee3bfe215abcf0a7dd4e713b359df23c6c3c5
