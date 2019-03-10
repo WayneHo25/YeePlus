@@ -1,5 +1,5 @@
 import { login, getCurrentUser } from 'util/APIUtils';
-import { ACCESS_TOKEN } from 'constants';
+import { ACCESS_TOKEN } from 'constants/Config';
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'

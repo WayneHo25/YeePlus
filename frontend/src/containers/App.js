@@ -5,17 +5,33 @@ import { connect } from 'react-redux';
 
 import LandingPage from "views/LandingPage/LandingPage.jsx";
 
+import Header from "components/Header/Header.jsx";
+import HeaderLinks from "components/Header/HeaderLinks.jsx";
+
 class App extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    const { isFetching, isAuthenticated, currentUser } = this.props;
+    const { classes, isFetching, isAuthenticated, currentUser, ...rest } = this.props;
     return (
-      <Switch>
-        <Route exact path="/" component={LandingPage}></Route>
-      </Switch>
+      <div>
+        <Header
+          color="transparent"
+          brand="YeePlus Controller"
+          links={<HeaderLinks dropdownHoverColor="info" />}
+          fixed
+          changeColorOnScroll={{
+            height: 300,
+            color: "info"
+          }}
+          {...rest}
+        />
+        <Switch>
+          <Route exact path="/" component={LandingPage}></Route>
+        </Switch>
+      </div>
     );
   }
 }
