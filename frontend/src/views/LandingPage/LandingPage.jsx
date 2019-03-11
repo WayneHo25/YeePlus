@@ -3,10 +3,6 @@ import React from "react";
 import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-// @material-ui/icons
-import Favorite from "@material-ui/icons/Favorite";
 // core components
 import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
@@ -32,13 +28,26 @@ class LandingPage extends React.Component {
     const { classes, ...rest } = this.props;
     return (
       <div>
-        <Parallax image={require("assets/img/bg9.jpg")} filter="dark">
+        <Header
+          color="transparent"
+          brand="YeePlus Controller"
+          links={<HeaderLinks dropdownHoverColor="info" />}
+          fixed
+          changeColorOnScroll={{
+            height: 300,
+            color: "info"
+          }}
+          {...rest}
+        />
+        <Parallax image={require("assets/img/bg2.jpg")} filter="dark">
           <div className={classes.container}>
             <GridContainer>
               <GridItem xs={12} sm={6} md={6}>
                 <h1 className={classes.title}>Start Talking to Your Lights.</h1>
                 <h4>
-                  YeePlus Controller is the simplest, smartest way to control your smart Yeelight product online.
+                  YeePlus Controller is the simplest, smartest way to control your
+                  smart Yeelight product online, which is an innovative leader
+                  dedicated for smarting lighting application.
                 </h4>
                 <br />
                 <Button
@@ -62,12 +71,12 @@ class LandingPage extends React.Component {
           </div>
         </div>
         <Footer
+          className={classes.footer}
           content={
-            <div>
-              <div className={classes.center}>
-                &copy; {1900 + new Date().getYear()} , made by{" "}
-                <a href="http://www.wayneblog.tk">Wayne He</a>
-              </div>
+            <div className={classNames(classes.pullCenter, classes.copyRight)}>
+              Copyright &copy; {1900 + new Date().getYear()}{" "}
+              <a href="http://www.wayneblog.tk">Wayne He</a> All Rights
+              Reserved.
             </div>
           }
         />
