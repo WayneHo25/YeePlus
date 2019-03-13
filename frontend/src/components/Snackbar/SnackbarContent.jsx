@@ -9,15 +9,21 @@ import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import Close from "@material-ui/icons/Close";
 // core components
-
 import snackbarContentStyle from "assets/jss/material-kit-pro-react/components/snackbarContentStyle.jsx";
 
 class SnackbarContent extends React.Component {
   constructor(props) {
     super(props);
     this.closeAlert = this.closeAlert.bind(this);
-    const { classes, message, color, close, icon } = props;
-    var action = [];
+  }
+
+  closeAlert() {
+    this.props.closeAlert(false);
+  }
+
+  render() {
+    const { classes, message, color, close, icon, open } = this.props;
+    let action = [];
     if (close !== undefined) {
       action = [
         <IconButton
@@ -37,35 +43,33 @@ class SnackbarContent extends React.Component {
         snackIcon = <props.icon className={classes.icon} />;
         break;
       case "string":
-        snackIcon = <Icon className={classes.icon}>{props.icon}</Icon>;
+        snackIcon = <Icon className={classes.icon}>{icon}</Icon>;
         break;
       default:
         snackIcon = null;
         break;
     }
-    this.state = {
-      alert: (
-        <Snack
-          message={
-            <div>
-              {snackIcon}
-              {message}
-              {close !== undefined ? action : null}
-            </div>
-          }
-          classes={{
-            root: classes.root + " " + classes[color],
-            message: classes.message + " " + classes.container
-          }}
-        />
-      )
-    };
-  }
-  closeAlert() {
-    this.setState({ alert: null });
-  }
-  render() {
-    return this.state.alert;
+    let alert = null;
+    if (open) {
+        alert=(
+          <Snack
+            message={
+              <div>
+                {snackIcon}
+                {message}
+                {close !== undefined ? action : null}
+              </div>
+            }
+            classes={{
+              root: classes.root + " " + classes[color],
+              message: classes.message + " " + classes.container
+            }}
+          />
+        );
+    } else {
+       alert = null ;
+    }
+    return alert;
   }
 }
 

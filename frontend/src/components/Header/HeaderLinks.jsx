@@ -55,7 +55,7 @@ function HeaderLinks({ ...props }) {
   };
   var onClickSections = {};
 
-  const { classes, dropdownHoverColor } = props;
+  const { classes, dropdownHoverColor, isAuthenticated, currentUser } = props;
   return (
     <List className={classes.list + " " + classes.mlAuto}>
       <ListItem className={classes.listItem}>

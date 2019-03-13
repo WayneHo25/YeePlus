@@ -26,13 +26,13 @@ class LandingPage extends React.Component {
   }
   
   render() {
-    const { classes, ...rest } = this.props;
+    const { classes, isAuthenticated, currentUser, ...rest } = this.props;
     return (
       <div>
         <Header
           color="transparent"
           brand="YeePlus Controller"
-          links={<HeaderLinks dropdownHoverColor="info" />}
+          links={<HeaderLinks dropdownHoverColor="info" isAuthenticated={isAuthenticated} currentUser={currentUser} />}
           fixed
           changeColorOnScroll={{
             height: 300,

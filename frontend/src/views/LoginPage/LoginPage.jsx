@@ -20,6 +20,7 @@ import Card from "components/Card/Card.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
+import SnackbarContent from "components/Snackbar/SnackbarContent.jsx";
 
 import loginPageStyle from "assets/jss/material-kit-pro-react/views/loginPageStyle.jsx";
 
@@ -30,7 +31,10 @@ class LoginPage extends React.Component {
     super(props);
     this.state = {
       usernameOrEmail: '',
-      password: ''
+      password: '',
+      openNotification: false,
+      notificationType: this.props.notificationHolder.type,
+      notificationDescription: this.props.notificationHolder.description
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -58,6 +62,22 @@ class LoginPage extends React.Component {
     this.props.onLogin(loginRequest);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.notificationHolder !== this.props.notificationHolder) {
+      this.setState({
+        openNotification: true,
+        notificationType: nextProps.notificationHolder.type,
+        notificationDescription: nextProps.notificationHolder.description
+      });
+    }
+  }
+
+  onCloseAlert(val) {
+    this.setState({
+      openNotification: val
+    })
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -77,6 +97,18 @@ class LoginPage extends React.Component {
           }}
         >
           <div className={classes.container}>
+            <SnackbarContent
+              message={
+                <span>
+                  <b>{this.state.notificationType}:</b> {this.state.notificationDescription}
+                </span>
+              }
+              close
+              color="danger"
+              icon="info_outline"
+              open={this.state.openNotification}
+              closeAlert={(val)=>{this.onCloseAlert(val)}}
+            />
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={4}>
                 <Card>
@@ -93,7 +125,7 @@ class LoginPage extends React.Component {
                         id="email"
                         formControlProps={{
                           fullWidth: true,
-                          required:true
+                          required: true
                         }}
                         inputProps={{
                           placeholder: "Email...",
@@ -111,7 +143,7 @@ class LoginPage extends React.Component {
                         id="pass"
                         formControlProps={{
                           fullWidth: true,
-                          required:true
+                          required: true
                         }}
                         inputProps={{
                           placeholder: "Password",

@@ -70,15 +70,13 @@ export function loginUser(loginRequest, history) {
         getCurrentUser()
           .then(response => {
             dispatch(receiveLogin(response, ({
-              notificationType: "success",
-              message: 'Polling App',
+              type: "Success",
               description: "You're successfully logged in.",
             })));
             history.push('/');
           }).catch(error => {
             dispatch(rejectLogin({
-              notificationType: "error",
-              message: 'Polling App',
+              type: "Error",
               description: error.message || "Sorry! Something went wrong. Please try again!"
             }))
           }
@@ -86,14 +84,12 @@ export function loginUser(loginRequest, history) {
       }).catch(error => {
         if (error.status === 401) {
           dispatch(rejectLogin({
-            notificationType: "error",
-            message: 'Polling App',
+            type: "Error",
             description: 'Your Username or Password is incorrect. Please try again!'
           }));
         } else {
           dispatch(rejectLogin({
-            notificationType: "error",
-            message: 'Polling App',
+            type: "Error",
             description: error.message || 'Sorry! Something went wrong. Please try again!'
           }));
         }
@@ -105,8 +101,7 @@ export function logoutUser(history) {
   return dispatch => {
     localStorage.removeItem(ACCESS_TOKEN);
     dispatch(receiveLogout({
-      notificationType: 'success',
-      message: 'Polling App',
+      type: 'Success',
       description: "You're successfully logged out."
     }));
     history.push('/');

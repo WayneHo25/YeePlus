@@ -11,8 +11,6 @@ import SignupPage from "views/SignupPage/SignupPage.jsx";
 import ControllerPage from "views/ControllerPage/ControllerPage.jsx";
 import ForumPage from "views/ForumPage/ForumPage.jsx";
 
-import { notification } from 'antd';
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -23,22 +21,12 @@ class App extends Component {
     this.props.dispatch(loginUser(loginRequest, this.props.history));
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.notificationHolder !== this.props.notificationHolder) {
-      const { notificationHolder } = nextProps;
-      notification.open({
-        message: notificationHolder.message,
-        description: notificationHolder.description
-      });
-    }
-  }
-
   render() {
     const { isFetching, isAuthenticated, currentUser, notificationHolder } = this.props;
     return (
       <Switch>
-        <Route exact path="/" component={LandingPage}></Route>
-        <Route path="/login-page" render={(props) => <LoginPage onLogin={this.handleLogin} {...props}/>}></Route>
+        <Route exact path="/" render={(props) => <LandingPage isAuthenticated={isAuthenticated} currentUser={currentUser} {...props}/>}></Route>
+        <Route path="/login-page" render={(props) => <LoginPage onLogin={this.handleLogin} notificationHolder={notificationHolder} {...props}/>}></Route>
         <Route path="/signup-page" component={SignupPage}></Route>
         <Route path="/controller-page" component={ControllerPage} />
         <Route path="/forum-page" component={ForumPage} />

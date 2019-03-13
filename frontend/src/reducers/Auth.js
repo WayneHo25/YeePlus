@@ -7,7 +7,7 @@ function auth(state = {
   isFetching: false,
   isAuthenticated: false,
   currentUser: null,
-  notificationHolder: null
+  notificationHolder: {type:"", description:""}
 }, action) {
   switch (action.type) {
     case LOGIN_REQUEST:
