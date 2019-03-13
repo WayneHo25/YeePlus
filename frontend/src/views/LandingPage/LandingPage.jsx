@@ -24,6 +24,7 @@ class LandingPage extends React.Component {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
   }
+  
   render() {
     const { classes, ...rest } = this.props;
     return (
@@ -71,9 +72,8 @@ class LandingPage extends React.Component {
           </div>
         </div>
         <Footer
-          className={classes.footer}
           content={
-            <div className={classNames(classes.pullCenter, classes.copyRight)}>
+            <div className={classes.right}>
               Copyright &copy; {1900 + new Date().getYear()}{" "}
               <a href="http://www.wayneblog.tk">Wayne He</a> All Rights
               Reserved.

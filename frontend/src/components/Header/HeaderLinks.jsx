@@ -82,7 +82,7 @@ function HeaderLinks({ ...props }) {
           className={classes.navLink}
           color="transparent"
         >
-          LOG IN
+          LOGIN
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
@@ -92,7 +92,7 @@ function HeaderLinks({ ...props }) {
           className={classes.navButton}
           round
         >
-          SIGN UP
+          REGISTER
         </Button>
       </ListItem>
     </List>

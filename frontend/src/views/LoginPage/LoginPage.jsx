@@ -26,10 +26,38 @@ import loginPageStyle from "assets/jss/material-kit-pro-react/views/loginPageSty
 import image from "assets/img/bg7.jpg";
 
 class LoginPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      usernameOrEmail: '',
+      password: ''
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
   componentDidMount() {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
   }
+
+  updateEmail(evt) {
+    this.setState({
+      usernameOrEmail: evt.target.value
+    });
+  }
+
+  updatePassword(evt) {
+    this.setState({
+      password: evt.target.value
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const loginRequest = Object.assign({}, this.state);
+    this.props.onLogin(loginRequest);
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -37,7 +65,7 @@ class LoginPage extends React.Component {
         <Header
           absolute
           color="transparent"
-          brand="Material Kit PRO React"
+          brand="YeePlus Controller"
           links={<HeaderLinks dropdownHoverColor="info" />}
         />
         <div
@@ -52,65 +80,20 @@ class LoginPage extends React.Component {
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={4}>
                 <Card>
-                  <form className={classes.form}>
+                  <form className={classes.form} onSubmit={this.handleSubmit}>
                     <CardHeader
                       color="primary"
                       signup
                       className={classes.cardHeader}
                     >
                       <h4 className={classes.cardTitle}>Login</h4>
-                      <div className={classes.socialLine}>
-                        <Button
-                          justIcon
-                          color="transparent"
-                          className={classes.iconButtons}
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className="fab fa-twitter" />
-                        </Button>
-                        <Button
-                          justIcon
-                          color="transparent"
-                          className={classes.iconButtons}
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className="fab fa-facebook" />
-                        </Button>
-                        <Button
-                          justIcon
-                          color="transparent"
-                          className={classes.iconButtons}
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className="fab fa-google-plus-g" />
-                        </Button>
-                      </div>
                     </CardHeader>
-                    <p
-                      className={`${classes.description} ${classes.textCenter}`}
-                    >
-                      Or Be Classical
-                    </p>
                     <CardBody signup>
-                      <CustomInput
-                        id="first"
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                        inputProps={{
-                          placeholder: "First Name...",
-                          type: "text",
-                          startAdornment: (
-                            <InputAdornment position="start">
-                              <Face className={classes.inputIconsColor} />
-                            </InputAdornment>
-                          )
-                        }}
-                      />
                       <CustomInput
                         id="email"
                         formControlProps={{
-                          fullWidth: true
+                          fullWidth: true,
+                          required:true
                         }}
                         inputProps={{
                           placeholder: "Email...",
@@ -119,13 +102,16 @@ class LoginPage extends React.Component {
                             <InputAdornment position="start">
                               <Email className={classes.inputIconsColor} />
                             </InputAdornment>
-                          )
+                          ),
+                          value: this.state.email,
+                          onChange: evt => this.updateEmail(evt)
                         }}
                       />
                       <CustomInput
                         id="pass"
                         formControlProps={{
-                          fullWidth: true
+                          fullWidth: true,
+                          required:true
                         }}
                         inputProps={{
                           placeholder: "Password",
@@ -136,12 +122,14 @@ class LoginPage extends React.Component {
                                 lock_utline
                               </Icon>
                             </InputAdornment>
-                          )
+                          ),
+                          value: this.state.password,
+                          onChange: evt => this.updatePassword(evt)
                         }}
                       />
                     </CardBody>
                     <div className={classes.textCenter}>
-                      <Button simple color="primary" size="lg">
+                      <Button simple color="primary" size="lg" type="submit">
                         Get started
                       </Button>
                     </div>
@@ -154,11 +142,10 @@ class LoginPage extends React.Component {
             className={classes.footer}
             content={
               <div className={classes.right}>
-                &copy; {1900 + new Date().getYear()} , made with{" "}
-                <Favorite className={classes.icon} /> by{" "}
-                <a href="https://www.creative-tim.com">Creative Tim</a> for a
-                better web
-                </div>
+                Copyright &copy; {1900 + new Date().getYear()}{" "}
+                <a href="http://www.wayneblog.tk">Wayne He</a> All Rights
+                Reserved.
+              </div>
             }
           />
         </div>
