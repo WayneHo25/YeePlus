@@ -11,18 +11,25 @@ import GridItem from "components/Grid/GridItem.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
+// Sections for this page
+import SectionProduct from "./Sections/SectionProduct.jsx";
+import SectionContact from "./Sections/SectionContact.jsx";
 
 import landingPageStyle from "assets/jss/material-kit-pro-react/views/landingPageStyle.jsx";
 
-// Sections for this page
-import SectionProduct from "./Sections/SectionProduct.jsx";
-import SectionTeam from "./Sections/SectionTeam.jsx";
-import SectionWork from "./Sections/SectionWork.jsx";
-
 class LandingPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
   componentDidMount() {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
+  }
+
+  handleLogout() {
+    this.props.handleLogout();
   }
   
   render() {
@@ -32,7 +39,7 @@ class LandingPage extends React.Component {
         <Header
           color="transparent"
           brand="YeePlus Controller"
-          links={<HeaderLinks dropdownHoverColor="info" isAuthenticated={isAuthenticated} currentUser={currentUser} />}
+          links={<HeaderLinks dropdownHoverColor="info" isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout}/>}
           fixed
           changeColorOnScroll={{
             height: 300,
@@ -67,7 +74,7 @@ class LandingPage extends React.Component {
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
             <SectionProduct />
-            <SectionWork />
+            <SectionContact />
           </div>
         </div>
         <Footer

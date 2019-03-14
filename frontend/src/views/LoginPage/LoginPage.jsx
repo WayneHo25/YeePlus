@@ -2,13 +2,9 @@ import React from "react";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
-import Favorite from "@material-ui/icons/Favorite";
-import Face from "@material-ui/icons/Face";
 // core components
 import Header from "components/Header/Header.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
@@ -37,6 +33,7 @@ class LoginPage extends React.Component {
       notificationDescription: this.props.notificationHolder.description
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   componentDidMount() {
@@ -59,7 +56,11 @@ class LoginPage extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const loginRequest = Object.assign({}, this.state);
-    this.props.onLogin(loginRequest);
+    this.props.handleLogin(loginRequest);
+  }
+
+  handleLogout() {
+    this.props.handleLogout();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -79,14 +80,14 @@ class LoginPage extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, isAuthenticated, currentUser } = this.props;
     return (
       <div>
         <Header
           absolute
           color="transparent"
           brand="YeePlus Controller"
-          links={<HeaderLinks dropdownHoverColor="info" />}
+          links={<HeaderLinks dropdownHoverColor="info" isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout}/>}
         />
         <div
           className={classes.pageHeader}
@@ -110,7 +111,7 @@ class LoginPage extends React.Component {
               closeAlert={(val)=>{this.onCloseAlert(val)}}
             />
             <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={4}>
+              <GridItem xs={12} sm={12} md={5}>
                 <Card>
                   <form className={classes.form} onSubmit={this.handleSubmit}>
                     <CardHeader

@@ -1,10 +1,9 @@
 import React from "react";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-
 // @material-ui/icons
 import Chat from "@material-ui/icons/Chat";
-import VerifiedUser from "@material-ui/icons/VerifiedUser";
+import HowToReg from "@material-ui/icons/HowToReg";
 import Fingerprint from "@material-ui/icons/Fingerprint";
 // core components
 import GridContainer from "components/Grid/GridContainer.jsx";
@@ -20,13 +19,11 @@ class SectionProduct extends React.Component {
       <div className={classes.section}>
         <GridContainer justify="center">
           <GridItem xs={12} sm={8} md={8}>
-            <h2 className={classes.title}>Let's talk product</h2>
+            <h2 className={classes.title}>Your life will be much easier</h2>
             <h5 className={classes.description}>
-              This is the paragraph where you can write more details about your
-              product. Keep you user engaged by providing meaningful
-              information. Remember that by this time, the user is curious,
-              otherwise he wouldn't scroll to get here. Add a button if you want
-              the user to see more.
+              YeePlus Controller provides everything your smart lighting needs in a smart, simple and convenience 
+              way. You can connect your smart Yeelight lighting devices online through clear, concise and efficient 
+              user interface.
             </h5>
           </GridItem>
         </GridContainer>
@@ -34,28 +31,28 @@ class SectionProduct extends React.Component {
           <GridContainer>
             <GridItem xs={12} sm={4} md={4}>
               <InfoArea
-                title="Free Chat"
-                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-                icon={Chat}
-                iconColor="info"
-                vertical
-              />
-            </GridItem>
-            <GridItem xs={12} sm={4} md={4}>
-              <InfoArea
-                title="Verified Users"
-                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-                icon={VerifiedUser}
+                title="User Register"
+                description="Registered users can manage their profiles, keep previous smart lighting devices list and setting, share their feedbacks and ideas."
+                icon={HowToReg}
                 iconColor="success"
                 vertical
               />
             </GridItem>
             <GridItem xs={12} sm={4} md={4}>
               <InfoArea
-                title="Fingerprint"
-                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+                title="Safety Guarantee"
+                description="Use Yeelight control protocol to discover and control LED devices which is a SSDP-like discovering mechanism and JSON encoded controlling command."
                 icon={Fingerprint}
                 iconColor="danger"
+                vertical
+              />
+            </GridItem>
+            <GridItem xs={12} sm={4} md={4}>
+              <InfoArea
+                title="Free Chat"
+                description="YeePlus forum provides additional option for users easily share their ideas about Yeelight products with others, and give feedback to me."
+                icon={Chat}
+                iconColor="info"
                 vertical
               />
             </GridItem>
