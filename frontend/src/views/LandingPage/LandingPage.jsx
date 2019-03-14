@@ -47,7 +47,7 @@ class LandingPage extends React.Component {
                 <h1 className={classes.title}>Start Talking to Your Lights.</h1>
                 <h4>
                   YeePlus Controller is the simplest, smartest way to control your
-                  smart Yeelight product online, which is an innovative leader
+                  smart Yeelight product online, who is an innovative leader
                   dedicated for smarting lighting application.
                 </h4>
                 <br />
@@ -67,7 +67,6 @@ class LandingPage extends React.Component {
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
             <SectionProduct />
-            <SectionTeam />
             <SectionWork />
           </div>
         </div>

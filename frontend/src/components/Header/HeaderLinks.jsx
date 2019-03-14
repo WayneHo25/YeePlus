@@ -10,8 +10,16 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 
+// @material-ui/icons
+import Apps from "@material-ui/icons/Apps";
+import Forum from "@material-ui/icons/Forum";
+import AccountCircle from "@material-ui/icons/AccountCircle";
+import People from "@material-ui/icons/People";
+import ExitToApp from "@material-ui/icons/ExitToApp";
+
 // core components
 import Button from "components/CustomButtons/Button.jsx";
+import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
 
 import headerLinksStyle from "assets/jss/material-kit-pro-react/components/headerLinksStyle.jsx";
 
@@ -56,47 +64,95 @@ function HeaderLinks({ ...props }) {
   var onClickSections = {};
 
   const { classes, dropdownHoverColor, isAuthenticated, currentUser } = props;
-  return (
-    <List className={classes.list + " " + classes.mlAuto}>
-      <ListItem className={classes.listItem}>
-        <Button
-          component={Link} to="/controller-page"
-          className={classes.navLink}
-          color="transparent"
-        >
-          CONTROLLER
-        </Button>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Button
-          component={Link} to="/forum-page"
-          className={classes.navLink}
-          color="transparent"
-        >
-          FORUM
-        </Button>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Button
-          component={Link} to="/login-page"
-          className={classes.navLink}
-          color="transparent"
-        >
-          LOGIN
-        </Button>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Button
-          component={Link} to="/signup-page"
-          color={window.innerWidth < 960 ? "info" : "white"}
-          className={classes.navButton}
-          round
-        >
-          REGISTER
-        </Button>
-      </ListItem>
-    </List>
-  );
+  if (isAuthenticated) {
+    return (
+      <List className={classes.list + " " + classes.mlAuto}>
+        <ListItem className={classes.listItem}>
+          <Button
+            component={Link} to="/controller-page"
+            className={classes.navLink}
+            color="transparent"
+          >
+            <Apps /> CONTROLLER
+          </Button>
+        </ListItem>
+        <ListItem className={classes.listItem}>
+          <Button
+            component={Link} to="/forum-page"
+            className={classes.navLink}
+            color="transparent"
+          >
+            <Forum /> FORUM
+          </Button>
+        </ListItem>
+        <ListItem className={classes.listItem}>
+          <CustomDropdown
+            noLiPadding
+            navDropdown
+            hoverColor={dropdownHoverColor}
+            buttonText="ACCOUNT"
+            buttonProps={{
+              className: classes.navLink,
+              color: "transparent"
+            }}
+            buttonIcon={AccountCircle}
+            dropdownHeader={"Sign in as " + `${props.currentUser.name}`}
+            dropdownList={[
+              <Link to={`/users/${props.currentUser.username}`} className={classes.dropdownLink}>
+                <People className={classes.dropdownIcons} /> PROFILE
+              </Link>,
+              <Link to="/" className={classes.dropdownLink}>
+                <ExitToApp className={classes.dropdownIcons} /> LOGOUT
+              </Link>
+            ]}
+          />
+        </ListItem>
+      </List>
+    );
+  } else {
+    return (
+      <List className={classes.list + " " + classes.mlAuto}>
+        <ListItem className={classes.listItem}>
+          <Button
+            component={Link} to="/controller-page"
+            className={classes.navLink}
+            color="transparent"
+          >
+            <Apps /> CONTROLLER
+          </Button>
+        </ListItem>
+        <ListItem className={classes.listItem}>
+          <Button
+            component={Link} to="/forum-page"
+            className={classes.navLink}
+            color="transparent"
+          >
+            <Forum /> FORUM
+          </Button>
+        </ListItem>
+        <ListItem className={classes.listItem}>
+          <Button
+            component={Link} to="/login-page"
+            className={classes.navLink}
+            color="transparent"
+          >
+            LOGIN
+          </Button>
+        </ListItem>
+        <ListItem className={classes.listItem}>
+          <Button
+            component={Link} to="/signup-page"
+            color={window.innerWidth < 960 ? "info" : "white"}
+            className={classes.navButton}
+            round
+          >
+            REGISTER
+          </Button>
+        </ListItem>
+      </List>
+    );
+  }
+
 }
 
 HeaderLinks.defaultProps = {

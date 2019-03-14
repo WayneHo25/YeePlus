@@ -51,23 +51,23 @@ class SnackbarContent extends React.Component {
     }
     let alert = null;
     if (open) {
-        alert=(
-          <Snack
-            message={
-              <div>
-                {snackIcon}
-                {message}
-                {close !== undefined ? action : null}
-              </div>
-            }
-            classes={{
-              root: classes.root + " " + classes[color],
-              message: classes.message + " " + classes.container
-            }}
-          />
-        );
+      alert = (
+        <Snack
+          message={
+            <div>
+              {snackIcon}
+              {message}
+              {close !== undefined ? action : null}
+            </div>
+          }
+          classes={{
+            root: classes.root + " " + classes[color],
+            message: classes.message + " " + classes.container
+          }}
+        />
+      );
     } else {
-       alert = null ;
+      alert = null;
     }
     return alert;
   }
