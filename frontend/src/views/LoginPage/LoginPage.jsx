@@ -41,7 +41,7 @@ class LoginPage extends React.Component {
     document.body.scrollTop = 0;
   }
 
-  updateEmail(evt) {
+  updateUsernameOrEmail(evt) {
     this.setState({
       usernameOrEmail: evt.target.value
     });
@@ -53,10 +53,40 @@ class LoginPage extends React.Component {
     });
   }
 
+  validateUsernameOrEmail = (name) => {
+    if (!name) {
+      this.setState({
+        openNotification: true,
+        notificationType: "Error",
+        notificationDescription: "Username or email may not be empty."
+      });
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  validatePassword = (pass) => {
+    if (!pass) {
+      this.setState({
+        openNotification: true,
+        notificationType: "Error",
+        notificationDescription: "Password may not be empty."
+      });
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     const loginRequest = Object.assign({}, this.state);
-    this.props.handleLogin(loginRequest);
+    if (this.validateUsernameOrEmail(loginRequest.usernameOrEmail)) {
+      if (this.validatePassword(loginRequest.password)) {
+        this.props.handleLogin(loginRequest);
+      }
+    }
   }
 
   handleLogout() {
@@ -87,7 +117,7 @@ class LoginPage extends React.Component {
           absolute
           color="transparent"
           brand="YeePlus Controller"
-          links={<HeaderLinks dropdownHoverColor="info" isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout}/>}
+          links={<HeaderLinks dropdownHoverColor="info" isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} />}
         />
         <div
           className={classes.pageHeader}
@@ -98,20 +128,8 @@ class LoginPage extends React.Component {
           }}
         >
           <div className={classes.container}>
-            <SnackbarContent
-              message={
-                <span>
-                  <b>{this.state.notificationType}:</b> {this.state.notificationDescription}
-                </span>
-              }
-              close
-              color="danger"
-              icon="info_outline"
-              open={this.state.openNotification}
-              closeAlert={(val)=>{this.onCloseAlert(val)}}
-            />
             <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={5}>
+              <GridItem xs={12} sm={12} md={6}>
                 <Card>
                   <form className={classes.form} onSubmit={this.handleSubmit}>
                     <CardHeader
@@ -122,32 +140,40 @@ class LoginPage extends React.Component {
                       <h4 className={classes.cardTitle}>Login</h4>
                     </CardHeader>
                     <CardBody signup>
+                      <SnackbarContent
+                        message={
+                          <span>
+                            <b>{this.state.notificationType}:</b> {this.state.notificationDescription}
+                          </span>
+                        }
+                        close
+                        color="warning"
+                        open={this.state.openNotification}
+                        closeAlert={(val) => { this.onCloseAlert(val) }}
+                      />
                       <CustomInput
                         id="email"
                         formControlProps={{
-                          fullWidth: true,
-                          required: true
+                          fullWidth: true
                         }}
                         inputProps={{
-                          placeholder: "Email...",
-                          type: "email",
+                          placeholder: "Username or email...",
                           startAdornment: (
                             <InputAdornment position="start">
                               <Email className={classes.inputIconsColor} />
                             </InputAdornment>
                           ),
                           value: this.state.email,
-                          onChange: evt => this.updateEmail(evt)
+                          onChange: evt => this.updateUsernameOrEmail(evt)
                         }}
                       />
                       <CustomInput
                         id="pass"
                         formControlProps={{
-                          fullWidth: true,
-                          required: true
+                          fullWidth: true
                         }}
                         inputProps={{
-                          placeholder: "Password",
+                          placeholder: "Password...",
                           type: "password",
                           startAdornment: (
                             <InputAdornment position="start">

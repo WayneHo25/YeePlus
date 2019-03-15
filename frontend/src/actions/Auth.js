@@ -26,6 +26,30 @@ function rejectLogin(notification) {
   }
 }
 
+export const SIGNUP_REQUEST = 'SIGNUP_REQUEST'
+export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS'
+export const SIGNUP_FAILURE = 'SIGNUP_FAILURE'
+
+function requestSignup() {
+  return {
+    type: SIGNUP_REQUEST
+  }
+}
+
+function receiveSignup(notification) {
+  return {
+    type: SIGNUP_SUCCESS,
+    notification
+  }
+}
+
+function rejectSignup(notification) {
+  return {
+    type: SIGNUP_FAILURE,
+    notification
+  }
+}
+
 export const LOGOUT_REQUEST = 'LOGOUT_REQUEST'
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
 export const LOGOUT_FAILURE = 'LOGOUT_FAILURE'
@@ -77,7 +101,7 @@ export function loginUser(loginRequest, history) {
           }).catch(error => {
             dispatch(rejectLogin({
               type: "Error",
-              description: error.message || "Sorry! Something went wrong. Please try again!"
+              description: "Sorry, something went wrong. Please try again."
             }))
           }
           )
@@ -85,12 +109,12 @@ export function loginUser(loginRequest, history) {
         if (error.status === 401) {
           dispatch(rejectLogin({
             type: "Error",
-            description: 'Your Username or Password is incorrect. Please try again!'
+            description: 'Your Username or Password is incorrect. Please try again.'
           }));
         } else {
           dispatch(rejectLogin({
             type: "Error",
-            description: error.message || 'Sorry! Something went wrong. Please try again!'
+            description: 'Sorry, Something went wrong. Please try again.'
           }));
         }
       })

@@ -16,18 +16,34 @@ import Button from "components/CustomButtons/Button.jsx";
 import Card from "components/Card/Card.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
+import SnackbarContent from "components/Snackbar/SnackbarContent.jsx";
 
 import signupPageStyle from "assets/jss/material-kit-pro-react/views/signupPageStyle.jsx";
 
 import image from "assets/img/bg7.jpg";
 
+import {
+  USERNAME_MIN_LENGTH, USERNAME_MAX_LENGTH,
+  EMAIL_MAX_LENGTH,
+  PASSWORD_MIN_LENGTH, PASSWORD_MAX_LENGTH
+} from 'constants/Config.js';
+import { checkUsernameAvailability, checkEmailAvailability } from '../../util/APIUtils';
+
 class Components extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      checked: [1]
+      name: '',
+      username: '',
+      avatarUrl: '/',
+      email: '',
+      password: '',
+      openNotification: false,
+      notificationType: this.props.notificationHolder.type,
+      notificationDescription: this.props.notificationHolder.description
     };
-    this.handleToggle = this.handleToggle.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   componentDidMount() {
@@ -35,31 +51,171 @@ class Components extends React.Component {
     document.body.scrollTop = 0;
   }
 
-  handleToggle(value) {
-    const { checked } = this.state;
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
+  updateUsername(evt) {
     this.setState({
-      checked: newChecked
+      name: evt.target.value,
+      username: evt.target.value
     });
   }
 
+  updateEmail(evt) {
+    this.setState({
+      email: evt.target.value
+    });
+  }
+
+  updatePassword(evt) {
+    this.setState({
+      password: evt.target.value
+    });
+  }
+
+  validateUsername = (username) => {
+    if (username.length < USERNAME_MIN_LENGTH) {
+      this.setState({
+        openNotification: true,
+        notificationType: "Error",
+        notificationDescription: `Username is too short (Minimum ${USERNAME_MIN_LENGTH} characters needed).`
+      });
+      return false;
+    }
+
+    if (username.length > USERNAME_MAX_LENGTH) {
+      this.setState({
+        openNotification: true,
+        notificationType: "Error",
+        notificationDescription: `Username is too long (Maximum ${USERNAME_MAX_LENGTH} characters allowed).`
+      });
+      return false;
+    }
+
+    checkUsernameAvailability(username)
+      .then(response => {
+        if (!response.available) {
+          this.setState({
+            openNotification: true,
+            notificationType: "Error",
+            notificationDescription: 'This username is already taken.'
+          });
+          return false;
+        }
+      }).catch(error => {
+        return true;
+      });
+
+    return true;
+  }
+
+  validateEmail = (email) => {
+    if (!email) {
+      this.setState({
+        openNotification: true,
+        notificationType: "Error",
+        notificationDescription: "Email may not be empty."
+      });
+      return false;
+    }
+
+    const EMAIL_REGEX = RegExp('[^@ ]+@[^@ ]+\\.[^@ ]+');
+    if (!EMAIL_REGEX.test(email)) {
+      this.setState({
+        openNotification: true,
+        notificationType: "Error",
+        notificationDescription: "Email not valid."
+      });
+      return false;
+    }
+
+    if (email.length > EMAIL_MAX_LENGTH) {
+      this.setState({
+        openNotification: true,
+        notificationType: "Error",
+        notificationDescription: `Email is too long (Maximum ${EMAIL_MAX_LENGTH} characters allowed).`
+      });
+      return false;
+    }
+
+    checkEmailAvailability(email)
+      .then(response => {
+        if (!response.available) {
+          this.setState({
+            openNotification: true,
+            notificationType: "Error",
+            notificationDescription: 'This Email is already registered.'
+          });
+          return false;
+        }
+      }).catch(error => {
+        return true;
+      });
+
+    return true;
+  }
+
+  validatePassword = (password) => {
+    if (password.length < PASSWORD_MIN_LENGTH) {
+      this.setState({
+        openNotification: true,
+        notificationType: "Error",
+        notificationDescription: `Password is too short (Minimum ${PASSWORD_MIN_LENGTH} characters needed).`
+      });
+      return false;
+    }
+    if (password.length > PASSWORD_MAX_LENGTH) {
+      this.setState({
+        openNotification: true,
+        notificationType: "Error",
+        notificationDescription: `Password is too long (Maximum ${PASSWORD_MAX_LENGTH} characters allowed).`
+      });
+      return false;
+    }
+    return true;
+
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const SignupRequest = Object.assign({}, this.state);
+    if (this.validateUsername(SignupRequest.username)) {
+      if (this.validateEmail(SignupRequest.email)) {
+        if (this.validatePassword(SignupRequest.password)) {
+          this.props.handleSignup(SignupRequest);
+        }
+      }
+    }
+    this.props.handleSignup(SignupRequest);
+
+  }
+
+  handleLogout() {
+    this.props.handleLogout();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.notificationHolder !== this.props.notificationHolder) {
+      this.setState({
+        openNotification: true,
+        notificationType: nextProps.notificationHolder.type,
+        notificationDescription: nextProps.notificationHolder.description
+      });
+    }
+  }
+
+  onCloseAlert(val) {
+    this.setState({
+      openNotification: val
+    })
+  }
+
   render() {
-    const { classes, ...rest } = this.props;
+    const { classes, isAuthenticated, currentUser, ...rest } = this.props;
     return (
       <div>
         <Header
           absolute
           color="transparent"
           brand="YeePlus Controller"
-          links={<HeaderLinks dropdownHoverColor="rose" />}
+          links={<HeaderLinks dropdownHoverColor="rose" isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} />}
           {...rest}
         />
         <div
@@ -72,11 +228,22 @@ class Components extends React.Component {
         >
           <div className={classes.container}>
             <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={5}>
+              <GridItem xs={12} sm={12} md={6}>
                 <Card className={classes.cardSignup}>
                   <h2 className={classes.cardTitle}>Register</h2>
                   <CardBody>
-                    <form className={classes.form}>
+                    <SnackbarContent
+                      message={
+                        <span>
+                          <b>{this.state.notificationType}:</b> {this.state.notificationDescription}
+                        </span>
+                      }
+                      close
+                      color="warning"
+                      open={this.state.openNotification}
+                      closeAlert={(val) => { this.onCloseAlert(val) }}
+                    />
+                    <form className={classes.form} onSubmit={this.handleSubmit}>
                       <CustomInput
                         formControlProps={{
                           fullWidth: true,
@@ -93,7 +260,9 @@ class Components extends React.Component {
                               />
                             </InputAdornment>
                           ),
-                          placeholder: "First Name..."
+                          placeholder: "Username...",
+                          value: this.state.username,
+                          onChange: evt => this.updateUsername(evt)
                         }}
                       />
                       <CustomInput
@@ -112,7 +281,9 @@ class Components extends React.Component {
                               />
                             </InputAdornment>
                           ),
-                          placeholder: "Email..."
+                          placeholder: "Email...",
+                          value: this.state.email,
+                          onChange: evt => this.updateEmail(evt)
                         }}
                       />
                       <CustomInput
@@ -131,13 +302,16 @@ class Components extends React.Component {
                                   </Icon>
                             </InputAdornment>
                           ),
-                          placeholder: "Password..."
+                          placeholder: "Password...",
+                          type: "password",
+                          value: this.state.password,
+                          onChange: evt => this.updatePassword(evt)
                         }}
                       />
                       <div className={classes.textCenter}>
-                        <Button round color="primary">
+                        <Button round color="primary" type="submit">
                           Get started
-                            </Button>
+                        </Button>
                       </div>
                     </form>
                   </CardBody>

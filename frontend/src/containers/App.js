@@ -16,6 +16,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleSignup = this.handleSignup.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
   }
 
@@ -25,6 +26,10 @@ class App extends Component {
 
   handleLogin(loginRequest) {
     this.props.dispatch(loginUser(loginRequest, this.props.history));
+  }
+
+  handleSignup(loginRequest) {
+
   }
 
   handleLogout() {
@@ -37,7 +42,7 @@ class App extends Component {
       <Switch>
         <Route exact path="/" render={(props) => <LandingPage isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} {...props} />}></Route>
         <Route path="/login-page" render={(props) => <LoginPage isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogin={this.handleLogin} notificationHolder={notificationHolder} handleLogout={this.handleLogout} {...props} />}></Route>
-        <Route path="/signup-page" render={(props) => <SignupPage isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} {...props} />}></Route>
+        <Route path="/signup-page" render={(props) => <SignupPage isAuthenticated={isAuthenticated} currentUser={currentUser} handleSignup={this.handleSignup} notificationHolder={notificationHolder} handleLogout={this.handleLogout} {...props} />}></Route>
         <Route path="/controller-page" render={(props) => <ControllerPage isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} {...props} />}></Route>
         <Route path="/forum-page" render={(props) => <ForumPage isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} {...props} />}></Route>
         <Route render={(props) => <ErrorPage isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} {...props} />}></Route>
