@@ -81,7 +81,10 @@ class LoginPage extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const loginRequest = Object.assign({}, this.state);
+    const loginRequest = {
+      usernameOrEmail: this.state.usernameOrEmail,
+      password: this.state.password
+    };
     if (this.validateUsernameOrEmail(loginRequest.usernameOrEmail)) {
       if (this.validatePassword(loginRequest.password)) {
         this.props.handleLogin(loginRequest);

@@ -1,6 +1,7 @@
 import {
-  LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS,
-  LOADCURRENTUSER_REQUEST, LOADCURRENTUSER_SUCCESS, LOADCURRENTUSER_FAILURE
+  LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, SIGNUP_REQUEST, 
+  SIGNUP_SUCCESS, SIGNUP_FAILURE, LOGOUT_SUCCESS, LOADCURRENTUSER_REQUEST, 
+  LOADCURRENTUSER_SUCCESS, LOADCURRENTUSER_FAILURE
 } from 'actions/Auth';
 
 function auth(state = {
@@ -22,6 +23,20 @@ function auth(state = {
         notificationHolder: action.notification
       })
     case LOGIN_FAILURE:
+      return Object.assign({}, state, {
+        isFetching: false,
+        notificationHolder: action.notification
+      })
+      case SIGNUP_REQUEST:
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+    case SIGNUP_SUCCESS:
+      return Object.assign({}, state, {
+        isFetching: false,
+        notificationHolder: action.notification
+      })
+    case SIGNUP_FAILURE:
       return Object.assign({}, state, {
         isFetching: false,
         notificationHolder: action.notification

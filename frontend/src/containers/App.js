@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Route, withRouter, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { loadCurrentUser, logoutUser, loginUser } from 'actions/Auth';
+import { loginUser, signupUser, loadCurrentUser, logoutUser } from 'actions/Auth';
 
 import LandingPage from "views/LandingPage/LandingPage.jsx";
 import LoginPage from "views/LoginPage/LoginPage.jsx";
@@ -28,8 +28,8 @@ class App extends Component {
     this.props.dispatch(loginUser(loginRequest, this.props.history));
   }
 
-  handleSignup(loginRequest) {
-
+  handleSignup(signupRequest) {
+    this.props.dispatch(signupUser(signupRequest, this.props.history));
   }
 
   handleLogout() {

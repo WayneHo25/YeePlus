@@ -1,4 +1,4 @@
-import { login, getCurrentUser } from 'util/APIUtils';
+import { login, signup, getCurrentUser } from 'util/APIUtils';
 import { ACCESS_TOKEN } from 'constants/Config';
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
@@ -118,6 +118,26 @@ export function loginUser(loginRequest, history) {
           }));
         }
       })
+  }
+}
+
+export function signupUser(signupRequest, history) {
+  return dispatch => {
+    dispatch(requestSignup());
+
+    signup(signupRequest, history)
+      .then(response => {
+        dispatch(receiveSignup(response, ({
+          type: "Success",
+          description: "Thank you! You're successfully registered. Please Login to continue!",
+        })));
+        history.push('/login-page');
+      }).catch(error => {
+        dispatch(rejectSignup({
+          type: "Error",
+          description: "Sorry, something went wrong. Please try again."
+        }))
+      });
   }
 }
 

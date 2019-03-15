@@ -1,10 +1,6 @@
 import React from "react";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-// @material-ui/icons
-import Favorite from "@material-ui/icons/Favorite";
 // core components
 import Header from "components/Header/Header.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
@@ -19,39 +15,27 @@ import image from "assets/img/clint-mckoy.jpg";
 class Components extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      checked: [1]
-    };
-    this.handleToggle = this.handleToggle.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
-  handleToggle(value) {
-    const { checked } = this.state;
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
 
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    this.setState({
-      checked: newChecked
-    });
-  }
   componentDidMount() {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
   }
+
+  handleLogout() {
+    this.props.handleLogout();
+  }
+
   render() {
-    const { classes, ...rest } = this.props;
+    const { classes, isAuthenticated, currentUser, ...rest } = this.props;
     return (
       <div>
         <Header
           absolute
           color="transparent"
-          brand="Material Kit PRO React"
-          links={<HeaderLinks dropdownHoverColor="dark" />}
+          brand="YeePlus Controller"
+          links={<HeaderLinks dropdownHoverColor="dark" isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout}/>}
           {...rest}
         />
         <div
@@ -78,49 +62,10 @@ class Components extends React.Component {
         </div>
         <Footer
           content={
-            <div>
-              <div className={classes.left}>
-                <List className={classes.list}>
-                  <ListItem className={classes.inlineBlock}>
-                    <a
-                      href="https://www.creative-tim.com/"
-                      className={classes.block}
-                    >
-                      Creative Tim
-                    </a>
-                  </ListItem>
-                  <ListItem className={classes.inlineBlock}>
-                    <a
-                      href="https://www.creative-tim.com/presentation"
-                      className={classes.block}
-                    >
-                      About us
-                    </a>
-                  </ListItem>
-                  <ListItem className={classes.inlineBlock}>
-                    <a
-                      href="//blog.creative-tim.com/"
-                      className={classes.block}
-                    >
-                      Blog
-                    </a>
-                  </ListItem>
-                  <ListItem className={classes.inlineBlock}>
-                    <a
-                      href="https://www.creative-tim.com/license"
-                      className={classes.block}
-                    >
-                      Licenses
-                    </a>
-                  </ListItem>
-                </List>
-              </div>
-              <div className={classes.right}>
-                &copy; {1900 + new Date().getYear()} , made with{" "}
-                <Favorite className={classes.icon} /> by{" "}
-                <a href="https://www.creative-tim.com">Creative Tim</a> for a
-                better web.
-              </div>
+            <div className={classes.right}>
+              Copyright &copy; {1900 + new Date().getYear()}{" "}
+              <a href="http://www.wayneblog.tk">Wayne He</a> All Rights
+              Reserved.
             </div>
           }
         />

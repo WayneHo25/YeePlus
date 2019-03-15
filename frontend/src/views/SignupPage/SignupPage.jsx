@@ -175,16 +175,20 @@ class Components extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const SignupRequest = Object.assign({}, this.state);
-    if (this.validateUsername(SignupRequest.username)) {
-      if (this.validateEmail(SignupRequest.email)) {
-        if (this.validatePassword(SignupRequest.password)) {
-          this.props.handleSignup(SignupRequest);
+    const signupRequest = {
+      name: this.state.name,
+      username: this.state.username,
+      avatarUrl: this.state.avatarUrl,
+      email: this.state.email,
+      password: this.state.password
+    };
+    if (this.validateUsername(signupRequest.username)) {
+      if (this.validateEmail(signupRequest.email)) {
+        if (this.validatePassword(signupRequest.password)) {
+          this.props.handleSignup(signupRequest);
         }
       }
     }
-    this.props.handleSignup(SignupRequest);
-
   }
 
   handleLogout() {
