@@ -2,7 +2,7 @@
 ## http://yeeplus.tk
 
 ## Description
-A open source project about personal light controller for Yeelight devices. A minimal forum board application. Built on top of React-Redux frontend, Spring framework backend and MySQL databse.
+An open source project about personal controller for Yeelight smart lighting devices. A minimal forum board application. Built on top of React-Redux frontend, Spring framework backend and MySQL databse.
 
 ## Runtime Environment
 CentOS 7.0 x64, Nginx, MySQL 5.6, JDK 1.8
