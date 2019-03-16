@@ -6,7 +6,7 @@ import {
   mainRaised
 } from "assets/jss/material-kit-pro-react.jsx";
 
-const blogPostsPageStyle = {
+const forumPageStyle = {
   container: {
     ...container,
     zIndex: "2",
@@ -61,4 +61,4 @@ const blogPostsPageStyle = {
   }
 };
 
-export default blogPostsPageStyle;
+export default forumPageStyle;

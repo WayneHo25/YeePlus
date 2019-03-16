@@ -1,4 +1,6 @@
 import React from "react";
+// nodejs library that concatenates classes
+import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 // core components
@@ -8,8 +10,6 @@ import Footer from "components/Footer/Footer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
-// sections for this page
-import SectionPills from "views/ControllerPage/Sections/SectionPills.jsx";
 
 import controllerPageStyle from "assets/jss/material-kit-pro-react/views/controllerPageStyle.jsx";
 
@@ -55,7 +55,9 @@ class ControllerPage extends React.Component {
         </Parallax>
         <div className={classes.main}>
           <div className={classes.container}>
-            <SectionPills />
+            <br/><br/><br/><br/><br/><br/>
+            <h2 className={classNames(classes.textCenter)}>New version of YeePlus Controller is coming soon!</h2>
+            <br/><br/><br/><br/><br/><br/>
           </div>
         </div>
         <Footer

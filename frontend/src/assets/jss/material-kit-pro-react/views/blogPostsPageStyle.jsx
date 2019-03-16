@@ -6,7 +6,7 @@ import {
   mainRaised
 } from "assets/jss/material-kit-pro-react.jsx";
 
-const controllerPageStyle = {
+const blogPostsPageStyle = {
   container: {
     ...container,
     zIndex: "2",
@@ -61,4 +61,4 @@ const controllerPageStyle = {
   }
 };
 
-export default controllerPageStyle;
+export default blogPostsPageStyle;
