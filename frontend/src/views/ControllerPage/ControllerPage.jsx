@@ -47,7 +47,7 @@ class ControllerPage extends React.Component {
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={8} className={classes.textCenter}>
                 <h2 className={classes.title}>
-                  A Place for Us to Share and Discover New Ideas
+                  The Simplest, Smartest Way to Control Your Lightings Online
                 </h2>
               </GridItem>
             </GridContainer>
@@ -56,7 +56,7 @@ class ControllerPage extends React.Component {
         <div className={classes.main}>
           <div className={classes.container}>
             <br/><br/><br/><br/><br/><br/>
-            <h2 className={classNames(classes.textCenter)}>New version of YeePlus Controller is coming soon!</h2>
+            <h2 className={classNames(classes.textCenter, classes.title2)}>New Version of YeePlus Controller is Coming Soon.</h2>
             <br/><br/><br/><br/><br/><br/>
           </div>
         </div>
