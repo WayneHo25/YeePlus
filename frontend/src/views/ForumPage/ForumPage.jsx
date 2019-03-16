@@ -10,13 +10,10 @@ import GridItem from "components/Grid/GridItem.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
 // sections for this page
 import SectionPills from "views/ForumPage/Sections/SectionPills.jsx";
-import SectionInterested from "views/ForumPage/Sections/SectionInterested.jsx";
-import SectionImage from "views/ForumPage/Sections/SectionImage.jsx";
-import SubscribeLine from "views/ForumPage/Sections/SubscribeLine.jsx";
 
-import blogPostsPageStyle from "assets/jss/material-kit-pro-react/views/blogPostsPageStyle.jsx";
+import forumPageStyle from "assets/jss/material-kit-pro-react/views/forumPageStyle.jsx";
 
-class BlogPostsPage extends React.Component {
+class ForumPage extends React.Component {
   constructor(props) {
     super(props);
     this.handleLogout = this.handleLogout.bind(this);
@@ -59,10 +56,7 @@ class BlogPostsPage extends React.Component {
         <div className={classes.main}>
           <div className={classes.container}>
             <SectionPills />
-            <SectionInterested />
           </div>
-          <SectionImage />
-          <SubscribeLine />
         </div>
         <Footer
           content={
@@ -78,4 +72,4 @@ class BlogPostsPage extends React.Component {
   }
 }
 
-export default withStyles(blogPostsPageStyle)(BlogPostsPage);
+export default withStyles(forumPageStyle)(ForumPage);

@@ -29,7 +29,7 @@ import {
 } from 'constants/Config.js';
 import { checkUsernameAvailability, checkEmailAvailability } from '../../util/APIUtils';
 
-class Components extends React.Component {
+class SignupPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -338,4 +338,4 @@ class Components extends React.Component {
   }
 }
 
-export default withStyles(signupPageStyle)(Components);
+export default withStyles(signupPageStyle)(SignupPage);
