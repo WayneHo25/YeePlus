@@ -79,11 +79,7 @@ const navPillsStyle = theme => ({
     color: "inherit"
   },
   contentWrapper: {
-    marginTop: "20px",
-    "& .react-swipeable-view-container > div > div": {
-      paddingLeft: "15px",
-      paddingRight: "15px"
-    }
+    marginTop: "20px"
   },
   primary: {
     "&,&:hover": {

@@ -3,18 +3,19 @@ import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Tooltip from "@material-ui/core/Tooltip";
 // @material-ui/icons
-import FormatAlignLeft from "@material-ui/icons/FormatAlignLeft";
+import Reply from "@material-ui/icons/Reply";
+import Favorite from "@material-ui/icons/Favorite";
 // core components
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import NavPills from "components/NavPills/NavPills.jsx";
-import Card from "components/Card/Card.jsx";
-import CardBody from "components/Card/CardBody.jsx";
 import Button from "components/CustomButtons/Button.jsx";
+import Media from "components/Media/Media.jsx";
+import CustomInput from "components/CustomInput/CustomInput.jsx";
 
-import office2 from "assets/img/examples/office2.jpg";
-import blog8 from "assets/img/examples/blog8.jpg";
-import cardProject6 from "assets/img/examples/card-project6.jpg";
+import profile4 from "assets/img/faces/card-profile4-square.jpg";
+import profile1 from "assets/img/faces/card-profile1-square.jpg";
+import profile6 from "assets/img/faces/card-profile6-square.jpg";
 
 import sectionPillsStyle from "assets/jss/material-kit-pro-react/views/blogPostsSections/sectionPillsStyle.jsx";
 
@@ -23,17 +24,63 @@ function SectionPills({ ...props }) {
   return (
     <div className={classes.section}>
       <GridContainer justify="center">
-        <GridItem xs={12} sm={12} md={8} className={classes.textCenter}>
+        <GridItem xs={12} sm={10} md={8}>
           <NavPills
             alignCenter
             tabs={[
               {
                 tabButton: "All",
-                tabContent: ""
+                tabContent: (
+                  <div>
+                    <Media
+                      avatar={profile4}
+                      title={
+                        <span>
+                          Tina Andrew <small>· 7 minutes ago</small>
+                        </span>
+                      }
+                      body={
+                        <p className={classes.color555}>
+                          Chance too good. God level bars. I'm so proud of
+                          @LifeOfDesiigner #1 song in the country. Panda! Don't be
+                          scared of the truth because we need to restart the human
+                          foundation in truth I stand with the most humility. We are so
+                          blessed!
+                          </p>
+                      }
+                      footer={
+                        <div>
+                          <Tooltip
+                            id="tooltip-tina"
+                            title="Reply to comment"
+                            placement="top"
+                            classes={{ tooltip: classes.tooltip }}
+                          >
+                            <Button
+                              color="primary"
+                              simple
+                              className={classes.footerButtons}
+                            >
+                              <Reply className={classes.footerIcons} /> Reply
+                            </Button>
+                          </Tooltip>
+
+                          <Button
+                            color="danger"
+                            simple
+                            className={classes.footerButtons}
+                          >
+                            <Favorite className={classes.footerIcons} /> 24
+                            </Button>
+                        </div>
+                      }
+                    />
+                  </div>
+                )
               },
               {
                 tabButton: "World",
-                tabContent: ""
+                tabContent: "test"
               },
               {
                 tabButton: "Arts",
@@ -52,88 +99,153 @@ function SectionPills({ ...props }) {
           <div className={classes.tabSpace} />
         </GridItem>
       </GridContainer>
-      <GridContainer>
-        <GridItem xs={12} sm={6} md={6}>
-          <Card
-            raised
-            background
-            style={{ backgroundImage: "url(" + office2 + ")" }}
-          >
-            <CardBody background>
-              <h6 className={classes.category}>WORLDS</h6>
-              <a href="#pablo">
-                <h3 className={classes.cardTitle}>
-                  The Best Productivity Apps on Market
-                </h3>
-              </a>
-              <p className={classes.category}>
-                Don't be scared of the truth because we need to restart the
-                human foundation in truth And I love you like Kanye loves Kanye
-                I love Rick Owens’ bed design but the back is...
-              </p>
-              <Button round href="#pablo" color="danger">
-                <FormatAlignLeft className={classes.icons} /> Read article
+      <GridContainer justify="center">
+        <GridItem xs={12} sm={10} md={8}>
+          <div>
+            <h3 className={classes.title}>3 Comments</h3>
+            <Media
+              avatar={profile4}
+              title={
+                <span>
+                  Tina Andrew <small>· 7 minutes ago</small>
+                </span>
+              }
+              body={
+                <p className={classes.color555}>
+                  Chance too good. God level bars. I'm so proud of
+                  @LifeOfDesiigner #1 song in the country. Panda! Don't be
+                  scared of the truth because we need to restart the human
+                  foundation in truth I stand with the most humility. We are so
+                  blessed!
+                </p>
+              }
+              footer={
+                <div>
+                  <Tooltip
+                    id="tooltip-tina"
+                    title="Reply to comment"
+                    placement="top"
+                    classes={{ tooltip: classes.tooltip }}
+                  >
+                    <Button
+                      color="primary"
+                      simple
+                      className={classes.footerButtons}
+                    >
+                      <Reply className={classes.footerIcons} /> Reply
+                    </Button>
+                  </Tooltip>
+
+                  <Button
+                    color="danger"
+                    simple
+                    className={classes.footerButtons}
+                  >
+                    <Favorite className={classes.footerIcons} /> 243
+                  </Button>
+                </div>
+              }
+            />
+            <Media
+              avatar={profile1}
+              title={
+                <span>
+                  John Camber <small>· Yesterday</small>
+                </span>
+              }
+              body={
+                <span className={classes.color555}>
+                  <p>
+                    Hello guys, nice to have you on the platform! There will be
+                    a lot of great stuff coming soon. We will keep you posted
+                    for the latest news.
+                  </p>
+                  <p>Don't forget, You're Awesome!</p>
+                </span>
+              }
+              footer={
+                <div>
+                  <Tooltip
+                    id="tooltip-john"
+                    title="Reply to comment"
+                    placement="top"
+                    classes={{ tooltip: classes.tooltip }}
+                  >
+                    <Button
+                      color="primary"
+                      simple
+                      className={classes.footerButtons}
+                    >
+                      <Reply className={classes.footerIcons} /> Reply
+                    </Button>
+                  </Tooltip>
+
+                  <Button link className={classes.footerButtons}>
+                    <Favorite className={classes.footerIcons} /> 25
+                  </Button>
+                </div>
+              }
+              innerMedias={[
+                <Media
+                  key={Date.now()}
+                  avatar={profile4}
+                  title={
+                    <span>
+                      Tina Andrew <small>· 12 Hours Ago</small>
+                    </span>
+                  }
+                  body={
+                    <span className={classes.color555}>
+                      <p>
+                        Hello guys, nice to have you on the platform! There will
+                        be a lot of great stuff coming soon. We will keep you
+                        posted for the latest news.
+                      </p>
+                      <p>Don't forget, You're Awesome!</p>
+                    </span>
+                  }
+                  footer={
+                    <Tooltip
+                      id="tooltip-tina2"
+                      title="Reply to comment"
+                      placement="top"
+                      classes={{ tooltip: classes.tooltip }}
+                    >
+                      <Button
+                        color="primary"
+                        simple
+                        className={classes.footerButtons}
+                      >
+                        <Reply className={classes.footerIcons} /> Reply
+                      </Button>
+                    </Tooltip>
+                  }
+                />
+              ]}
+            />
+          </div>
+          <h3 className={classes.title}>Post your comment</h3>
+          <Media
+            avatar={profile6}
+            body={
+              <CustomInput
+                labelText=" Write some nice stuff or nothing..."
+                id="nice"
+                formControlProps={{
+                  fullWidth: true
+                }}
+                inputProps={{
+                  multiline: true,
+                  rows: 5
+                }}
+              />
+            }
+            footer={
+              <Button color="primary" round className={classes.footerButtons}>
+                Post comment
               </Button>
-            </CardBody>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={6} md={6}>
-          <Card
-            raised
-            background
-            style={{ backgroundImage: "url(" + blog8 + ")" }}
-          >
-            <CardBody background>
-              <h6 className={classes.category}>BUSINESS</h6>
-              <a href="#pablo">
-                <h3 className={classes.cardTitle}>
-                  Working on Wallstreet is Not So Easy
-                </h3>
-              </a>
-              <p className={classes.category}>
-                Don't be scared of the truth because we need to restart the
-                human foundation in truth And I love you like Kanye loves Kanye
-                I love Rick Owens’ bed design but the back is...
-              </p>
-              <Button round href="#pablo" color="primary">
-                <FormatAlignLeft className={classes.icons} /> Read article
-              </Button>
-            </CardBody>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={12} md={12}>
-          <Card
-            raised
-            background
-            style={{ backgroundImage: "url(" + cardProject6 + ")" }}
-          >
-            <CardBody background>
-              <h6 className={classes.category}>MARKETING</h6>
-              <a href="#pablo">
-                <h3 className={classes.cardTitle}>
-                  0 to 100.000 Customers in 6 months
-                </h3>
-              </a>
-              <p className={classes.category}>
-                Don't be scared of the truth because we need to restart the
-                human foundation in truth And I love you like Kanye loves Kanye
-                I love Rick Owens’ bed design but the back is...
-              </p>
-              <Button round href="#pablo" color="warning">
-                <FormatAlignLeft className={classes.icons} /> Read case study
-              </Button>
-              <Tooltip
-                id="tooltip-pocket"
-                title="Save to Pocket"
-                placement="top"
-                classes={{ tooltip: classes.tooltip }}
-              >
-                <Button color="white" simple justIcon>
-                  <i className="fab fa-get-pocket" />
-                </Button>
-              </Tooltip>
-            </CardBody>
-          </Card>
+            }
+          />
         </GridItem>
       </GridContainer>
     </div>

@@ -38,7 +38,7 @@ class ControllerPage extends React.Component {
           fixed
           color="transparent"
           changeColorOnScroll={{
-            height: 400,
+            height: 100,
             color: "info"
           }}
         />
@@ -47,7 +47,7 @@ class ControllerPage extends React.Component {
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={8} className={classes.textCenter}>
                 <h2 className={classes.title}>
-                  The Simplest, Smartest Way to Control Your Lightings Online
+                  The Simplest, Smartest Way to Control Your Lightings
                 </h2>
               </GridItem>
             </GridContainer>

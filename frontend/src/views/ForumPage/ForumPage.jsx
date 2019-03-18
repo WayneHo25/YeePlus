@@ -38,7 +38,7 @@ class ForumPage extends React.Component {
           fixed
           color="transparent"
           changeColorOnScroll={{
-            height: 400,
+            height: 100,
             color: "info"
           }}
         />

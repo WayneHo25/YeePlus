@@ -42,7 +42,7 @@ class LandingPage extends React.Component {
           links={<HeaderLinks dropdownHoverColor="info" isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout}/>}
           fixed
           changeColorOnScroll={{
-            height: 300,
+            height: 100,
             color: "info"
           }}
           {...rest}
