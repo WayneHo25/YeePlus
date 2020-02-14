@@ -1,35 +1,35 @@
-import React from "react";
+import React from 'react'
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-import Tooltip from "@material-ui/core/Tooltip";
+import withStyles from '@material-ui/core/styles/withStyles'
+import Tooltip from '@material-ui/core/Tooltip'
 // @material-ui/icons
-import Reply from "@material-ui/icons/Reply";
-import Favorite from "@material-ui/icons/Favorite";
+import Reply from '@material-ui/icons/Reply'
+import Favorite from '@material-ui/icons/Favorite'
 // core components
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
-import NavPills from "components/NavPills/NavPills.jsx";
-import Button from "components/CustomButtons/Button.jsx";
-import Media from "components/Media/Media.jsx";
-import CustomInput from "components/CustomInput/CustomInput.jsx";
+import GridContainer from 'components/Grid/GridContainer.jsx'
+import GridItem from 'components/Grid/GridItem.jsx'
+import NavPills from 'components/NavPills/NavPills.jsx'
+import Button from 'components/CustomButtons/Button.jsx'
+import Media from 'components/Media/Media.jsx'
+import CustomInput from 'components/CustomInput/CustomInput.jsx'
 
-import profile4 from "assets/img/faces/card-profile4-square.jpg";
-import profile1 from "assets/img/faces/card-profile1-square.jpg";
-import profile6 from "assets/img/faces/card-profile6-square.jpg";
+import profile4 from 'assets/img/faces/card-profile4-square.jpg'
+import profile1 from 'assets/img/faces/card-profile1-square.jpg'
+import profile6 from 'assets/img/faces/card-profile6-square.jpg'
 
-import sectionPillsStyle from "assets/jss/material-kit-pro-react/views/blogPostsSections/sectionPillsStyle.jsx";
+import sectionPillsStyle from 'assets/jss/material-kit-pro-react/views/blogPostsSections/sectionPillsStyle.jsx'
 
-function SectionPills({ ...props }) {
-  const { classes } = props;
+function SectionPills ({ ...props }) {
+  const { classes } = props
   return (
     <div className={classes.section}>
-      <GridContainer justify="center">
+      <GridContainer justify='center'>
         <GridItem xs={12} sm={10} md={8}>
           <NavPills
             alignCenter
             tabs={[
               {
-                tabButton: "All",
+                tabButton: 'All',
                 tabContent: (
                   <div>
                     <Media
@@ -46,18 +46,18 @@ function SectionPills({ ...props }) {
                           scared of the truth because we need to restart the human
                           foundation in truth I stand with the most humility. We are so
                           blessed!
-                          </p>
+                        </p>
                       }
                       footer={
                         <div>
                           <Tooltip
-                            id="tooltip-tina"
-                            title="Reply to comment"
-                            placement="top"
+                            id='tooltip-tina'
+                            title='Reply to comment'
+                            placement='top'
                             classes={{ tooltip: classes.tooltip }}
                           >
                             <Button
-                              color="primary"
+                              color='primary'
                               simple
                               className={classes.footerButtons}
                             >
@@ -66,12 +66,12 @@ function SectionPills({ ...props }) {
                           </Tooltip>
 
                           <Button
-                            color="danger"
+                            color='danger'
                             simple
                             className={classes.footerButtons}
                           >
                             <Favorite className={classes.footerIcons} /> 24
-                            </Button>
+                          </Button>
                         </div>
                       }
                     />
@@ -79,27 +79,27 @@ function SectionPills({ ...props }) {
                 )
               },
               {
-                tabButton: "World",
-                tabContent: "test"
+                tabButton: 'World',
+                tabContent: 'test'
               },
               {
-                tabButton: "Arts",
-                tabContent: ""
+                tabButton: 'Arts',
+                tabContent: ''
               },
               {
-                tabButton: "Tech",
-                tabContent: ""
+                tabButton: 'Tech',
+                tabContent: ''
               },
               {
-                tabButton: "Business",
-                tabContent: ""
+                tabButton: 'Business',
+                tabContent: ''
               }
             ]}
           />
           <div className={classes.tabSpace} />
         </GridItem>
       </GridContainer>
-      <GridContainer justify="center">
+      <GridContainer justify='center'>
         <GridItem xs={12} sm={10} md={8}>
           <div>
             <h3 className={classes.title}>3 Comments</h3>
@@ -122,13 +122,13 @@ function SectionPills({ ...props }) {
               footer={
                 <div>
                   <Tooltip
-                    id="tooltip-tina"
-                    title="Reply to comment"
-                    placement="top"
+                    id='tooltip-tina'
+                    title='Reply to comment'
+                    placement='top'
                     classes={{ tooltip: classes.tooltip }}
                   >
                     <Button
-                      color="primary"
+                      color='primary'
                       simple
                       className={classes.footerButtons}
                     >
@@ -137,7 +137,7 @@ function SectionPills({ ...props }) {
                   </Tooltip>
 
                   <Button
-                    color="danger"
+                    color='danger'
                     simple
                     className={classes.footerButtons}
                   >
@@ -166,13 +166,13 @@ function SectionPills({ ...props }) {
               footer={
                 <div>
                   <Tooltip
-                    id="tooltip-john"
-                    title="Reply to comment"
-                    placement="top"
+                    id='tooltip-john'
+                    title='Reply to comment'
+                    placement='top'
                     classes={{ tooltip: classes.tooltip }}
                   >
                     <Button
-                      color="primary"
+                      color='primary'
                       simple
                       className={classes.footerButtons}
                     >
@@ -206,13 +206,13 @@ function SectionPills({ ...props }) {
                   }
                   footer={
                     <Tooltip
-                      id="tooltip-tina2"
-                      title="Reply to comment"
-                      placement="top"
+                      id='tooltip-tina2'
+                      title='Reply to comment'
+                      placement='top'
                       classes={{ tooltip: classes.tooltip }}
                     >
                       <Button
-                        color="primary"
+                        color='primary'
                         simple
                         className={classes.footerButtons}
                       >
@@ -229,8 +229,8 @@ function SectionPills({ ...props }) {
             avatar={profile6}
             body={
               <CustomInput
-                labelText=" Write some nice stuff or nothing..."
-                id="nice"
+                labelText=' Write some nice stuff or nothing...'
+                id='nice'
                 formControlProps={{
                   fullWidth: true
                 }}
@@ -241,7 +241,7 @@ function SectionPills({ ...props }) {
               />
             }
             footer={
-              <Button color="primary" round className={classes.footerButtons}>
+              <Button color='primary' round className={classes.footerButtons}>
                 Post comment
               </Button>
             }
@@ -249,7 +249,7 @@ function SectionPills({ ...props }) {
         </GridItem>
       </GridContainer>
     </div>
-  );
+  )
 }
 
-export default withStyles(sectionPillsStyle)(SectionPills);
+export default withStyles(sectionPillsStyle)(SectionPills)
