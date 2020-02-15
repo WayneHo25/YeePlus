@@ -26,7 +26,7 @@ function SectionPills ({ ...props }) {
             alignCenter
             tabs={[
               {
-                tabButton: 'All',
+                tabButton: 'YeePlus',
                 tabContent: (
                   <div>
                     <Media
@@ -76,12 +76,8 @@ function SectionPills ({ ...props }) {
                 )
               },
               {
-                tabButton: 'YeePlus',
-                tabContent: 'YeePlus Forums'
-              },
-              {
-                tabButton: 'FAQ',
-                tabContent: 'FAQ Forums'
+                tabButton: 'Yeelight',
+                tabContent: 'Yeelight Forums'
               },
               {
                 tabButton: 'Feedback',
