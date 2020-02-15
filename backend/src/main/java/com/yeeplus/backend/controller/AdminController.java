@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.yeeplus.backend.exception.ResourceNotFoundException;
-import com.yeeplus.backend.model.Discussion;
 import com.yeeplus.backend.model.Forum;
 import com.yeeplus.backend.model.Opinion;
 import com.yeeplus.backend.model.User;
@@ -68,11 +67,6 @@ public class AdminController {
 	@GetMapping("/user")
 	public List<User> getUsers() {
 		return userRepository.findAll();
-	}
-
-	@GetMapping("/discussion")
-	public List<Discussion> getDiscussions() {
-		return discussionRepository.findAll();
 	}
 
 	@GetMapping("/opinion")

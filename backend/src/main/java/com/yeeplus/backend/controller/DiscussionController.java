@@ -2,6 +2,7 @@ package com.yeeplus.backend.controller;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -47,6 +48,11 @@ public class DiscussionController {
 	private DiscussionService discussionService;
 
 	private static final Logger logger = LoggerFactory.getLogger(DiscussionController.class);
+
+	@GetMapping
+	public List<Discussion> getDiscussions() {
+		return discussionRepository.findAll();
+	}
 
 	@GetMapping("/{discussionId}")
 	public DiscussionResponse getDiscussionById(@PathVariable Long discussionId) {
