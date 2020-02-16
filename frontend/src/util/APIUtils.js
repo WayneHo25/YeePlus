@@ -63,3 +63,10 @@ export function getCurrentUser () {
     method: 'GET'
   })
 }
+
+export function getAllDiscussions () {
+  return request({
+    url: API_BASE_URL + '/discussion',
+    method: 'GET'
+  })
+}

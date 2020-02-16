@@ -1,53 +1,53 @@
-import React from "react";
+import React from 'react'
 // nodejs library that concatenates classes
-import classNames from "classnames";
+import classNames from 'classnames'
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
+import withStyles from '@material-ui/core/styles/withStyles'
 // core components
-import Header from "components/Header/Header.jsx";
-import Footer from "components/Footer/Footer.jsx";
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
-import Button from "components/CustomButtons/Button.jsx";
-import HeaderLinks from "components/Header/HeaderLinks.jsx";
-import Parallax from "components/Parallax/Parallax.jsx";
+import Header from 'components/Header/Header.jsx'
+import Footer from 'components/Footer/Footer.jsx'
+import GridContainer from 'components/Grid/GridContainer.jsx'
+import GridItem from 'components/Grid/GridItem.jsx'
+import Button from 'components/CustomButtons/Button.jsx'
+import HeaderLinks from 'components/Header/HeaderLinks.jsx'
+import Parallax from 'components/Parallax/Parallax.jsx'
 // Sections for this page
-import SectionProduct from "./Sections/SectionProduct.jsx";
-import SectionContact from "./Sections/SectionContact.jsx";
+import SectionProduct from './Sections/SectionProduct.jsx'
+import SectionContact from './Sections/SectionContact.jsx'
 
-import landingPageStyle from "assets/jss/material-kit-pro-react/views/landingPageStyle.jsx";
+import landingPageStyle from 'assets/jss/material-kit-pro-react/views/landingPageStyle.jsx'
 
 class LandingPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleLogout = this.handleLogout.bind(this);
+  constructor (props) {
+    super(props)
+    this.handleLogout = this.handleLogout.bind(this)
   }
 
-  componentDidMount() {
-    window.scrollTo(0, 0);
-    document.body.scrollTop = 0;
+  componentDidMount () {
+    window.scrollTo(0, 0)
+    document.body.scrollTop = 0
   }
 
-  handleLogout() {
-    this.props.handleLogout();
+  handleLogout () {
+    this.props.handleLogout()
   }
-  
-  render() {
-    const { classes, isAuthenticated, currentUser, ...rest } = this.props;
+
+  render () {
+    const { classes, isAuthenticated, currentUser, ...rest } = this.props
     return (
       <div>
         <Header
-          color="transparent"
-          brand="YeePlus Controller"
-          links={<HeaderLinks dropdownHoverColor="info" isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout}/>}
+          color='transparent'
+          brand='YeePlus Controller'
+          links={<HeaderLinks dropdownHoverColor='info' isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} />}
           fixed
           changeColorOnScroll={{
             height: 100,
-            color: "info"
+            color: 'info'
           }}
           {...rest}
         />
-        <Parallax image={require("assets/img/bg2.jpg")} filter="dark">
+        <Parallax image={require('assets/img/bg2.jpg')} filter='dark'>
           <div className={classes.container}>
             <GridContainer>
               <GridItem xs={12} sm={6} md={6}>
@@ -59,11 +59,11 @@ class LandingPage extends React.Component {
                 </h4>
                 <br />
                 <Button
-                  color="danger"
-                  size="lg"
-                  href="https://www.yeelight.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  color='danger'
+                  size='lg'
+                  href='https://www.yeelight.com/'
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >
                   Learn more
                 </Button>
@@ -80,15 +80,15 @@ class LandingPage extends React.Component {
         <Footer
           content={
             <div className={classes.right}>
-              Copyright &copy; {1900 + new Date().getYear()}{" "}
-              <a href="http://www.wayneblog.tk">Wayne He</a> All Rights
+              Copyright &copy; {1900 + new Date().getYear()}{' '}
+              <a href='http://www.wayneblog.tk'>Wayne He</a> All Rights
               Reserved.
             </div>
           }
         />
       </div>
-    );
+    )
   }
 }
 
-export default withStyles(landingPageStyle)(LandingPage);
+export default withStyles(landingPageStyle)(LandingPage)
