@@ -66,7 +66,7 @@ class HeaderLinks extends React.Component {
               buttonIcon={AccountBox}
               dropdownHeader={`Sign in as ${currentUser.name}`}
               dropdownList={[
-                <Link to={`/profile`} className={classes.dropdownLink}>
+                <Link to={`/profile-page`} className={classes.dropdownLink}>
                   <FolderShared className={classes.dropdownIcons} /> PROFILE
                 </Link>,
                 <div
