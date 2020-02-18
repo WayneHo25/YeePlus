@@ -5,19 +5,15 @@ import classNames from 'classnames'
 import withStyles from '@material-ui/core/styles/withStyles'
 // core components
 import Header from 'components/Header/Header.jsx'
+import HeaderLinks from 'components/Header/HeaderLinks.jsx'
 import Footer from 'components/Footer/Footer.jsx'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
-import Button from 'components/CustomButtons/Button.jsx'
-import HeaderLinks from 'components/Header/HeaderLinks.jsx'
 import Parallax from 'components/Parallax/Parallax.jsx'
-// Sections for this page
-import SectionProduct from './Sections/SectionProduct.jsx'
-import SectionContact from './Sections/SectionContact.jsx'
 
-import landingPageStyle from 'assets/jss/material-kit-pro-react/views/landingPageStyle.jsx'
+import profilePageStyle from 'assets/jss/material-kit-pro-react/views/profilePageStyle.jsx'
 
-class LandingPage extends React.Component {
+class ProfilePage extends React.Component {
   constructor (props) {
     super(props)
     this.handleLogout = this.handleLogout.bind(this)
@@ -33,48 +29,35 @@ class LandingPage extends React.Component {
   }
 
   render () {
-    const { classes, isAuthenticated, currentUser, ...rest } = this.props
+    const { classes, isAuthenticated, currentUser } = this.props
     return (
       <div>
         <Header
-          color='transparent'
           brand='YeePlus Controller'
           links={<HeaderLinks dropdownHoverColor='info' isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} />}
           fixed
+          color='transparent'
           changeColorOnScroll={{
             height: 100,
             color: 'info'
           }}
-          {...rest}
         />
-        <Parallax image={require('assets/img/bg2.jpg')} filter='dark'>
+        <Parallax image={require('assets/img/bg10.jpg')} filter='dark' small>
           <div className={classes.container}>
-            <GridContainer>
-              <GridItem xs={12} sm={6} md={6}>
-                <h1 className={classes.title}>Start Talking to Your Lights.</h1>
-                <h4>
-                  YeePlus Controller is the simplest, smartest way to control your
-                  smart Yeelight product online, who is an innovative leader
-                  dedicated for smarting lighting application.
-                </h4>
-                <br />
-                <Button
-                  color='danger'
-                  size='lg'
-                  href='https://www.yeelight.com/'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  Learn more
-                </Button>
+            <GridContainer justify='center'>
+              <GridItem xs={12} sm={12} md={8} className={classes.textCenter}>
+                <h2 className={classes.title}>
+                  A Way for You to Share Information about the People You Have
+                </h2>
               </GridItem>
             </GridContainer>
           </div>
         </Parallax>
-        <div className={classNames(classes.main, classes.mainRaised)}>
+        <div className={classes.main}>
           <div className={classes.container}>
-            <SectionProduct />
-            <SectionContact />
+            <br /><br /><br /><br /><br /><br />
+            <h2 className={classNames(classes.textCenter, classes.title2)}>New Version of User Profile is Coming Soon.</h2>
+            <br /><br /><br /><br /><br /><br />
           </div>
         </div>
         <Footer
@@ -91,4 +74,4 @@ class LandingPage extends React.Component {
   }
 }
 
-export default withStyles(landingPageStyle)(LandingPage)
+export default withStyles(profilePageStyle)(ProfilePage)
