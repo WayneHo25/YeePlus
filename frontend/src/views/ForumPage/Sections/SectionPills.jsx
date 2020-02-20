@@ -74,6 +74,7 @@ class SectionPills extends React.Component {
     const discussionViews = []
     this.state.discussions.forEach((discussion, discussionIndex) => {
       discussionViews.push(<Media
+        key={discussion.id}
         avatar={profile4}
         title={
           <span>
@@ -135,7 +136,7 @@ class SectionPills extends React.Component {
       >
         <Tab
           label='All'
-          key={1}
+          key={0}
           classes={{
             root: pillsClasses,
             labelContainer: classes.labelContainer,
@@ -145,7 +146,7 @@ class SectionPills extends React.Component {
         />
         <Tab
           label='YeePlus'
-          key={2}
+          key={1}
           classes={{
             root: pillsClasses,
             labelContainer: classes.labelContainer,
@@ -155,7 +156,7 @@ class SectionPills extends React.Component {
         />
         <Tab
           label='Yeelight'
-          key={3}
+          key={2}
           classes={{
             root: pillsClasses,
             labelContainer: classes.labelContainer,
@@ -165,7 +166,7 @@ class SectionPills extends React.Component {
         />
         <Tab
           label='Feedback'
-          key={4}
+          key={3}
           classes={{
             root: pillsClasses,
             labelContainer: classes.labelContainer,
@@ -185,6 +186,7 @@ class SectionPills extends React.Component {
         <GridContainer justify='center'>
           <GridItem xs={12} sm={10} md={8}>
             {tabButtons}
+            <div className={classes.tabSpace} />
             {discussionViews}
             {
               this.state.isLoading
