@@ -28,14 +28,19 @@ class SectionPills extends React.Component {
     this.state = {
       discussions: [],
       isLoading: false,
-      active: 0
+      active: 0,
+      forumID: 1
     }
-    this.loadDiscussionList = this.loadDiscussionList.bind(this)
+    this.changeForum = this.changeForum.bind(this);
   }
 
   handleChange = (event, active) => {
     this.setState({ active });
   };
+
+  changeForum(fid) {
+    this.setState({ forumID: fid });
+  }
 
   loadDiscussionList () {
     let promise
@@ -71,49 +76,6 @@ class SectionPills extends React.Component {
 
   render () {
     const { classes } = this.props
-    const discussionViews = []
-    this.state.discussions.forEach((discussion, discussionIndex) => {
-      discussionViews.push(<Media
-        key={discussion.id}
-        avatar={profile4}
-        title={
-          <span>
-            {discussion.title}
-          </span>
-        }
-        body={
-          <p className={classes.color555}>
-            {discussion.content}
-          </p>
-        }
-        footer={
-          <div>
-            <Tooltip
-              id='tooltip-tina'
-              title='Reply to comment'
-              placement='top'
-              classes={{ tooltip: classes.tooltip }}
-            >
-              <Button
-                color='primary'
-                simple
-                className={classes.footerButtons}
-              >
-                <Reply className={classes.footerIcons} /> Reply
-              </Button>
-            </Tooltip>
-
-            <Button
-              color='danger'
-              simple
-              className={classes.footerButtons}
-            >
-              <Favorite className={classes.footerIcons} /> 24
-            </Button>
-          </div>
-        }
-                           />)
-    })
     const flexContainerClasses = classNames({
       [classes.flexContainer]: true,
       [classes.horizontalDisplay]: false
@@ -135,47 +97,78 @@ class SectionPills extends React.Component {
         centered={true}
       >
         <Tab
-          label='All'
-          key={0}
-          classes={{
-            root: pillsClasses,
-            labelContainer: classes.labelContainer,
-            label: classes.label,
-            selected: classes.primary
-          }}
-        />
-        <Tab
-          label='YeePlus'
           key={1}
+          label='YeePlus'
           classes={{
             root: pillsClasses,
             labelContainer: classes.labelContainer,
             label: classes.label,
             selected: classes.primary
           }}
+          onClick={() => this.changeForum(1)}
         />
         <Tab
-          label='Yeelight'
           key={2}
+          label='Yeelight'
           classes={{
             root: pillsClasses,
             labelContainer: classes.labelContainer,
             label: classes.label,
             selected: classes.primary
           }}
+          onClick={() => this.changeForum(2)}
         />
         <Tab
-          label='Feedback'
           key={3}
+          label='Feedback'
           classes={{
             root: pillsClasses,
             labelContainer: classes.labelContainer,
             label: classes.label,
             selected: classes.primary
           }}
+          onClick={() => this.changeForum(3)}
         />
       </Tabs>
     )
+    const discussionList = []
+    this.state.discussions.forEach((discussion, discussionIndex) => {
+      if (discussion.forum.id == this.state.forumID) {
+        discussionList.push(
+        <Media
+          key={discussion.id}
+          avatar={profile4}
+          title={
+            <span>
+              {discussion.title} <small>· 7 minutes ago</small>
+            </span>
+          }
+          body={
+            <p className={classes.color555}>
+              {discussion.title}
+            </p>
+          }
+          footer={
+            <div>
+              <Tooltip
+                id='tooltip-tina'
+                title='Reply to discussion'
+                placement='top'
+                classes={{ tooltip: classes.tooltip }}
+              >
+                <Button
+                  color='primary'
+                  simple
+                  className={classes.footerButtons}
+                >
+                  <Reply className={classes.footerIcons} /> Reply
+                </Button>
+              </Tooltip>
+            </div>
+          }
+        />)
+      }
+    })
     const ColorCircularProgress = withStyles({
       root: {
         color: '#9c27b0'
@@ -187,12 +180,13 @@ class SectionPills extends React.Component {
           <GridItem xs={12} sm={10} md={8}>
             {tabButtons}
             <div className={classes.tabSpace} />
-            {discussionViews}
+            {discussionList}
+            <div className={classes.textCenter} >
             {
               this.state.isLoading
                 ? <ColorCircularProgress /> : null
             }
-            <div className={classes.tabSpace} />
+            </div>
           </GridItem>
         </GridContainer>
       </div>

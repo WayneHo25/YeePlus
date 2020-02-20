@@ -35,7 +35,6 @@ public class UserService {
 	public UserProfile getProfileByUsername(String username) {
 		User user = userRepository.findByUsername(username)
 				.orElseThrow(() -> new ResourceNotFoundException("User", "username", username));
-		;
 
 		UserProfile userProfile = new UserProfile(user.getId(), user.getName(), user.getUsername(), user.getAvatarUrl(),
 				user.getEmail(), null);
