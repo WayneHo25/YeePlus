@@ -1,14 +1,18 @@
 import React from 'react'
+// nodejs library that concatenates classes
+import classNames from 'classnames'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
 import Tooltip from '@material-ui/core/Tooltip'
+import Tab from '@material-ui/core/Tab'
+import Tabs from '@material-ui/core/Tabs'
+import CircularProgress from '@material-ui/core/CircularProgress'
 // @material-ui/icons
 import Reply from '@material-ui/icons/Reply'
 import Favorite from '@material-ui/icons/Favorite'
 // core components
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
-import NavPills from 'components/NavPills/NavPills.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import Media from 'components/Media/Media.jsx'
 
@@ -23,10 +27,15 @@ class SectionPills extends React.Component {
     super(props)
     this.state = {
       discussions: [],
-      isLoading: false
+      isLoading: false,
+      active: 0
     }
     this.loadDiscussionList = this.loadDiscussionList.bind(this)
   }
+
+  handleChange = (event, active) => {
+    this.setState({ active });
+  };
 
   loadDiscussionList () {
     let promise
@@ -104,74 +113,83 @@ class SectionPills extends React.Component {
         }
                            />)
     })
+    const flexContainerClasses = classNames({
+      [classes.flexContainer]: true,
+      [classes.horizontalDisplay]: false
+    })
+    const pillsClasses = classNames({
+      [classes.pills]: true,
+      [classes.horizontalPills]: false
+    })
+    const tabButtons = (
+      <Tabs
+        classes={{
+          root: classes.root,
+          fixed: classes.fixed,
+          flexContainer: flexContainerClasses,
+          indicator: classes.displayNone
+        }}
+        value={this.state.active}
+        onChange={this.handleChange}
+        centered={true}
+      >
+        <Tab
+          label='All'
+          key={1}
+          classes={{
+            root: pillsClasses,
+            labelContainer: classes.labelContainer,
+            label: classes.label,
+            selected: classes.primary
+          }}
+        />
+        <Tab
+          label='YeePlus'
+          key={2}
+          classes={{
+            root: pillsClasses,
+            labelContainer: classes.labelContainer,
+            label: classes.label,
+            selected: classes.primary
+          }}
+        />
+        <Tab
+          label='Yeelight'
+          key={3}
+          classes={{
+            root: pillsClasses,
+            labelContainer: classes.labelContainer,
+            label: classes.label,
+            selected: classes.primary
+          }}
+        />
+        <Tab
+          label='Feedback'
+          key={4}
+          classes={{
+            root: pillsClasses,
+            labelContainer: classes.labelContainer,
+            label: classes.label,
+            selected: classes.primary
+          }}
+        />
+      </Tabs>
+    )
+    const ColorCircularProgress = withStyles({
+      root: {
+        color: '#9c27b0'
+      }
+    })(CircularProgress)
     return (
       <div className={classes.section}>
         <GridContainer justify='center'>
           <GridItem xs={12} sm={10} md={8}>
-            <NavPills
-              alignCenter
-              tabs={[
-                {
-                  tabButton: 'YeePlus',
-                  tabContent: (
-                    <div>
-                      <Media
-                        avatar={profile4}
-                        title={
-                          <span>
-                          Tina Andrew <small>· 7 minutes ago</small>
-                          </span>
-                        }
-                        body={
-                          <p className={classes.color555}>
-                          Chance too good. God level bars. I'm so proud of
-                          @LifeOfDesiigner #1 song in the country. Panda! Don't be
-                          scared of the truth because we need to restart the human
-                          foundation in truth I stand with the most humility. We are so
-                          blessed!
-                          </p>
-                        }
-                        footer={
-                          <div>
-                            <Tooltip
-                              id='tooltip-tina'
-                              title='Reply to comment'
-                              placement='top'
-                              classes={{ tooltip: classes.tooltip }}
-                            >
-                              <Button
-                                color='primary'
-                                simple
-                                className={classes.footerButtons}
-                              >
-                                <Reply className={classes.footerIcons} /> Reply
-                              </Button>
-                            </Tooltip>
-
-                            <Button
-                              color='danger'
-                              simple
-                              className={classes.footerButtons}
-                            >
-                              <Favorite className={classes.footerIcons} /> 24
-                            </Button>
-                          </div>
-                        }
-                      />
-                    </div>
-                  )
-                },
-                {
-                  tabButton: 'Yeelight',
-                  tabContent: 'Yeelight Forum'
-                },
-                {
-                  tabButton: 'Feedback',
-                  tabContent: 'Feedback Forum'
-                }
-              ]}
-            />
+            {tabButtons}
             {discussionViews}
+            {
+              this.state.isLoading
+                ? <ColorCircularProgress /> : null
+            }
             <div className={classes.tabSpace} />
           </GridItem>
         </GridContainer>
