@@ -139,7 +139,7 @@ class SectionPills extends React.Component {
           avatar={profile4}
           title={
             <span>
-              {discussion.title} <small>· 7 minutes ago</small>
+              {discussion.user.name} <small>· 7 minutes ago</small>
             </span>
           }
           body={
