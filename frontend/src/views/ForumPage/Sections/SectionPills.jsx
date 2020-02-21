@@ -38,13 +38,14 @@ class SectionPills extends React.Component {
   };
 
   changeForum(fid) {
-    this.setState({ forumID: fid });
+    this.setState({ forumID: fid, discussions: [] })
+    this.loadDiscussionList(fid);
   }
 
-  loadDiscussionList () {
+  loadDiscussionList (fid = this.state.forumID) {
     let promise
 
-    promise = getDiscussionsByForumID(this.state.forumID)
+    promise = getDiscussionsByForumID(fid)
 
     if (!promise) {
       return
@@ -71,12 +72,6 @@ class SectionPills extends React.Component {
 
   componentDidMount () {
     this.loadDiscussionList()
-  }
-
-  componentDidUpdate (nextState) {
-    if (nextState.forumID !== this.state.forumID) {
-      this.loadDiscussionList()
-    }
   }
 
   render () {
