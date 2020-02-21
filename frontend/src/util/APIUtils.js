@@ -64,9 +64,9 @@ export function getCurrentUser () {
   })
 }
 
-export function getAllDiscussions () {
+export function getDiscussionsByForumID (forumID) {
   return request({
-    url: API_BASE_URL + '/discussion',
+    url: API_BASE_URL + '/forum/' + forumID + '/pin',
     method: 'GET'
   })
 }

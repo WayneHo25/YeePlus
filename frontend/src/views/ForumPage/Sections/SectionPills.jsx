@@ -9,14 +9,13 @@ import Tabs from '@material-ui/core/Tabs'
 import CircularProgress from '@material-ui/core/CircularProgress'
 // @material-ui/icons
 import Reply from '@material-ui/icons/Reply'
-import Favorite from '@material-ui/icons/Favorite'
 // core components
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import Media from 'components/Media/Media.jsx'
 
-import { getAllDiscussions } from 'util/APIUtils'
+import { getDiscussionsByForumID } from 'util/APIUtils'
 
 import profile4 from 'assets/img/faces/card-profile4-square.jpg'
 
@@ -45,7 +44,7 @@ class SectionPills extends React.Component {
   loadDiscussionList () {
     let promise
 
-    promise = getAllDiscussions()
+    promise = getDiscussionsByForumID(this.state.forumID)
 
     if (!promise) {
       return
@@ -72,6 +71,12 @@ class SectionPills extends React.Component {
 
   componentDidMount () {
     this.loadDiscussionList()
+  }
+
+  componentDidUpdate (nextState) {
+    if (nextState.forumID !== this.state.forumID) {
+      this.loadDiscussionList()
+    }
   }
 
   render () {
@@ -133,8 +138,7 @@ class SectionPills extends React.Component {
     )
     const discussionList = []
     this.state.discussions.forEach((discussion, discussionIndex) => {
-      if (discussion.forum.id == this.state.forumID) {
-        discussionList.push(
+      discussionList.push(
         <Media
           key={discussion.id}
           avatar={profile4}
@@ -167,7 +171,6 @@ class SectionPills extends React.Component {
             </div>
           }
         />)
-      }
     })
     const ColorCircularProgress = withStyles({
       root: {
