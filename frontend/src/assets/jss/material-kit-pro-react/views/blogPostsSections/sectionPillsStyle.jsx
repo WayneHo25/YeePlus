@@ -84,6 +84,20 @@ const sectionPillsStyle = theme => ({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  footerButtons: {
+    float: "right"
+  },
+  footerIcons: {
+    width: "1.1rem",
+    height: "1.1rem",
+    position: "relative",
+    display: "inline-block",
+    top: "0",
+    marginTop: "-1em",
+    marginBottom: "-1em",
+    marginRight: "3px",
+    verticalAlign: "middle"
+  },
   section: {
     backgroundPosition: '50%',
     backgroundSize: 'cover',

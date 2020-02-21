@@ -9,14 +9,13 @@ import Tabs from '@material-ui/core/Tabs'
 import CircularProgress from '@material-ui/core/CircularProgress'
 // @material-ui/icons
 import Reply from '@material-ui/icons/Reply'
-import Favorite from '@material-ui/icons/Favorite'
 // core components
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import Media from 'components/Media/Media.jsx'
 
-import { getAllDiscussions } from 'util/APIUtils'
+import { getDiscussionsByForumID } from 'util/APIUtils'
 
 import profile4 from 'assets/img/faces/card-profile4-square.jpg'
 
@@ -28,19 +27,24 @@ class SectionPills extends React.Component {
     this.state = {
       discussions: [],
       isLoading: false,
-      active: 0
+      active: 0,
+      forumID: 1
     }
-    this.loadDiscussionList = this.loadDiscussionList.bind(this)
+    this.changeForum = this.changeForum.bind(this);
   }
 
   handleChange = (event, active) => {
     this.setState({ active });
   };
 
+  changeForum(fid) {
+    this.setState({ forumID: fid });
+  }
+
   loadDiscussionList () {
     let promise
 
-    promise = getAllDiscussions()
+    promise = getDiscussionsByForumID(this.state.forumID)
 
     if (!promise) {
       return
@@ -69,50 +73,14 @@ class SectionPills extends React.Component {
     this.loadDiscussionList()
   }
 
+  componentDidUpdate (nextState) {
+    if (nextState.forumID !== this.state.forumID) {
+      this.loadDiscussionList()
+    }
+  }
+
   render () {
     const { classes } = this.props
-    const discussionViews = []
-    this.state.discussions.forEach((discussion, discussionIndex) => {
-      discussionViews.push(<Media
-        avatar={profile4}
-        title={
-          <span>
-            {discussion.title}
-          </span>
-        }
-        body={
-          <p className={classes.color555}>
-            {discussion.content}
-          </p>
-        }
-        footer={
-          <div>
-            <Tooltip
-              id='tooltip-tina'
-              title='Reply to comment'
-              placement='top'
-              classes={{ tooltip: classes.tooltip }}
-            >
-              <Button
-                color='primary'
-                simple
-                className={classes.footerButtons}
-              >
-                <Reply className={classes.footerIcons} /> Reply
-              </Button>
-            </Tooltip>
-
-            <Button
-              color='danger'
-              simple
-              className={classes.footerButtons}
-            >
-              <Favorite className={classes.footerIcons} /> 24
-            </Button>
-          </div>
-        }
-                           />)
-    })
     const flexContainerClasses = classNames({
       [classes.flexContainer]: true,
       [classes.horizontalDisplay]: false
@@ -134,47 +102,76 @@ class SectionPills extends React.Component {
         centered={true}
       >
         <Tab
-          label='All'
           key={1}
-          classes={{
-            root: pillsClasses,
-            labelContainer: classes.labelContainer,
-            label: classes.label,
-            selected: classes.primary
-          }}
-        />
-        <Tab
           label='YeePlus'
+          classes={{
+            root: pillsClasses,
+            labelContainer: classes.labelContainer,
+            label: classes.label,
+            selected: classes.primary
+          }}
+          onClick={() => this.changeForum(1)}
+        />
+        <Tab
           key={2}
-          classes={{
-            root: pillsClasses,
-            labelContainer: classes.labelContainer,
-            label: classes.label,
-            selected: classes.primary
-          }}
-        />
-        <Tab
           label='Yeelight'
-          key={3}
           classes={{
             root: pillsClasses,
             labelContainer: classes.labelContainer,
             label: classes.label,
             selected: classes.primary
           }}
+          onClick={() => this.changeForum(2)}
         />
         <Tab
+          key={3}
           label='Feedback'
-          key={4}
           classes={{
             root: pillsClasses,
             labelContainer: classes.labelContainer,
             label: classes.label,
             selected: classes.primary
           }}
+          onClick={() => this.changeForum(3)}
         />
       </Tabs>
     )
+    const discussionList = []
+    this.state.discussions.forEach((discussion, discussionIndex) => {
+      discussionList.push(
+        <Media
+          key={discussion.id}
+          avatar={profile4}
+          title={
+            <span>
+              {discussion.title} <small>· 7 minutes ago</small>
+            </span>
+          }
+          body={
+            <p className={classes.color555}>
+              {discussion.title}
+            </p>
+          }
+          footer={
+            <div>
+              <Tooltip
+                id='tooltip-tina'
+                title='Reply to discussion'
+                placement='top'
+                classes={{ tooltip: classes.tooltip }}
+              >
+                <Button
+                  color='primary'
+                  simple
+                  className={classes.footerButtons}
+                >
+                  <Reply className={classes.footerIcons} /> Reply
+                </Button>
+              </Tooltip>
+            </div>
+          }
+        />)
+    })
     const ColorCircularProgress = withStyles({
       root: {
         color: '#9c27b0'
@@ -185,12 +182,14 @@ class SectionPills extends React.Component {
         <GridContainer justify='center'>
           <GridItem xs={12} sm={10} md={8}>
             {tabButtons}
-            {discussionViews}
+            <div className={classes.tabSpace} />
+            {discussionList}
+            <div className={classes.textCenter} >
             {
               this.state.isLoading
                 ? <ColorCircularProgress /> : null
             }
-            <div className={classes.tabSpace} />
+            </div>
           </GridItem>
         </GridContainer>
       </div>
