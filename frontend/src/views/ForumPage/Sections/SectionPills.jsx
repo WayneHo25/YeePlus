@@ -98,7 +98,7 @@ class SectionPills extends React.Component {
       >
         <Tab
           key={1}
-          label='YeePlus'
+          label='Announcement'
           classes={{
             root: pillsClasses,
             labelContainer: classes.labelContainer,
@@ -109,7 +109,7 @@ class SectionPills extends React.Component {
         />
         <Tab
           key={2}
-          label='Yeelight'
+          label='General'
           classes={{
             root: pillsClasses,
             labelContainer: classes.labelContainer,
