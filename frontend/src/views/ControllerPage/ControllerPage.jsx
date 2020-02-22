@@ -22,6 +22,11 @@ class ControllerPage extends React.Component {
   componentDidMount () {
     window.scrollTo(0, 0)
     document.body.scrollTop = 0
+    const y = require('yeelight-awesome')
+    const discover = new y.Discover({
+      port: 1982,
+      debug: true
+    })
   }
 
   handleLogout () {
