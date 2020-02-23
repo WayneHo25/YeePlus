@@ -42,7 +42,7 @@ class ControllerPage extends React.Component {
             color: 'info'
           }}
         />
-        <Parallax image={require('assets/img/bg10.jpg')} filter='dark' small>
+        <Parallax image={require('assets/img/bg9.jpg')} filter='dark' small>
           <div className={classes.container}>
             <GridContainer justify='center'>
               <GridItem xs={12} sm={12} md={8} className={classes.textCenter}>
