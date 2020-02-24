@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 // nodejs library that concatenates classes
 import classNames from 'classnames'
 // @material-ui/core components
@@ -8,6 +9,7 @@ import Tab from '@material-ui/core/Tab'
 import Tabs from '@material-ui/core/Tabs'
 import CircularProgress from '@material-ui/core/CircularProgress'
 // @material-ui/icons
+import ChatIcon from '@material-ui/icons/Chat'
 import Reply from '@material-ui/icons/Reply'
 // core components
 import GridContainer from 'components/Grid/GridContainer.jsx'
@@ -16,8 +18,7 @@ import Button from 'components/CustomButtons/Button.jsx'
 import Media from 'components/Media/Media.jsx'
 
 import { getDiscussionsByForumID } from 'util/APIUtils'
-
-import profile4 from 'assets/img/faces/card-profile4-square.jpg'
+import { getTimePassed } from 'util/Time'
 
 import sectionPillsStyle from 'assets/jss/material-kit-pro-react/views/blogPostsSections/sectionPillsStyle.jsx'
 
@@ -136,10 +137,10 @@ class SectionPills extends React.Component {
       discussionList.push(
         <Media
           key={discussion.id}
-          avatar={profile4}
+          avatar={discussion.user.name}
           title={
             <span>
-              {discussion.user.name} <small>· 7 minutes ago</small>
+              {discussion.user.name} <small>· {getTimePassed(discussion.date)}</small>
             </span>
           }
           body={
@@ -178,6 +179,14 @@ class SectionPills extends React.Component {
           <GridItem xs={12} sm={10} md={8}>
             {tabButtons}
             <div className={classes.tabSpace} />
+            <div className={classes.textCenter} >
+              <Link to={`/${this.state.forumID}/new-discussion`}>
+                <Button round href="#pablo" color="primary">
+                  <ChatIcon className={classes.icons} /> Create new discussion
+                </Button>
+              </Link>
+            </div>
+            <div className={classes.tabSpace2} />
             {discussionList}
             <div className={classes.textCenter} >
             {

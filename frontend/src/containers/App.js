@@ -11,6 +11,7 @@ import SignupPage from 'views/SignupPage/SignupPage.jsx'
 import ProfilePage from 'views/ProfilePage/ProfilePage.jsx'
 import ControllerPage from 'views/ControllerPage/ControllerPage.jsx'
 import ForumPage from 'views/ForumPage/ForumPage.jsx'
+import NewDiscussion from 'views/ForumPage/NewDiscussion.jsx'
 import ErrorPage from 'views/ErrorPage/ErrorPage.jsx'
 
 class App extends Component {
@@ -47,6 +48,7 @@ class App extends Component {
         <Route path='/profile-page' render={(props) => <ProfilePage isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} {...props} />} />
         <Route path='/controller-page' render={(props) => <ControllerPage isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} {...props} />} />
         <Route path='/forum-page' render={(props) => <ForumPage isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} {...props} />} />
+        <Route path='/:forumID/new-discussion' render={(props) => <NewDiscussion isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} {...props} />} />
         <Route render={(props) => <ErrorPage isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} {...props} />} />
       </Switch>
     )

@@ -11,9 +11,9 @@ import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import Parallax from 'components/Parallax/Parallax.jsx'
 
-import controllerPageStyle from 'assets/jss/material-kit-pro-react/views/controllerPageStyle.jsx'
+import newDiscussionStyle from 'assets/jss/material-kit-pro-react/views/newDiscussionStyle.jsx'
 
-class ControllerPage extends React.Component {
+class NewDiscussion extends React.Component {
   constructor (props) {
     super(props)
     this.handleLogout = this.handleLogout.bind(this)
@@ -74,4 +74,4 @@ class ControllerPage extends React.Component {
   }
 }
 
-export default withStyles(controllerPageStyle)(ControllerPage)
+export default withStyles(newDiscussionStyle)(NewDiscussion)
