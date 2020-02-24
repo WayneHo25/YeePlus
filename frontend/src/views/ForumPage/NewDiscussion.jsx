@@ -42,12 +42,12 @@ class NewDiscussion extends React.Component {
             color: 'info'
           }}
         />
-        <Parallax image={require('assets/img/bg9.jpg')} filter='dark' small>
+        <Parallax image={require('assets/img/bg10.jpg')} filter='dark' small>
           <div className={classes.container}>
             <GridContainer justify='center'>
               <GridItem xs={12} sm={12} md={8} className={classes.textCenter}>
                 <h2 className={classes.title}>
-                  The Simplest, Smartest Way to Control Your Lightings
+                  A Place for Us to Share and Discover New Ideas
                 </h2>
               </GridItem>
             </GridContainer>
@@ -56,7 +56,11 @@ class NewDiscussion extends React.Component {
         <div className={classes.main}>
           <div className={classes.container}>
             <div className={classes.tabSpace} />
-            <h2 className={classNames(classes.textCenter, classes.title2)}>New Version of YeePlus Controller is Coming Soon.</h2>
+            {
+              this.props.isAuthenticated
+                ? <h2 className={classNames(classes.textCenter, classes.title2)}>Please sign in before posting a new discussion.</h2>
+                : <h2 className={classNames(classes.textCenter, classes.title2)}>Post a new discussion.</h2>
+            }
             <div className={classes.tabSpace} />
           </div>
         </div>

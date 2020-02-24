@@ -51,7 +51,7 @@ class LandingPage extends React.Component {
           <div className={classes.container}>
             <GridContainer>
               <GridItem xs={12} sm={6} md={6}>
-                <h1 className={classes.title}>Start Talking to Your Lights.</h1>
+                <h1 className={classes.title}>Start Talking to Your Lights</h1>
                 <h4>
                   YeePlus Controller is the simplest, smartest way to control your
                   smart Yeelight product online, who is an innovative leader

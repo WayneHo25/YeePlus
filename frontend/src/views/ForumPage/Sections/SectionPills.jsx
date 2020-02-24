@@ -182,7 +182,7 @@ class SectionPills extends React.Component {
             <div className={classes.textCenter} >
               <Link to={`/${this.state.forumID}/new-discussion`}>
                 <Button round href="#pablo" color="primary">
-                  <ChatIcon className={classes.icons} /> Create new discussion
+                  <ChatIcon className={classes.icons} /> Post new discussion
                 </Button>
               </Link>
             </div>
