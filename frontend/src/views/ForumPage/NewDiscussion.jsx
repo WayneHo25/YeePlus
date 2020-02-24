@@ -10,6 +10,9 @@ import Footer from 'components/Footer/Footer.jsx'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import Parallax from 'components/Parallax/Parallax.jsx'
+import Media from 'components/Media/Media.jsx'
+import CustomInput from 'components/CustomInput/CustomInput.jsx'
+import Button from 'components/CustomButtons/Button.jsx'
 
 import newDiscussionStyle from 'assets/jss/material-kit-pro-react/views/newDiscussionStyle.jsx'
 
@@ -58,8 +61,45 @@ class NewDiscussion extends React.Component {
             <div className={classes.tabSpace} />
             {
               this.props.isAuthenticated
-                ? <h2 className={classNames(classes.textCenter, classes.title2)}>Please sign in before posting a new discussion.</h2>
-                : <h2 className={classNames(classes.textCenter, classes.title2)}>Post a new discussion.</h2>
+                ? (<div>
+                  <GridContainer justify='center'>
+                    <GridItem xs={12} sm={10} md={8}>
+                      <h3 className={classes.title3}>Post your discussion</h3>
+                      <Media
+                        avatar={currentUser.name}
+                        body={
+                          <div>
+                            <CustomInput
+                              labelText=' Write the discussion title... '
+                              id='title'
+                              formControlProps={{
+                                fullWidth: true
+                              }}
+                            />
+                            <CustomInput
+                              labelText=' Write the discussion content... '
+                              id='content'
+                              formControlProps={{
+                                fullWidth: true
+                              }}
+                              inputProps={{
+                                multiline: true,
+                                rows: 5
+                              }}
+                            />
+                          </div>
+
+                        }
+                        footer={
+                          <Button color='primary' round className={classes.footerButtons}>
+                            Post discussion
+                          </Button>
+                        }
+                      />
+                    </GridItem>
+                  </GridContainer>
+                   </div>)
+                : <h2 className={classNames(classes.textCenter, classes.title2)}>Please sign in before posting a new discussion.</h2>
             }
             <div className={classes.tabSpace} />
           </div>

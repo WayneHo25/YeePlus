@@ -23,6 +23,11 @@ const controllerPageStyle = {
     ...title,
     marginBottom: 0
   },
+  title3: {
+    ...title,
+    marginBottom: '30px',
+    textAlign: 'center'
+  },
   main: {
     ...main,
     ...mainRaised
@@ -65,6 +70,9 @@ const controllerPageStyle = {
   },
   tabSpace: {
     padding: '50px 0 50px'
+  },
+  footerButtons: {
+    float: 'right'
   }
 }
 
