@@ -42,7 +42,7 @@ class ProfilePage extends React.Component {
             color: 'info'
           }}
         />
-        <Parallax image={require('assets/img/bg10.jpg')} filter='dark' small>
+        <Parallax image={require('assets/img/bg5.jpg')} filter='dark' small>
           <div className={classes.container}>
             <GridContainer justify='center'>
               <GridItem xs={12} sm={12} md={8} className={classes.textCenter}>
@@ -55,9 +55,9 @@ class ProfilePage extends React.Component {
         </Parallax>
         <div className={classes.main}>
           <div className={classes.container}>
-            <br /><br /><br /><br /><br /><br />
+            <div className={classes.tabSpace} />
             <h2 className={classNames(classes.textCenter, classes.title2)}>New Version of User Profile is Coming Soon.</h2>
-            <br /><br /><br /><br /><br /><br />
+            <div className={classes.tabSpace} />
           </div>
         </div>
         <Footer

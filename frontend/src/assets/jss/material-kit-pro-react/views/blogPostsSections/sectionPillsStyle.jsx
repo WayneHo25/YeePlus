@@ -126,7 +126,10 @@ const sectionPillsStyle = theme => ({
     verticalAlign: 'middle'
   },
   tabSpace: {
-    padding: '20px 0 50px'
+    padding: '15px 0 15px'
+  },
+  tabSpace2: {
+    padding: '5px 0 5px'
   }
 })
 

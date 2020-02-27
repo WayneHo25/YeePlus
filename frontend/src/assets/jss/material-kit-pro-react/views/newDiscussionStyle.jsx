@@ -6,7 +6,7 @@ import {
   mainRaised
 } from 'assets/jss/material-kit-pro-react.jsx'
 
-const controllerPageStyle = {
+const newDiscussionStyle = {
   container: {
     ...container,
     zIndex: '2',
@@ -22,6 +22,11 @@ const controllerPageStyle = {
   title2: {
     ...title,
     marginBottom: 0
+  },
+  title3: {
+    ...title,
+    marginBottom: '30px',
+    textAlign: 'center'
   },
   main: {
     ...main,
@@ -65,7 +70,10 @@ const controllerPageStyle = {
   },
   tabSpace: {
     padding: '50px 0 50px'
+  },
+  footerButtons: {
+    float: 'right'
   }
 }
 
-export default controllerPageStyle
+export default newDiscussionStyle

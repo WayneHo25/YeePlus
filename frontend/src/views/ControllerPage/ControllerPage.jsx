@@ -55,9 +55,9 @@ class ControllerPage extends React.Component {
         </Parallax>
         <div className={classes.main}>
           <div className={classes.container}>
-            <br /><br /><br /><br /><br /><br />
+            <div className={classes.tabSpace} />
             <h2 className={classNames(classes.textCenter, classes.title2)}>New Version of YeePlus Controller is Coming Soon.</h2>
-            <br /><br /><br /><br /><br /><br />
+            <div className={classes.tabSpace} />
           </div>
         </div>
         <Footer
