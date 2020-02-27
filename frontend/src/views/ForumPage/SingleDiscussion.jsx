@@ -73,20 +73,23 @@ class SingleDiscussion extends React.Component {
     const opinionList = []
     this.state.opinions.map(opinion => {
       opinionList.push(
-        <Media
-          key={opinion.id}
-          avatar={opinion.user.name}
-          title={
-            <span>
-              {opinion.user.name} <small>· {getTimePassed(opinion.date)}</small>
-            </span>
-          }
-          body={
-            <p className={classes.color555}>
-              {opinion.content}
-            </p>
-          }
-        />)
+        <div key={opinion.id}>
+          <Media
+            avatar={opinion.user.name}
+            title={
+              <span>
+                {opinion.user.name} <small>· {getTimePassed(opinion.date)}</small>
+              </span>
+            }
+            body={
+              <p className={classes.color555}>
+                {opinion.content}
+              </p>
+            }
+          />
+          <div className={classes.tabSpace2} />
+        </div>
+      )
       return true
     })
     const ColorCircularProgress = withStyles({
@@ -122,12 +125,13 @@ class SingleDiscussion extends React.Component {
             <GridContainer justify='center'>
               <GridItem xs={12} sm={10} md={8}>
                 <div className={classes.tabSpace} />
-                <h3 className={classes.title4}>
+                <h3 className={classes.title2}>
                   {this.state.discussion.title}
                 </h3>
                 <p>
                   {this.state.discussion.content}
                 </p>
+                <div className={classes.tabSpace2} />
                 <div className={classes.textCenter}>
                   {
                     this.state.isLoading
@@ -162,9 +166,10 @@ class SingleDiscussion extends React.Component {
                           </Button>
                         }
                       />
-                    </div>)
-                    : <h2 className={classNames(classes.textCenter, classes.title2)}>Please sign in before posting a new opinion.</h2>
+                       </div>)
+                    : <h2 className={classNames(classes.textCenter, classes.title4)}>Please sign in before posting a new opinion.</h2>
                 }
+                <div className={classes.tabSpace2} />
                 <div>
                   {opinionList}
                 </div>

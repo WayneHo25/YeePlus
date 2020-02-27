@@ -130,6 +130,11 @@ const sectionPillsStyle = theme => ({
   },
   tabSpace2: {
     padding: '5px 0 5px'
+  },
+  color555: {
+    "&,& *": {
+      color: grayColor[15] + " !important"
+    }
   }
 })
 
