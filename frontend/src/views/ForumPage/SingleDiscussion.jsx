@@ -3,6 +3,7 @@ import React from 'react'
 import classNames from 'classnames'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
+import CircularProgress from '@material-ui/core/CircularProgress'
 // core components
 import Header from 'components/Header/Header.jsx'
 import HeaderLinks from 'components/Header/HeaderLinks.jsx'
@@ -14,17 +15,53 @@ import Media from 'components/Media/Media.jsx'
 import CustomInput from 'components/CustomInput/CustomInput.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 
-import newDiscussionStyle from 'assets/jss/material-kit-pro-react/views/newDiscussionStyle.jsx'
+import { getDiscussionByDiscussionID } from 'util/APIUtils'
+import { getTimePassed } from 'util/Time'
 
-class NewDiscussion extends React.Component {
+import singleDiscussionStyle from 'assets/jss/material-kit-pro-react/views/singleDiscussionStyle.jsx'
+
+class SingleDiscussion extends React.Component {
   constructor (props) {
     super(props)
+    this.state = {
+      discussion: [],
+      opinions: [],
+      isLoading: false
+    }
     this.handleLogout = this.handleLogout.bind(this)
   }
 
   componentDidMount () {
     window.scrollTo(0, 0)
     document.body.scrollTop = 0
+    this.loadSingleDiscussion(this.props.match.params.discussionID)
+  }
+
+  loadSingleDiscussion (did) {
+    let promise
+
+    promise = getDiscussionByDiscussionID(did)
+
+    if (!promise) {
+      return
+    }
+
+    this.setState({
+      isLoading: true
+    })
+
+    promise
+      .then(response => {
+        this.setState({
+          discussion: response,
+          opinions: response.responses,
+          isLoading: false
+        })
+      }).catch(error => {
+        this.setState({
+          isLoading: false
+        })
+      })
   }
 
   handleLogout () {
@@ -33,6 +70,30 @@ class NewDiscussion extends React.Component {
 
   render () {
     const { classes, isAuthenticated, currentUser } = this.props
+    const opinionList = []
+    this.state.opinions.map(opinion => {
+      opinionList.push(
+        <Media
+          key={opinion.id}
+          avatar={opinion.user.name}
+          title={
+            <span>
+              {opinion.user.name} <small>· {getTimePassed(opinion.date)}</small>
+            </span>
+          }
+          body={
+            <p className={classes.color555}>
+              {opinion.content}
+            </p>
+          }
+        />)
+      return true
+    })
+    const ColorCircularProgress = withStyles({
+      root: {
+        color: '#9c27b0'
+      }
+    })(CircularProgress)
     return (
       <div>
         <Header
@@ -61,24 +122,28 @@ class NewDiscussion extends React.Component {
             <GridContainer justify='center'>
               <GridItem xs={12} sm={10} md={8}>
                 <div className={classes.tabSpace} />
+                <h3 className={classes.title4}>
+                  {this.state.discussion.title}
+                </h3>
+                <p>
+                  {this.state.discussion.content}
+                </p>
+                <div className={classes.textCenter}>
+                  {
+                    this.state.isLoading
+                      ? <ColorCircularProgress /> : null
+                  }
+                </div>
                 {
                   this.props.isAuthenticated
                     ? (<div>
-
-                      <h3 className={classes.title3}>Post your discussion</h3>
+                      <h3 className={classes.title3}>Post your opinion</h3>
                       <Media
                         avatar={currentUser.name}
                         body={
                           <div>
                             <CustomInput
-                              labelText=' Write the discussion title... '
-                              id='title'
-                              formControlProps={{
-                                fullWidth: true
-                              }}
-                            />
-                            <CustomInput
-                              labelText=' Write the discussion content... '
+                              labelText=' Write the opinion content... '
                               id='content'
                               formControlProps={{
                                 fullWidth: true
@@ -93,16 +158,25 @@ class NewDiscussion extends React.Component {
                         }
                         footer={
                           <Button color='primary' round className={classes.footerButtons}>
-                            Post discussion
+                            Post opinion
                           </Button>
                         }
                       />
                     </div>)
-                    : <h2 className={classNames(classes.textCenter, classes.title2)}>Please sign in before posting a new discussion.</h2>
+                    : <h2 className={classNames(classes.textCenter, classes.title2)}>Please sign in before posting a new opinion.</h2>
                 }
-                <div className={classes.tabSpace} />
+                <div>
+                  {opinionList}
+                </div>
+                <div className={classes.textCenter}>
+                  {
+                    this.state.isLoading
+                      ? <ColorCircularProgress /> : null
+                  }
+                </div>
               </GridItem>
             </GridContainer>
+            <div className={classes.tabSpace} />
           </div>
         </div>
         <Footer
@@ -119,4 +193,4 @@ class NewDiscussion extends React.Component {
   }
 }
 
-export default withStyles(newDiscussionStyle)(NewDiscussion)
+export default withStyles(singleDiscussionStyle)(SingleDiscussion)

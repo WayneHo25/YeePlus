@@ -6,7 +6,7 @@ import {
   mainRaised
 } from 'assets/jss/material-kit-pro-react.jsx'
 
-const newDiscussionStyle = {
+const singleDiscussionStyle = {
   container: {
     ...container,
     zIndex: '2',
@@ -27,6 +27,8 @@ const newDiscussionStyle = {
     ...title,
     marginBottom: '30px',
     textAlign: 'center'
+  },
+  title4: {
   },
   main: {
     ...main,
@@ -76,4 +78,4 @@ const newDiscussionStyle = {
   }
 }
 
-export default newDiscussionStyle
+export default singleDiscussionStyle

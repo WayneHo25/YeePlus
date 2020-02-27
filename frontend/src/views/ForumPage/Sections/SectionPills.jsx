@@ -31,16 +31,20 @@ class SectionPills extends React.Component {
       active: 0,
       forumID: 1
     }
-    this.changeForum = this.changeForum.bind(this);
+    this.changeForum = this.changeForum.bind(this)
+  }
+
+  componentDidMount () {
+    this.loadDiscussionList()
   }
 
   handleChange = (event, active) => {
-    this.setState({ active });
+    this.setState({ active })
   };
 
-  changeForum(fid) {
+  changeForum (fid) {
     this.setState({ forumID: fid, discussions: [] })
-    this.loadDiscussionList(fid);
+    this.loadDiscussionList(fid)
   }
 
   loadDiscussionList (fid = this.state.forumID) {
@@ -71,10 +75,6 @@ class SectionPills extends React.Component {
       })
   }
 
-  componentDidMount () {
-    this.loadDiscussionList()
-  }
-
   render () {
     const { classes } = this.props
     const flexContainerClasses = classNames({
@@ -95,7 +95,7 @@ class SectionPills extends React.Component {
         }}
         value={this.state.active}
         onChange={this.handleChange}
-        centered={true}
+        centered
       >
         <Tab
           key={1}
@@ -144,9 +144,11 @@ class SectionPills extends React.Component {
             </span>
           }
           body={
-            <p className={classes.color555}>
-              {discussion.title}
-            </p>
+            <Link to={`/${this.state.forumID}/discussion/${discussion.id}`}>
+              <p className={classes.color555}>
+                {discussion.title}
+              </p>
+            </Link>
           }
           footer={
             <div>
@@ -156,13 +158,15 @@ class SectionPills extends React.Component {
                 placement='top'
                 classes={{ tooltip: classes.tooltip }}
               >
-                <Button
-                  color='primary'
-                  simple
-                  className={classes.footerButtons}
-                >
-                  <Reply className={classes.footerIcons} /> Reply
-                </Button>
+                <Link to={`/${this.state.forumID}/discussion/${discussion.id}`}>
+                  <Button
+                    color='primary'
+                    simple
+                    className={classes.footerButtons}
+                  >
+                    <Reply className={classes.footerIcons} /> Reply
+                  </Button>
+                </Link>
               </Tooltip>
             </div>
           }
@@ -179,20 +183,20 @@ class SectionPills extends React.Component {
           <GridItem xs={12} sm={10} md={8}>
             {tabButtons}
             <div className={classes.tabSpace} />
-            <div className={classes.textCenter} >
+            <div className={classes.textCenter}>
               <Link to={`/${this.state.forumID}/new-discussion`}>
-                <Button round href="#pablo" color="primary">
+                <Button round href='#pablo' color='primary'>
                   <ChatIcon className={classes.icons} /> Post new discussion
                 </Button>
               </Link>
             </div>
             <div className={classes.tabSpace2} />
             {discussionList}
-            <div className={classes.textCenter} >
-            {
-              this.state.isLoading
-                ? <ColorCircularProgress /> : null
-            }
+            <div className={classes.textCenter}>
+              {
+                this.state.isLoading
+                  ? <ColorCircularProgress /> : null
+              }
             </div>
           </GridItem>
         </GridContainer>

@@ -70,3 +70,10 @@ export function getDiscussionsByForumID (forumID) {
     method: 'GET'
   })
 }
+
+export function getDiscussionByDiscussionID (discussionID) {
+  return request({
+    url: API_BASE_URL + '/discussion/' + discussionID,
+    method: 'GET'
+  })
+}
