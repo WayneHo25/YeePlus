@@ -16,7 +16,9 @@ const singleDiscussionStyle = {
       fontSize: '1.188rem',
       lineHeight: '1.5em',
       color: grayColor[15],
-      marginBottom: '30px'
+      marginBottom: '30px',
+      wordWrap: 'break-word',
+      wordBreak: 'break-all'
     }
   },
   textCenter: {
@@ -27,7 +29,9 @@ const singleDiscussionStyle = {
     color: whiteColor
   },
   title2: {
-    ...title
+    ...title,
+    wordWrap: 'break-word',
+    wordBreak: 'break-all'
   },
   title3: {
     ...title,
@@ -47,6 +51,9 @@ const singleDiscussionStyle = {
     backgroundPosition: '50%',
     backgroundSize: 'cover',
     padding: '70px 0'
+  },
+  form: {
+    margin: '0'
   },
   right: {
     padding: '15px 0',

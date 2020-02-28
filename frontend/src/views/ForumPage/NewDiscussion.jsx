@@ -15,6 +15,8 @@ import CustomInput from 'components/CustomInput/CustomInput.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import SnackbarContent from 'components/Snackbar/SnackbarContent.jsx'
 
+import { createNewDiscussion } from 'util/APIUtils'
+
 import newDiscussionStyle from 'assets/jss/material-kit-pro-react/views/newDiscussionStyle.jsx'
 
 import {
@@ -30,11 +32,12 @@ class NewDiscussion extends React.Component {
       favorites: [],
       tags: [],
       pinned: false,
-      forumID: 1,
+      forumId: 1,
       openNotification: false,
-      notificationType: this.props.notificationHolder.type,
-      notificationDescription: this.props.notificationHolder.description
+      notificationType: '',
+      notificationDescription: ''
     }
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.handleLogout = this.handleLogout.bind(this)
   }
 
@@ -42,7 +45,7 @@ class NewDiscussion extends React.Component {
     window.scrollTo(0, 0)
     document.body.scrollTop = 0
     this.setState({
-      forumID: this.props.match.params.forumID
+      forumId: this.props.match.params.forumId
     })
   }
 
@@ -110,26 +113,23 @@ class NewDiscussion extends React.Component {
       favorites: this.state.favorites,
       tags: this.state.tags,
       pinned: this.state.pinned,
-      forumID: this.state.forumID
+      forumId: this.state.forumId
     }
     if (this.validateTitle(newDiscussionRequest.title)) {
       if (this.validateContent(newDiscussionRequest.content)) {
-        send(newDiscussionRequest)
+        createNewDiscussion(newDiscussionRequest, this.props.history)
+          .then(response => {
+            this.props.history.push('/forum-page')
+            return true
+          }).catch(error => {
+            this.setState({
+              openNotification: true,
+              notificationType: 'Error',
+              notificationDescription: 'Forum ID may be incorrect.'
+            })
+            return false
+          })
       }
-    }
-  }
-
-  handleLogout () {
-    this.props.handleLogout()
-  }
-
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.notificationHolder !== this.props.notificationHolder) {
-      this.setState({
-        openNotification: true,
-        notificationType: nextProps.notificationHolder.type,
-        notificationDescription: nextProps.notificationHolder.description
-      })
     }
   }
 
@@ -137,6 +137,10 @@ class NewDiscussion extends React.Component {
     this.setState({
       openNotification: val
     })
+  }
+
+  handleLogout () {
+    this.props.handleLogout()
   }
 
   render () {
@@ -196,8 +200,10 @@ class NewDiscussion extends React.Component {
                                   formControlProps={{
                                     fullWidth: true
                                   }}
-                                  value={this.state.title}
-                                  onChange={evt => this.updateTitle(evt)}
+                                  inputProps={{
+                                    value: this.state.title,
+                                    onChange: evt => this.updateTitle(evt)
+                                  }}
                                 />
                                 <CustomInput
                                   labelText=' Write the discussion content... '
@@ -207,10 +213,10 @@ class NewDiscussion extends React.Component {
                                   }}
                                   inputProps={{
                                     multiline: true,
-                                    rows: 5
+                                    rows: 5,
+                                    value: this.state.content,
+                                    onChange: evt => this.updateContent(evt)
                                   }}
-                                  value={this.state.content}
-                                  onChange={evt => this.updateContent(evt)}
                                 />
                               </div>
                             }

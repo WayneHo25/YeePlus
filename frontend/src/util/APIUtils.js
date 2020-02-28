@@ -64,16 +64,32 @@ export function getCurrentUser () {
   })
 }
 
-export function getDiscussionsByForumID (forumID) {
+export function getDiscussionsByForumId (forumId) {
   return request({
-    url: API_BASE_URL + '/forum/' + forumID + '/pin',
+    url: API_BASE_URL + '/forum/' + forumId + '/pin',
     method: 'GET'
   })
 }
 
-export function getDiscussionByDiscussionID (discussionID) {
+export function getDiscussionByDiscussionId (discussionId) {
   return request({
-    url: API_BASE_URL + '/discussion/' + discussionID,
+    url: API_BASE_URL + '/discussion/' + discussionId,
     method: 'GET'
+  })
+}
+
+export function createNewDiscussion (newDiscussionRequest) {
+  return request({
+    url: API_BASE_URL + '/discussion',
+    method: 'POST',
+    body: JSON.stringify(newDiscussionRequest)
+  })
+}
+
+export function createNewOpinion (newOpinionRequest) {
+  return request({
+    url: API_BASE_URL + '/opinion',
+    method: 'POST',
+    body: JSON.stringify(newOpinionRequest)
   })
 }
