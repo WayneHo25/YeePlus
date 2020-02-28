@@ -10,6 +10,8 @@ import Footer from 'components/Footer/Footer.jsx'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import Parallax from 'components/Parallax/Parallax.jsx'
+// sections for this page
+import SectionFeatures from 'views/ControllerPage/Sections/SectionFeatures.jsx'
 
 import controllerPageStyle from 'assets/jss/material-kit-pro-react/views/controllerPageStyle.jsx'
 
@@ -56,8 +58,10 @@ class ControllerPage extends React.Component {
         <div className={classes.main}>
           <div className={classes.container}>
             <div className={classes.section}>
-              <h2 className={classNames(classes.textCenter, classes.title2)}>New Version of YeePlus Controller is Coming Soon.</h2>
+              <h3 className={classNames(classes.textCenter, classes.title2)}>New Version of YeePlus Controller is Coming Soon.</h3>
             </div>
+            <hr />
+            <SectionFeatures />
           </div>
         </div>
         <Footer

@@ -20,8 +20,7 @@ const controllerPageStyle = {
     color: whiteColor
   },
   title2: {
-    ...title,
-    marginBottom: 0
+    ...title
   },
   main: {
     ...main,
