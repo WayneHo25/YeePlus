@@ -1,68 +1,68 @@
-import React from "react";
+import React from 'react'
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Icon from "@material-ui/core/Icon";
+import withStyles from '@material-ui/core/styles/withStyles'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import Icon from '@material-ui/core/Icon'
 // @material-ui/icons
-import Email from "@material-ui/icons/Email";
+import Email from '@material-ui/icons/Email'
 // core components
-import Header from "components/Header/Header.jsx";
-import HeaderLinks from "components/Header/HeaderLinks.jsx";
-import Footer from "components/Footer/Footer.jsx";
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
-import Button from "components/CustomButtons/Button.jsx";
-import Card from "components/Card/Card.jsx";
-import CardBody from "components/Card/CardBody.jsx";
-import CardHeader from "components/Card/CardHeader.jsx";
-import CustomInput from "components/CustomInput/CustomInput.jsx";
-import SnackbarContent from "components/Snackbar/SnackbarContent.jsx";
+import Header from 'components/Header/Header.jsx'
+import HeaderLinks from 'components/Header/HeaderLinks.jsx'
+import Footer from 'components/Footer/Footer.jsx'
+import GridContainer from 'components/Grid/GridContainer.jsx'
+import GridItem from 'components/Grid/GridItem.jsx'
+import Button from 'components/CustomButtons/Button.jsx'
+import Card from 'components/Card/Card.jsx'
+import CardBody from 'components/Card/CardBody.jsx'
+import CardHeader from 'components/Card/CardHeader.jsx'
+import CustomInput from 'components/CustomInput/CustomInput.jsx'
+import SnackbarContent from 'components/Snackbar/SnackbarContent.jsx'
 
-import loginPageStyle from "assets/jss/material-kit-pro-react/views/loginPageStyle.jsx";
+import loginPageStyle from 'assets/jss/material-kit-pro-react/views/loginPageStyle.jsx'
 
-import image from "assets/img/bg7.jpg";
+import image from 'assets/img/bg7.jpg'
 
 class LoginPage extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
       usernameOrEmail: '',
       password: '',
       openNotification: false,
       notificationType: this.props.notificationHolder.type,
       notificationDescription: this.props.notificationHolder.description
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleLogout = this.handleLogout.bind(this);
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
   }
 
-  componentDidMount() {
-    window.scrollTo(0, 0);
-    document.body.scrollTop = 0;
+  componentDidMount () {
+    window.scrollTo(0, 0)
+    document.body.scrollTop = 0
   }
 
-  updateUsernameOrEmail(evt) {
+  updateUsernameOrEmail (evt) {
     this.setState({
       usernameOrEmail: evt.target.value
-    });
+    })
   }
 
-  updatePassword(evt) {
+  updatePassword (evt) {
     this.setState({
       password: evt.target.value
-    });
+    })
   }
 
   validateUsernameOrEmail = (name) => {
     if (!name) {
       this.setState({
         openNotification: true,
-        notificationType: "Error",
-        notificationDescription: "Username or email may not be empty."
-      });
-      return false;
+        notificationType: 'Error',
+        notificationDescription: 'Username or email may not be empty.'
+      })
+      return false
     } else {
-      return true;
+      return true
     }
   }
 
@@ -70,73 +70,73 @@ class LoginPage extends React.Component {
     if (!pass) {
       this.setState({
         openNotification: true,
-        notificationType: "Error",
-        notificationDescription: "Password may not be empty."
-      });
-      return false;
+        notificationType: 'Error',
+        notificationDescription: 'Password may not be empty.'
+      })
+      return false
     } else {
-      return true;
+      return true
     }
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  handleSubmit (event) {
+    event.preventDefault()
     const loginRequest = {
       usernameOrEmail: this.state.usernameOrEmail,
       password: this.state.password
-    };
+    }
     if (this.validateUsernameOrEmail(loginRequest.usernameOrEmail)) {
       if (this.validatePassword(loginRequest.password)) {
-        this.props.handleLogin(loginRequest);
+        this.props.handleLogin(loginRequest)
       }
     }
   }
 
-  handleLogout() {
-    this.props.handleLogout();
+  handleLogout () {
+    this.props.handleLogout()
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     if (nextProps.notificationHolder !== this.props.notificationHolder) {
       this.setState({
         openNotification: true,
         notificationType: nextProps.notificationHolder.type,
         notificationDescription: nextProps.notificationHolder.description
-      });
+      })
     }
   }
 
-  onCloseAlert(val) {
+  onCloseAlert (val) {
     this.setState({
       openNotification: val
     })
   }
 
-  render() {
-    const { classes, isAuthenticated, currentUser } = this.props;
+  render () {
+    const { classes, isAuthenticated, currentUser } = this.props
     return (
       <div>
         <Header
           absolute
-          color="transparent"
-          brand="YeePlus Controller"
-          links={<HeaderLinks dropdownHoverColor="info" isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} />}
+          color='transparent'
+          brand='YeePlus Controller'
+          links={<HeaderLinks dropdownHoverColor='info' isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} />}
         />
         <div
           className={classes.pageHeader}
           style={{
-            backgroundImage: "url(" + image + ")",
-            backgroundSize: "cover",
-            backgroundPosition: "top center"
+            backgroundImage: 'url(' + image + ')',
+            backgroundSize: 'cover',
+            backgroundPosition: 'top center'
           }}
         >
           <div className={classes.container}>
-            <GridContainer justify="center">
+            <GridContainer justify='center'>
               <GridItem xs={12} sm={12} md={6}>
                 <Card>
                   <form className={classes.form} onSubmit={this.handleSubmit}>
                     <CardHeader
-                      color="primary"
+                      color='primary'
                       signup
                       className={classes.cardHeader}
                     >
@@ -150,19 +150,19 @@ class LoginPage extends React.Component {
                           </span>
                         }
                         close
-                        color="warning"
+                        color='warning'
                         open={this.state.openNotification}
                         closeAlert={(val) => { this.onCloseAlert(val) }}
                       />
                       <CustomInput
-                        id="email"
+                        id='email'
                         formControlProps={{
                           fullWidth: true
                         }}
                         inputProps={{
-                          placeholder: "Username or email...",
+                          placeholder: 'Username or email...',
                           startAdornment: (
-                            <InputAdornment position="start">
+                            <InputAdornment position='start'>
                               <Email className={classes.inputIconsColor} />
                             </InputAdornment>
                           ),
@@ -171,15 +171,15 @@ class LoginPage extends React.Component {
                         }}
                       />
                       <CustomInput
-                        id="pass"
+                        id='pass'
                         formControlProps={{
                           fullWidth: true
                         }}
                         inputProps={{
-                          placeholder: "Password...",
-                          type: "password",
+                          placeholder: 'Password...',
+                          type: 'password',
                           startAdornment: (
-                            <InputAdornment position="start">
+                            <InputAdornment position='start'>
                               <Icon className={classes.inputIconsColor}>
                                 lock_utline
                               </Icon>
@@ -191,7 +191,7 @@ class LoginPage extends React.Component {
                       />
                     </CardBody>
                     <div className={classes.textCenter}>
-                      <Button simple color="primary" size="lg" type="submit">
+                      <Button simple color='primary' size='lg' type='submit'>
                         Get started
                       </Button>
                     </div>
@@ -204,16 +204,16 @@ class LoginPage extends React.Component {
             className={classes.footer}
             content={
               <div className={classes.right}>
-                Copyright &copy; {1900 + new Date().getYear()}{" "}
-                <a href="http://www.wayneblog.tk">Wayne He</a> All Rights
+                Copyright &copy; {1900 + new Date().getYear()}{' '}
+                <a href='http://www.wayneblog.tk'>Wayne He</a> All Rights
                 Reserved.
               </div>
             }
           />
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default withStyles(loginPageStyle)(LoginPage);
+export default withStyles(loginPageStyle)(LoginPage)

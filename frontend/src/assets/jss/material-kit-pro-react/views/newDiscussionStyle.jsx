@@ -32,44 +32,18 @@ const newDiscussionStyle = {
     ...main,
     ...mainRaised
   },
-  block: {
-    color: 'inherit',
-    padding: '0.9375rem',
-    fontWeight: '500',
-    fontSize: '12px',
-    textTransform: 'uppercase',
-    borderRadius: '3px',
-    textDecoration: 'none',
-    position: 'relative',
-    display: 'block'
+  section: {
+    backgroundPosition: '50%',
+    backgroundSize: 'cover',
+    padding: '70px 0'
   },
-  inlineBlock: {
-    display: 'inline-block',
-    padding: '0px',
-    width: 'auto'
-  },
-  list: {
-    marginBottom: '0',
-    padding: '0',
-    marginTop: '0'
-  },
-  left: {
-    float: 'left!important',
-    display: 'block'
+  form: {
+    margin: '0'
   },
   right: {
     padding: '15px 0',
     margin: '0',
     float: 'right'
-  },
-  icon: {
-    width: '18px',
-    height: '18px',
-    top: '3px',
-    position: 'relative'
-  },
-  tabSpace: {
-    padding: '50px 0 50px'
   },
   footerButtons: {
     float: 'right'

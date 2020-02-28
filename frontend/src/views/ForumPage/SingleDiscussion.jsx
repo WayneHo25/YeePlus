@@ -124,60 +124,59 @@ class SingleDiscussion extends React.Component {
           <div className={classes.container}>
             <GridContainer justify='center'>
               <GridItem xs={12} sm={10} md={8}>
-                <div className={classes.tabSpace} />
-                <h3 className={classes.title2}>
-                  {this.state.discussion.title}
-                </h3>
-                <p>
-                  {this.state.discussion.content}
-                </p>
-                <div className={classes.tabSpace2} />
-                <div className={classes.textCenter}>
+                <div className={classes.section}>
+                  <h3 className={classes.title2}>
+                    {this.state.discussion.title}
+                  </h3>
+                  <p>
+                    {this.state.discussion.content}
+                  </p>
+                  <div className={classes.textCenter}>
+                    {
+                      this.state.isLoading
+                        ? <ColorCircularProgress /> : null
+                    }
+                  </div>
                   {
-                    this.state.isLoading
-                      ? <ColorCircularProgress /> : null
-                  }
-                </div>
-                {
-                  this.props.isAuthenticated
-                    ? (<div>
-                      <h3 className={classes.title3}>Post your opinion</h3>
-                      <Media
-                        avatar={currentUser.name}
-                        body={
-                          <div>
-                            <CustomInput
-                              labelText=' Write the opinion content... '
-                              id='content'
-                              formControlProps={{
-                                fullWidth: true
-                              }}
-                              inputProps={{
-                                multiline: true,
-                                rows: 5
-                              }}
-                            />
-                          </div>
+                    this.props.isAuthenticated
+                      ? (<div>
+                        <h3 className={classes.title3}>Post your opinion</h3>
+                        <Media
+                          avatar={currentUser.name}
+                          body={
+                            <div>
+                              <CustomInput
+                                labelText=' Write the opinion content... '
+                                id='content'
+                                formControlProps={{
+                                  fullWidth: true
+                                }}
+                                inputProps={{
+                                  multiline: true,
+                                  rows: 5
+                                }}
+                              />
+                            </div>
 
-                        }
-                        footer={
-                          <Button color='primary' round className={classes.footerButtons}>
+                          }
+                          footer={
+                            <Button color='primary' round className={classes.footerButtons}>
                             Post opinion
-                          </Button>
-                        }
-                      />
-                       </div>)
-                    : <h2 className={classNames(classes.textCenter, classes.title4)}>Please sign in before posting a new opinion.</h2>
-                }
-                <div className={classes.tabSpace2} />
-                <div>
-                  {opinionList}
-                </div>
-                <div className={classes.textCenter}>
-                  {
-                    this.state.isLoading
-                      ? <ColorCircularProgress /> : null
+                            </Button>
+                          }
+                        />
+                      </div>)
+                      : <h2 className={classNames(classes.textCenter, classes.title4)}>Please sign in before posting a new opinion.</h2>
                   }
+                  <div>
+                    {opinionList}
+                  </div>
+                  <div className={classes.textCenter}>
+                    {
+                      this.state.isLoading
+                        ? <ColorCircularProgress /> : null
+                    }
+                  </div>
                 </div>
               </GridItem>
             </GridContainer>

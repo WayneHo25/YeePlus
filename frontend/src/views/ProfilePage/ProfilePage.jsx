@@ -55,9 +55,9 @@ class ProfilePage extends React.Component {
         </Parallax>
         <div className={classes.main}>
           <div className={classes.container}>
-            <div className={classes.tabSpace} />
-            <h2 className={classNames(classes.textCenter, classes.title2)}>New Version of User Profile is Coming Soon.</h2>
-            <div className={classes.tabSpace} />
+            <div className={classes.section}>
+              <h2 className={classNames(classes.textCenter, classes.title2)}>New Version of User Profile is Coming Soon.</h2>
+            </div>
           </div>
         </div>
         <Footer

@@ -3,8 +3,7 @@ import {
   blackColor,
   whiteColor,
   grayColor,
-  hexToRgb,
-  cardTitle
+  hexToRgb
 } from 'assets/jss/material-kit-pro-react.jsx'
 
 import tooltipsStyle from 'assets/jss/material-kit-pro-react/tooltipsStyle.jsx'
@@ -80,10 +79,6 @@ const sectionPillsStyle = theme => ({
         ', 0.4)'
     }
   },
-  alignCenter: {
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
   footerButtons: {
     float: "right"
   },
@@ -105,14 +100,6 @@ const sectionPillsStyle = theme => ({
   },
   textCenter: {
     textAlign: 'center'
-  },
-  category: {
-    color: 'rgba(' + hexToRgb(whiteColor) + ', 0.7) !important',
-    marginTop: '10px'
-  },
-  cardTitle: {
-    ...cardTitle,
-    color: whiteColor + '  !important'
   },
   icons: {
     width: '1.1rem',
