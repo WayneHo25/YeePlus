@@ -13,18 +13,130 @@ import Parallax from 'components/Parallax/Parallax.jsx'
 import Media from 'components/Media/Media.jsx'
 import CustomInput from 'components/CustomInput/CustomInput.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
+import SnackbarContent from 'components/Snackbar/SnackbarContent.jsx'
+
+import { createNewDiscussion } from 'util/APIUtils'
 
 import newDiscussionStyle from 'assets/jss/material-kit-pro-react/views/newDiscussionStyle.jsx'
+
+import {
+  TITLE_MAX_LENGTH, CONTENT_MAX_LENGTH
+} from 'constants/Config.js'
 
 class NewDiscussion extends React.Component {
   constructor (props) {
     super(props)
+    this.state = {
+      title: '',
+      content: '',
+      favorites: [],
+      tags: [],
+      pinned: false,
+      forumId: 1,
+      openNotification: false,
+      notificationType: '',
+      notificationDescription: ''
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.handleLogout = this.handleLogout.bind(this)
   }
 
   componentDidMount () {
     window.scrollTo(0, 0)
     document.body.scrollTop = 0
+    this.setState({
+      forumId: this.props.match.params.forumId
+    })
+  }
+
+  updateTitle (evt) {
+    this.setState({
+      title: evt.target.value
+    })
+  }
+
+  updateContent (evt) {
+    this.setState({
+      content: evt.target.value
+    })
+  }
+
+  validateTitle = (title) => {
+    if (!title) {
+      this.setState({
+        openNotification: true,
+        notificationType: 'Error',
+        notificationDescription: 'Title may not be empty.'
+      })
+      return false
+    }
+
+    if (title.length > TITLE_MAX_LENGTH) {
+      this.setState({
+        openNotification: true,
+        notificationType: 'Error',
+        notificationDescription: `Title is too long (Maximum ${TITLE_MAX_LENGTH} characters allowed).`
+      })
+      return false
+    }
+
+    return true
+  }
+
+  validateContent = (content) => {
+    if (!content) {
+      this.setState({
+        openNotification: true,
+        notificationType: 'Error',
+        notificationDescription: 'Content may not be empty.'
+      })
+      return false
+    }
+
+    if (content.length > CONTENT_MAX_LENGTH) {
+      this.setState({
+        openNotification: true,
+        notificationType: 'Error',
+        notificationDescription: `Content is too long (Maximum ${CONTENT_MAX_LENGTH} characters allowed).`
+      })
+      return false
+    }
+    
+    return true
+  }
+
+  handleSubmit (event) {
+    event.preventDefault()
+    const newDiscussionRequest = {
+      title: this.state.title,
+      content: this.state.content,
+      favorites: this.state.favorites,
+      tags: this.state.tags,
+      pinned: this.state.pinned,
+      forumId: this.state.forumId
+    }
+    if (this.validateTitle(newDiscussionRequest.title)) {
+      if (this.validateContent(newDiscussionRequest.content)) {
+        createNewDiscussion(newDiscussionRequest, this.props.history)
+          .then(response => {
+            this.props.history.push('/forum-page')
+            return true
+          }).catch(error => {
+            this.setState({
+              openNotification: true,
+              notificationType: 'Error',
+              notificationDescription: 'Forum ID may be incorrect.'
+            })
+            return false
+          })
+      }
+    }
+  }
+
+  onCloseAlert (val) {
+    this.setState({
+      openNotification: val
+    })
   }
 
   handleLogout () {
@@ -60,47 +172,65 @@ class NewDiscussion extends React.Component {
           <div className={classes.container}>
             <GridContainer justify='center'>
               <GridItem xs={12} sm={10} md={8}>
-                <div className={classes.tabSpace} />
-                {
-                  this.props.isAuthenticated
-                    ? (<div>
+                <div className={classes.section}>
+                  {
+                    this.props.isAuthenticated
+                      ? (<div>
 
-                      <h3 className={classes.title3}>Post your discussion</h3>
-                      <Media
-                        avatar={currentUser.name}
-                        body={
-                          <div>
-                            <CustomInput
-                              labelText=' Write the discussion title... '
-                              id='title'
-                              formControlProps={{
-                                fullWidth: true
-                              }}
-                            />
-                            <CustomInput
-                              labelText=' Write the discussion content... '
-                              id='content'
-                              formControlProps={{
-                                fullWidth: true
-                              }}
-                              inputProps={{
-                                multiline: true,
-                                rows: 5
-                              }}
-                            />
-                          </div>
-
-                        }
-                        footer={
-                          <Button color='primary' round className={classes.footerButtons}>
+                        <h3 className={classes.title3}>Post your discussion</h3>
+                        <SnackbarContent
+                          message={
+                            <span>
+                              <b>{this.state.notificationType}:</b> {this.state.notificationDescription}
+                            </span>
+                          }
+                          close
+                          color='warning'
+                          open={this.state.openNotification}
+                          closeAlert={(val) => { this.onCloseAlert(val) }}
+                        />
+                        <form className={classes.form} onSubmit={this.handleSubmit}>
+                          <Media
+                            avatar={currentUser.name}
+                            body={
+                              <div>
+                                <CustomInput
+                                  labelText=' Write the discussion title... '
+                                  id='title'
+                                  formControlProps={{
+                                    fullWidth: true
+                                  }}
+                                  inputProps={{
+                                    value: this.state.title,
+                                    onChange: evt => this.updateTitle(evt)
+                                  }}
+                                />
+                                <CustomInput
+                                  labelText=' Write the discussion content... '
+                                  id='content'
+                                  formControlProps={{
+                                    fullWidth: true
+                                  }}
+                                  inputProps={{
+                                    multiline: true,
+                                    rows: 5,
+                                    value: this.state.content,
+                                    onChange: evt => this.updateContent(evt)
+                                  }}
+                                />
+                              </div>
+                            }
+                            footer={
+                              <Button color='primary' round className={classes.footerButtons} type='submit'>
                             Post discussion
-                          </Button>
-                        }
-                      />
-                    </div>)
-                    : <h2 className={classNames(classes.textCenter, classes.title2)}>Please sign in before posting a new discussion.</h2>
-                }
-                <div className={classes.tabSpace} />
+                              </Button>
+                            }
+                          />
+                        </form>
+                      </div>)
+                      : <h2 className={classNames(classes.textCenter, classes.title2)}>Please sign in before posting a new discussion.</h2>
+                  }
+                </div>
               </GridItem>
             </GridContainer>
           </div>

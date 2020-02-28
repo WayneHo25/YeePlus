@@ -17,7 +17,7 @@ import GridItem from 'components/Grid/GridItem.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import Media from 'components/Media/Media.jsx'
 
-import { getDiscussionsByForumID } from 'util/APIUtils'
+import { getDiscussionsByForumId } from 'util/APIUtils'
 import { getTimePassed } from 'util/Time'
 
 import sectionPillsStyle from 'assets/jss/material-kit-pro-react/views/blogPostsSections/sectionPillsStyle.jsx'
@@ -29,7 +29,7 @@ class SectionPills extends React.Component {
       discussions: [],
       isLoading: false,
       active: 0,
-      forumID: 1
+      forumId: 1
     }
     this.changeForum = this.changeForum.bind(this)
   }
@@ -43,14 +43,14 @@ class SectionPills extends React.Component {
   };
 
   changeForum (fid) {
-    this.setState({ forumID: fid, discussions: [] })
+    this.setState({ forumId: fid, discussions: [] })
     this.loadDiscussionList(fid)
   }
 
-  loadDiscussionList (fid = this.state.forumID) {
+  loadDiscussionList (fid = this.state.forumId) {
     let promise
 
-    promise = getDiscussionsByForumID(fid)
+    promise = getDiscussionsByForumId(fid)
 
     if (!promise) {
       return
@@ -144,7 +144,7 @@ class SectionPills extends React.Component {
             </span>
           }
           body={
-            <Link to={`/${this.state.forumID}/discussion/${discussion.id}`}>
+            <Link to={`/${this.state.forumId}/discussion/${discussion.id}`}>
               <p className={classes.color555}>
                 {discussion.title}
               </p>
@@ -158,7 +158,7 @@ class SectionPills extends React.Component {
                 placement='top'
                 classes={{ tooltip: classes.tooltip }}
               >
-                <Link to={`/${this.state.forumID}/discussion/${discussion.id}`}>
+                <Link to={`/${this.state.forumId}/discussion/${discussion.id}`}>
                   <Button
                     color='primary'
                     simple
@@ -184,7 +184,7 @@ class SectionPills extends React.Component {
             {tabButtons}
             <div className={classes.tabSpace} />
             <div className={classes.textCenter}>
-              <Link to={`/${this.state.forumID}/new-discussion`}>
+              <Link to={`/${this.state.forumId}/new-discussion`}>
                 <Button round href='#pablo' color='primary'>
                   <ChatIcon className={classes.icons} /> Post new discussion
                 </Button>
