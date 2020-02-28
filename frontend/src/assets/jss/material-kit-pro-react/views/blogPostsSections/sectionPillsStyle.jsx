@@ -121,7 +121,9 @@ const sectionPillsStyle = theme => ({
   color555: {
     "&,& *": {
       color: grayColor[15] + " !important"
-    }
+    },
+    wordWrap: 'break-word',
+    wordBreak: 'break-all'
   }
 })
 

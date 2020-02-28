@@ -56,7 +56,7 @@ class ProfilePage extends React.Component {
         <div className={classes.main}>
           <div className={classes.container}>
             <div className={classes.section}>
-              <h2 className={classNames(classes.textCenter, classes.title2)}>New Version of User Profile is Coming Soon.</h2>
+              <h3 className={classNames(classes.textCenter, classes.title2)}>New Version of User Profile is Coming Soon.</h3>
             </div>
           </div>
         </div>
