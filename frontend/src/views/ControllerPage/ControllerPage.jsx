@@ -11,6 +11,7 @@ import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import Parallax from 'components/Parallax/Parallax.jsx'
 // sections for this page
+import SectionProjects from './Sections/SectionProjects.jsx'
 import SectionFeatures from 'views/ControllerPage/Sections/SectionFeatures.jsx'
 
 import controllerPageStyle from 'assets/jss/material-kit-pro-react/views/controllerPageStyle.jsx'
@@ -57,9 +58,7 @@ class ControllerPage extends React.Component {
         </Parallax>
         <div className={classes.main}>
           <div className={classes.container}>
-            <div className={classes.section}>
-              <h3 className={classNames(classes.textCenter, classes.title2)}>New Version of YeePlus Controller is Coming Soon.</h3>
-            </div>
+            <SectionProjects />
             <hr />
             <SectionFeatures />
           </div>

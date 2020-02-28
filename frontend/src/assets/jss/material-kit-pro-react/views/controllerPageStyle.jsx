@@ -19,17 +19,9 @@ const controllerPageStyle = {
     ...title,
     color: whiteColor
   },
-  title2: {
-    ...title
-  },
   main: {
     ...main,
     ...mainRaised
-  },
-  section: {
-    backgroundPosition: '50%',
-    backgroundSize: 'cover',
-    padding: '70px 0'
   },
   right: {
     padding: '15px 0',
