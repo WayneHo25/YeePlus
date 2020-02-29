@@ -51,7 +51,7 @@ class App extends Component {
         <Route path='/forum-page' render={(props) => <ForumPage isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} {...props} />} />
         <Route path='/:forumId/discussion/:discussionId' render={(props) => <SingleDiscussion isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} {...props} />} />
         <Route path='/:forumId/new-discussion' render={(props) => <NewDiscussion isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} {...props} />} />
-        <Route render={(props) => <ErrorPage isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} {...props} />} />
+        <Route path='*' render={(props) => <ErrorPage isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={this.handleLogout} {...props} />} />
       </Switch>
     )
   }
