@@ -38,11 +38,6 @@ const singleDiscussionStyle = {
     marginBottom: '30px',
     textAlign: 'center'
   },
-  title4: {
-    ...title,
-    marginBottom: 0,
-    fontSize: '1.125em !important'
-  },
   main: {
     ...main,
     ...mainRaised

@@ -228,7 +228,7 @@ class NewDiscussion extends React.Component {
                           />
                         </form>
                       </div>)
-                      : <h2 className={classNames(classes.textCenter, classes.title2)}>Please sign in before posting a new discussion.</h2>
+                      : <h3 className={classNames(classes.textCenter, classes.title2)}>Please sign in before posting a new discussion.</h3>
                   }
                 </div>
               </GridItem>
